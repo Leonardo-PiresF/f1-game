@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { DadosF1 } from '../f1/jolpica.ts';
+import { overallEquipe, overallPiloto } from '../../src/engine/types.ts';
 import { calcularF1, calcularF2 } from './calcular.ts';
 
 const piloto = (id: string, equipeId: string, pontos: number) => ({
@@ -32,7 +33,7 @@ const dados: DadosF1 = {
 
 describe('calcularF1', () => {
   const { pilotos, equipes } = calcularF1(dados);
-  const overall = (id: string) => pilotos.find((p) => p.id === id)!.overall;
+  const overall = (id: string) => overallPiloto(pilotos.find((p) => p.id === id)!);
 
   it('quem bate o companheiro tem overall maior', () => {
     expect(overall('a1')).toBeGreaterThan(overall('a2'));
@@ -44,8 +45,8 @@ describe('calcularF1', () => {
 
   it('a equipe com mais pontos tem overall maior e todas as notas ficam entre 40 e 99', () => {
     const [a, b] = equipes;
-    expect(a!.overall).toBeGreaterThan(b!.overall);
-    for (const n of [...pilotos.map((p) => p.overall), ...equipes.flatMap((e) => Object.values(e.areas))]) {
+    expect(overallEquipe(a!)).toBeGreaterThan(overallEquipe(b!));
+    for (const n of [...pilotos.flatMap((p) => Object.values(p.atributos)), ...equipes.flatMap((e) => Object.values(e.areas))]) {
       expect(n).toBeGreaterThanOrEqual(40);
       expect(n).toBeLessThanOrEqual(99);
     }
@@ -54,14 +55,14 @@ describe('calcularF1', () => {
 
 describe('calcularF2', () => {
   it('mais pontos dá overall maior, e corridas não disputadas não contam como abandono', () => {
-    const [lider, ultimo] = calcularF2(
+    const { pilotos: [lider, ultimo] } = calcularF2(
       [
         { posicao: 1, piloto: 'L', idPiloto: 'l', resultados: ['1', '2', ''], pontos: 43 },
         { posicao: 2, piloto: 'U', idPiloto: 'u', resultados: ['Ret', '9', ''], pontos: 0 },
       ],
-      new Map(),
+      [],
     );
-    expect(lider!.overall).toBeGreaterThan(ultimo!.overall);
+    expect(overallPiloto(lider!)).toBeGreaterThan(overallPiloto(ultimo!));
     expect(lider!.base.abandonos).toBe(0);
     expect(ultimo!.base.abandonos).toBe(0.5);
   });

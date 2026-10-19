@@ -1,33 +1,15 @@
-// Primeira versão do cálculo de overall, a partir dos dados brutos da temporada.
-// Os pesos são o ponto de partida para balancear, não verdade absoluta.
+// Cálculo automático de atributos a partir dos dados brutos da temporada.
+// Serve de ponto de partida: os valores revisados à mão em dados/manual/ têm prioridade.
+import type { AtributosPiloto, Equipe, Piloto } from '../../src/engine/types.ts';
 import type { DadosF1 } from '../f1/jolpica.ts';
-import type { ClassificacaoF2 } from '../f2/wikipedia.ts';
+import type { ClassificacaoF2, InscritoF2 } from '../f2/wikipedia.ts';
+import { criarId } from '../lib/texto.ts';
 
-export interface AtributosCalculados {
-  ritmo: number;
-  consistencia: number;
-  chuva: number;
-  ultrapassagem: number;
-  defesa: number;
-}
-
-export interface PilotoCalculado {
-  id: string;
-  nome: string;
-  categoria: 'F1' | 'F2';
-  equipe: string;
+export interface PilotoCalculado extends Piloto {
+  equipeId: string;
   papel: 'titular' | 'reserva';
-  overall: number;
-  atributos: AtributosCalculados;
   // Números que explicam a nota, para a revisão.
   base: Record<string, number>;
-}
-
-export interface EquipeCalculada {
-  id: string;
-  nome: string;
-  overall: number;
-  areas: { motor: number; aerodinamica: number; chassi: number; estrategia: number; pitStop: number };
 }
 
 // Fornecedor de unidade de potência em 2026.
@@ -39,15 +21,16 @@ export const MOTORES_2026: Record<string, string> = {
   audi: 'Audi',
 };
 
-const PESOS = { ritmo: 0.35, consistencia: 0.2, chuva: 0.1, ultrapassagem: 0.2, defesa: 0.15 };
-
 export const limitar = (v: number, min = 40, max = 99) => Math.round(Math.min(max, Math.max(min, v)));
 
-export function overallDosAtributos(a: AtributosCalculados): number {
-  return limitar(
-    a.ritmo * PESOS.ritmo + a.consistencia * PESOS.consistencia + a.chuva * PESOS.chuva +
-      a.ultrapassagem * PESOS.ultrapassagem + a.defesa * PESOS.defesa,
-  );
+// Todos os atributos no nível geral, com ajustes onde há dado para isso.
+function atributosDoNivel(nivel: number, ajustes: Partial<AtributosPiloto> = {}): AtributosPiloto {
+  const a = (k: keyof AtributosPiloto) => limitar(nivel + (ajustes[k] ?? 0));
+  return {
+    quali: a('quali'), ritmoCorrida: a('ritmoCorrida'), consistencia: a('consistencia'), largada: a('largada'),
+    ultrapassagem: a('ultrapassagem'), defesa: a('defesa'), rodaARoda: a('rodaARoda'), gestaoPneu: a('gestaoPneu'),
+    chuva: a('chuva'), feedback: a('feedback'), inteligencia: a('inteligencia'),
+  };
 }
 
 // Fração de duelos vencidos contra o companheiro, com 1 duelo fictício de empate
@@ -64,7 +47,7 @@ function duelos(minhas: Map<number, number>, dele: Map<number, number>): number 
   return vitorias / total;
 }
 
-export function calcularF1(dados: DadosF1): { pilotos: PilotoCalculado[]; equipes: EquipeCalculada[] } {
+export function calcularF1(dados: DadosF1): { pilotos: PilotoCalculado[]; equipes: Equipe[] } {
   const ultimaRodada = Math.max(...dados.resultados.map((r) => r.rodada));
   const titulares = new Set(dados.resultados.filter((r) => r.rodada === ultimaRodada).map((r) => r.pilotoId));
   const maxPontosEquipe = Math.max(...dados.equipes.map((e) => e.pontos));
@@ -91,29 +74,30 @@ export function calcularF1(dados: DadosF1): { pilotos: PilotoCalculado[]; equipe
     const q = media((c) => duelos(quali.get(p.id) ?? new Map(), quali.get(c) ?? new Map()));
     const r = media((c) => duelos(corrida.get(p.id) ?? new Map(), corrida.get(c) ?? new Map()));
     const largou = meus.filter((m) => m.status !== 'Did not start');
+    // Ainda não separa batida de quebra: a API não diz de quem foi a culpa.
     const abandonos = largou.filter((m) => m.chegada === null).length / Math.max(1, largou.length);
     const ganhos = largou.filter((m) => m.chegada !== null && m.largada > 0);
     const ganhoMedio = ganhos.reduce((s, m) => s + (m.largada - m.chegada!), 0) / Math.max(1, ganhos.length);
     const t = forca.get(p.equipeId) ?? 0;
 
-    // Nível geral: parte vem do carro em que o piloto anda (equipes boas contratam bons pilotos),
-    // parte de como ele se sai contra quem tem o mesmo carro.
-    const nivel = 70 + 14 * t + 18 * (q - 0.5) + 12 * (r - 0.5);
-    const atributos: AtributosCalculados = {
-      ritmo: limitar(nivel + 10 * (q - 0.5)),
-      consistencia: limitar(nivel + 6 - 40 * abandonos),
-      chuva: limitar(nivel), // sem dado de corrida na chuva ainda
-      ultrapassagem: limitar(nivel + Math.max(-6, Math.min(6, ganhoMedio))),
-      defesa: limitar(nivel + 8 * (r - q)),
-    };
+    // Escala de 74 a 92 da revisão: parte vem do carro em que o piloto anda
+    // (equipes boas contratam bons pilotos), parte do duelo com quem tem o mesmo carro.
+    const nivel = 76 + 10 * t + 10 * (q - 0.5) + 8 * (r - 0.5);
     return {
       id: p.id,
       nome: p.nome,
       categoria: 'F1',
-      equipe: p.equipeId,
+      nacionalidade: p.nacionalidade,
+      nascimento: p.nascimento,
+      equipeId: p.equipeId,
       papel: titulares.has(p.id) ? 'titular' : 'reserva',
-      overall: overallDosAtributos(atributos),
-      atributos,
+      atributos: atributosDoNivel(nivel, {
+        quali: 8 * (q - 0.5),
+        consistencia: 3 - 20 * abandonos,
+        ultrapassagem: Math.max(-4, Math.min(4, ganhoMedio)),
+        defesa: 6 * (r - q),
+      }),
+      tracos: [],
       base: {
         forcaCarro: +t.toFixed(2),
         dueloQuali: +q.toFixed(2),
@@ -135,19 +119,23 @@ export function calcularF1(dados: DadosF1): { pilotos: PilotoCalculado[]; equipe
     return lista.reduce((a, b) => a + b, 0) / lista.length;
   };
 
-  const equipes = dados.equipes.map((e): EquipeCalculada => {
+  const equipes = dados.equipes.map((e): Equipe => {
     const t = forca.get(e.id) ?? 0;
-    const areas = {
-      motor: limitar(65 + 30 * forcaMotor(e.id)),
-      aerodinamica: limitar(62 + 34 * t),
-      chassi: limitar(64 + 30 * t),
-      estrategia: limitar(68 + 22 * t), // sem dado próprio ainda, acompanha o carro
-      pitStop: limitar(70 + 18 * t), // idem
+    return {
+      id: e.id,
+      nome: e.nome,
+      categoria: 'F1',
+      fornecedorMotor: MOTORES_2026[e.id],
+      areas: {
+        motor: limitar(75 + 20 * forcaMotor(e.id)),
+        aerodinamica: limitar(66 + 26 * t),
+        chassi: limitar(67 + 23 * t),
+        estrategia: limitar(72 + 16 * t), // sem dado próprio, acompanha o carro
+        pitStop: limitar(72 + 15 * t), // idem
+      },
+      // Sem dado automático: valor neutro até a revisão manual.
+      sistemas: { confiabilidade: 78, desenvolvimento: 78, gestaoPilotos: 78 },
     };
-    const overall = limitar(
-      areas.motor * 0.25 + areas.aerodinamica * 0.3 + areas.chassi * 0.25 + areas.estrategia * 0.1 + areas.pitStop * 0.1,
-    );
-    return { id: e.id, nome: e.nome, overall, areas };
   });
 
   return { pilotos, equipes };
@@ -155,31 +143,28 @@ export function calcularF1(dados: DadosF1): { pilotos: PilotoCalculado[]; equipe
 
 export function calcularF2(
   classificacao: ClassificacaoF2[],
-  equipePorPiloto: Map<string, string>,
-): PilotoCalculado[] {
+  inscritos: InscritoF2[],
+): { pilotos: PilotoCalculado[]; equipes: Equipe[] } {
+  const equipePorPiloto = new Map(inscritos.map((i) => [i.idPiloto, criarId(i.equipe)]));
+  const nacionalidade = new Map(inscritos.map((i) => [i.idPiloto, i.nacionalidade]));
   const maxPontos = Math.max(...classificacao.map((c) => c.pontos));
-  return classificacao.map((c): PilotoCalculado => {
+
+  const pilotos = classificacao.map((c): PilotoCalculado => {
     const corridas = c.resultados.filter((r) => r !== '');
     const chegadas = corridas.filter((r) => /^\d+$/.test(r)).map(Number);
     const abandonos = (corridas.length - chegadas.length) / Math.max(1, corridas.length);
     const fracao = c.pontos / maxPontos;
-    // Escala da F2 fica abaixo da F1: o campeão chega perto de um piloto mediano de F1.
-    const nivel = 60 + 20 * Math.sqrt(fracao);
-    const atributos: AtributosCalculados = {
-      ritmo: limitar(nivel + 2),
-      consistencia: limitar(nivel + 5 - 30 * abandonos),
-      chuva: limitar(nivel),
-      ultrapassagem: limitar(nivel),
-      defesa: limitar(nivel - 2),
-    };
+    // Escala única com a F1: o campeão da F2 fica abaixo do meio do grid da F1 (topo em 79).
+    const nivel = 63 + 16 * Math.sqrt(fracao);
     return {
       id: c.idPiloto,
       nome: c.piloto,
       categoria: 'F2',
-      equipe: equipePorPiloto.get(c.idPiloto) ?? '',
+      nacionalidade: nacionalidade.get(c.idPiloto) ?? c.nacionalidade,
+      equipeId: equipePorPiloto.get(c.idPiloto) ?? '',
       papel: 'titular',
-      overall: overallDosAtributos(atributos),
-      atributos,
+      atributos: atributosDoNivel(nivel, { consistencia: 2 - 15 * abandonos }),
+      tracos: [],
       base: {
         pontos: c.pontos,
         fracaoDoLider: +fracao.toFixed(2),
@@ -188,4 +173,25 @@ export function calcularF2(
       },
     };
   });
+
+  // Equipe de F2: acerto pela soma de pontos dos seus pilotos.
+  const pontosEquipe = new Map<string, number>();
+  const nomeEquipe = new Map(inscritos.map((i) => [criarId(i.equipe), i.equipe]));
+  for (const c of classificacao) {
+    const e = equipePorPiloto.get(c.idPiloto);
+    if (e) pontosEquipe.set(e, (pontosEquipe.get(e) ?? 0) + c.pontos);
+  }
+  const maxEquipe = Math.max(...pontosEquipe.values());
+  const equipes = [...nomeEquipe].map(([id, nome]): Equipe => {
+    const t = Math.sqrt((pontosEquipe.get(id) ?? 0) / maxEquipe);
+    return {
+      id,
+      nome,
+      categoria: 'F2',
+      areas: { acerto: limitar(69 + 12 * t), estrategia: limitar(70 + 8 * t), pitStop: limitar(71 + 6 * t) },
+      sistemas: { confiabilidade: 76, desenvolvimento: 74 },
+    };
+  });
+
+  return { pilotos, equipes };
 }

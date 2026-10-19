@@ -52,12 +52,45 @@ export interface EtapaF1 {
   pista: { id: string; nome: string; cidade: string; pais: string; lat: number; long: number };
 }
 
+export interface ResultadoF1 {
+  rodada: number;
+  pilotoId: string;
+  equipeId: string;
+  largada: number; // 0 = largou do pit lane
+  chegada: number | null; // null quando não foi classificado
+  status: string;
+  pontos: number;
+}
+
+export interface ClassificatorioF1 {
+  rodada: number;
+  pilotoId: string;
+  posicao: number;
+}
+
 export interface DadosF1 {
   ano: number;
   rodadasDisputadas: number;
   pilotos: PilotoF1[];
   equipes: EquipeF1[];
   calendario: EtapaF1[];
+  resultados: ResultadoF1[];
+  classificatorios: ClassificatorioF1[];
+}
+
+// A API devolve no máximo 100 linhas por página; junta as corridas de todas as páginas.
+async function buscarPaginado<T>(url: string, chave: 'Results' | 'QualifyingResults'): Promise<{ round: string; linhas: T[] }[]> {
+  const porRodada = new Map<string, T[]>();
+  for (let offset = 0; ; offset += 100) {
+    const pagina = await buscarJson<Resposta<{ total: string; RaceTable: { Races: ({ round: string } & Record<string, T[]>)[] } }>>(
+      `${url}?limit=100&offset=${offset}`,
+    );
+    for (const corrida of pagina.MRData.RaceTable.Races) {
+      porRodada.set(corrida.round, [...(porRodada.get(corrida.round) ?? []), ...(corrida[chave] ?? [])]);
+    }
+    if (offset + 100 >= Number(pagina.MRData.total)) break;
+  }
+  return [...porRodada].map(([round, linhas]) => ({ round, linhas }));
 }
 
 export async function buscarF1(ano: number): Promise<DadosF1> {
@@ -78,6 +111,19 @@ export async function buscarF1(ano: number): Promise<DadosF1> {
     }[] } }>
   >(`${API}/${ano}/races.json?limit=100`);
 
+  const resultados = await buscarPaginado<{
+    position: string; positionText: string; grid: string; status: string; points: string;
+    Driver: PilotoApi; Constructor: EquipeApi;
+  }>(`${API}/${ano}/results.json`, 'Results');
+  const classificatorios = await buscarPaginado<{ position: string; Driver: PilotoApi }>(
+    `${API}/${ano}/qualifying.json`, 'QualifyingResults',
+  );
+
+  const equipeAtual = new Map<string, string>();
+  for (const { linhas } of resultados.sort((a, b) => Number(a.round) - Number(b.round))) {
+    for (const r of linhas) equipeAtual.set(r.Driver.driverId, r.Constructor.constructorId);
+  }
+
   const listaPilotos = pilotos.MRData.StandingsTable.StandingsLists[0];
   const listaEquipes = equipes.MRData.StandingsTable.StandingsLists[0];
   if (!listaPilotos || !listaEquipes) throw new Error(`Sem classificação da F1 para ${ano}`);
@@ -92,8 +138,8 @@ export async function buscarF1(ano: number): Promise<DadosF1> {
       numero: s.Driver.permanentNumber ? Number(s.Driver.permanentNumber) : undefined,
       nascimento: s.Driver.dateOfBirth,
       nacionalidade: s.Driver.nationality,
-      // Quem trocou de equipe no ano aparece com mais de uma; a última é a atual.
-      equipeId: s.Constructors.at(-1)!.constructorId,
+      // A equipe atual é a da corrida mais recente; a lista da classificação não vem em ordem.
+      equipeId: equipeAtual.get(s.Driver.driverId) ?? s.Constructors[0]!.constructorId,
       posicao: Number(s.position ?? i + 1),
       pontos: Number(s.points),
       vitorias: Number(s.wins),
@@ -119,5 +165,20 @@ export async function buscarF1(ano: number): Promise<DadosF1> {
         long: Number(r.Circuit.Location.long),
       },
     })),
+    resultados: resultados.flatMap(({ round, linhas }) =>
+      linhas.map((r) => ({
+        rodada: Number(round),
+        pilotoId: r.Driver.driverId,
+        equipeId: r.Constructor.constructorId,
+        largada: Number(r.grid),
+        // positionText é "R", "D", "W"... para quem não foi classificado.
+        chegada: /^\d+$/.test(r.positionText) ? Number(r.position) : null,
+        status: r.status,
+        pontos: Number(r.points),
+      })),
+    ),
+    classificatorios: classificatorios.flatMap(({ round, linhas }) =>
+      linhas.map((q) => ({ rodada: Number(round), pilotoId: q.Driver.driverId, posicao: Number(q.position) })),
+    ),
   };
 }

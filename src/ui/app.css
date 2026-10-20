@@ -536,7 +536,8 @@ button.ativo {
 
 /* Pixel art */
 .retrato,
-.carro-pixel {
+.carro-pixel,
+.corpo-piloto {
   image-rendering: pixelated;
   flex: none;
 }
@@ -656,6 +657,7 @@ button.ativo {
 
 .cartao-corpo ul {
   display: flex;
+  align-items: flex-end;
   gap: 12px;
   margin: 0;
   padding: 0;
@@ -664,7 +666,9 @@ button.ativo {
 
 .cartao-corpo li {
   display: flex;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
   gap: 6px;
   font-size: 0.85rem;
 }

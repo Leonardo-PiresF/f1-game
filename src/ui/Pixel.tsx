@@ -72,3 +72,24 @@ export function CarroPixel({ equipeId, pilotoId, tamanho = 3, segundo = false }:
     </svg>
   );
 }
+
+// Sprites de corpo inteiro feitos pelo Leonardo no PixelLab (48x48, 8 direções), em public/sprites/pilotos.
+// Quem ainda não tem sprite aparece com o retrato desenhado em código.
+const COM_SPRITE = new Set(['alonso', 'bortoleto', 'gasly', 'hamilton', 'lawson', 'max_verstappen', 'norris', 'ocon', 'perez', 'russell', 'sainz']);
+
+export type Direcao = 'south' | 'south-east' | 'east' | 'north-east' | 'north' | 'north-west' | 'west' | 'south-west';
+
+export const temSprite = (pilotoId: string) => COM_SPRITE.has(pilotoId);
+
+export function CorpoPiloto({ pilotoId, direcao = 'south', tamanho = 96 }: { pilotoId: string; direcao?: Direcao; tamanho?: number }) {
+  if (!temSprite(pilotoId)) return <Retrato pilotoId={pilotoId} tamanho={Math.round(tamanho * 0.7)} />;
+  return (
+    <img
+      className="corpo-piloto"
+      src={`${import.meta.env.BASE_URL}sprites/pilotos/${pilotoId}/${direcao}.png`}
+      width={tamanho}
+      height={tamanho}
+      alt={PILOTO.get(pilotoId)?.nome ?? pilotoId}
+    />
+  );
+}

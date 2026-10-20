@@ -15,7 +15,7 @@ import { criarRng } from '../engine/rng';
 import type { Categoria } from '../engine/types';
 import { carregarCampeonato, salvarCampeonato } from './armazenamento';
 import { corEquipe } from './cores';
-import { CarroPixel, Retrato } from './Pixel';
+import { CarroPixel, CorpoPiloto, Retrato } from './Pixel';
 import { Podio } from './Transmissao';
 import { EQUIPES, GRID, nomeEquipe, nomePiloto, novaSemente } from './dados';
 import { TelaFimDeSemana } from './TelaFimDeSemana';
@@ -237,7 +237,7 @@ function Galeria({ categoria }: { categoria: Categoria }) {
               <ul>
                 {pilotos.map((p) => (
                   <li key={p.id}>
-                    <Retrato pilotoId={p.id} tamanho={54} />
+                    <CorpoPiloto pilotoId={p.id} tamanho={96} />
                     <span>{p.nome}</span>
                   </li>
                 ))}

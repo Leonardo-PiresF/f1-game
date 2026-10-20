@@ -6,7 +6,7 @@ import { buscarPista } from '../engine/pistas';
 import { corEquipe, PNEUS } from './cores';
 import { nomeEquipe, nomePiloto, PILOTO, segundosPilotos, siglaPiloto } from './dados';
 import { MapaPista } from './MapaPista';
-import { Retrato } from './Pixel';
+import { CorpoPiloto, Retrato, temSprite } from './Pixel';
 import { duracao, formatarTempo, montarLinhasDoTempo, torreNoTempo } from './relogio';
 import { useReproducao, VELOCIDADES } from './reproducao';
 
@@ -220,7 +220,11 @@ export function Podio({ ids, titulo }: { ids: string[]; titulo?: string }) {
       {ordem.map((id, i) =>
         id ? (
           <div key={id} className={`degrau degrau-${[2, 1, 3][i]}`}>
-            <Retrato pilotoId={id} tamanho={i === 1 ? 84 : 66} />
+            {temSprite(id) ? (
+              <CorpoPiloto pilotoId={id} direcao={(['south-east', 'south', 'south-west'] as const)[i]} tamanho={i === 1 ? 144 : 120} />
+            ) : (
+              <Retrato pilotoId={id} tamanho={i === 1 ? 84 : 66} />
+            )}
             <span className="nome">{nomePiloto(id)}</span>
             <span className="caixa" style={{ background: corEquipe(PILOTO.get(id)?.equipeId ?? '') }}>
               {[2, 1, 3][i]}

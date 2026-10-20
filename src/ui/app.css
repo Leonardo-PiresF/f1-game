@@ -143,16 +143,14 @@ button.ativo {
   fill: #fff;
 }
 
-.carro circle {
-  stroke-width: 0.45;
+.carro {
+  cursor: pointer;
 }
 
-.carro-borda-1 {
-  stroke: #fff;
-}
-
-.carro-borda-2 {
-  stroke: #000;
+.carro-foco {
+  fill: none;
+  stroke-width: 0.25;
+  stroke-dasharray: 0.8 0.6;
 }
 
 .carro-fora {
@@ -534,4 +532,139 @@ button.ativo {
 
 .topo .abas {
   margin-top: 8px;
+}
+
+/* Pixel art */
+.retrato,
+.carro-pixel {
+  image-rendering: pixelated;
+  flex: none;
+}
+
+.com-retrato {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tabela td .retrato {
+  margin: -4px 0;
+}
+
+.torre li {
+  cursor: pointer;
+}
+
+.torre li.seguido {
+  outline: 1px solid var(--texto-2);
+  outline-offset: -1px;
+}
+
+.mapa-zoom .mapa-linha {
+  stroke-width: 0.15;
+}
+
+.seguindo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+  padding: 8px 12px;
+  border: 1px solid;
+  border-left-width: 4px;
+  border-radius: 8px;
+  background: #1d222a;
+}
+
+.seguindo div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.seguindo span {
+  color: var(--texto-2);
+  font-size: 0.9rem;
+}
+
+.podio {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 12px;
+  margin: 8px 0 16px;
+}
+
+.degrau {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 140px;
+  text-align: center;
+}
+
+.degrau .nome {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.degrau .caixa {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: #101318;
+  border-radius: 4px 4px 0 0;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.degrau-1 .caixa {
+  height: 54px;
+}
+
+.degrau-2 .caixa {
+  height: 38px;
+}
+
+.degrau-3 .caixa {
+  height: 26px;
+}
+
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.cartao-equipe {
+  padding: 10px 12px;
+  background: #1d222a;
+  border: 1px solid var(--borda);
+  border-top: 4px solid;
+  border-radius: 8px;
+}
+
+.cartao-corpo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.cartao-corpo ul {
+  display: flex;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cartao-corpo li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
 }

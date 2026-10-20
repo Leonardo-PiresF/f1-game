@@ -7,7 +7,8 @@ import { MapaPista } from './MapaPista';
 import { formatarTempo } from './relogio';
 import { montarLinhasDaQuali, relogioDaSessao, torreDaQuali, type EstadoNaQuali } from './relogioQuali';
 import { useReproducao } from './reproducao';
-import { Controles, textoAgua } from './Transmissao';
+import { Retrato } from './Pixel';
+import { Controles, PilotoSeguido, textoAgua, useCamera } from './Transmissao';
 
 const ROTULO: Record<EstadoNaQuali, string> = {
   garagem: '',
@@ -22,6 +23,7 @@ const relogio = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60
 function Sessao({ sessao, pista, titulo, ultima, onFim }: { sessao: SessaoQuali; pista: Pista; titulo: string; ultima: boolean; onFim: () => void }) {
   const rep = useReproducao(sessao.fim, 30);
   const [nomes, setNomes] = useState(true);
+  const camera = useCamera();
   const equipeDe = useMemo(() => new Map(sessao.participantes.map((id) => [id, PILOTO.get(id)?.equipeId ?? ''])), [sessao]);
   const linhas = useMemo(() => montarLinhasDaQuali(sessao, pista, equipeDe), [sessao, pista, equipeDe]);
   const siglas = useMemo(() => new Map(sessao.participantes.map((id) => [id, siglaPiloto(id)])), [sessao]);
@@ -52,8 +54,22 @@ function Sessao({ sessao, pista, titulo, ultima, onFim }: { sessao: SessaoQuali;
           segundoPiloto={segundoPiloto}
           mostrarNomes={nomes}
           safetyCar={null}
+          foco={camera.foco}
+          zoom={camera.zoom}
+          onEscolher={camera.seguir}
         />
-        <Controles rep={rep} nomes={nomes} setNomes={setNomes} />
+        <Controles rep={rep} nomes={nomes} setNomes={setNomes} zoom={camera.zoom} onZoom={() => camera.alternarZoom(torre[0]!.pilotoId)} />
+        {camera.foco && (
+          <PilotoSeguido
+            pilotoId={camera.foco}
+            linhas={torre}
+            equipeDe={equipeDe}
+            detalhe={(l) => {
+              const rotulo = { garagem: 'na garagem', saida: 'volta de saída', lancada: 'volta lançada', entrada: 'volta de entrada', batida: 'bateu' }[l.estado];
+              return `${rotulo}${l.melhor !== null ? ` · melhor ${formatarTempo(l.melhor)}` : ''}`;
+            }}
+          />
+        )}
         {rep.terminou && (
           <button type="button" className="largar proxima" onClick={onFim}>
             {ultima ? 'Ver o grid de largada' : 'Próxima sessão'}
@@ -66,7 +82,11 @@ function Sessao({ sessao, pista, titulo, ultima, onFim }: { sessao: SessaoQuali;
             const cortado = sessao.passam < sessao.participantes.length && i === sessao.passam;
             const tempo = l.emVolta !== null ? formatarTempo(l.emVolta).slice(0, -2) : l.melhor !== null ? (i === 0 ? formatarTempo(l.melhor) : `+${(l.melhor - lider!).toFixed(3)}`) : '';
             return (
-              <li key={l.pilotoId} className={`${l.fora ? 'fora' : ''} ${cortado ? 'corte' : ''} ${i >= sessao.passam ? 'zona-eliminacao' : ''}`}>
+              <li
+                key={l.pilotoId}
+                className={`${l.fora ? 'fora' : ''} ${cortado ? 'corte' : ''} ${i >= sessao.passam ? 'zona-eliminacao' : ''} ${l.pilotoId === camera.foco ? 'seguido' : ''}`}
+                onClick={() => camera.seguir(l.pilotoId)}
+              >
                 <span className="pos">{l.posicao}</span>
                 <span className="faixa" style={{ background: corEquipe(equipeDe.get(l.pilotoId)!) }} />
                 <span className="sigla" title={nomePiloto(l.pilotoId)}>
@@ -151,7 +171,11 @@ export function TabelaGrid({ classificacao, grid, titulo }: { classificacao: Cla
             return (
               <tr key={l.pilotoId} className={corte ? 'corte' : ''}>
                 <td>{l.posicao}</td>
-                <td>{nomePiloto(l.pilotoId)}</td>
+                <td>
+                  <span className="com-retrato">
+                    <Retrato pilotoId={l.pilotoId} /> {nomePiloto(l.pilotoId)}
+                  </span>
+                </td>
                 <td>
                   <span className="faixa" style={{ background: corEquipe(eq) }} /> {nomeEquipe(eq)}
                 </td>

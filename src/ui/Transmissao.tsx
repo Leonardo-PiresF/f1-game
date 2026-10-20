@@ -4,12 +4,43 @@ import { estaMolhado } from '../engine/clima';
 import type { Composto } from '../engine/pneus';
 import { buscarPista } from '../engine/pistas';
 import { corEquipe, PNEUS } from './cores';
-import { nomeEquipe, nomePiloto, segundosPilotos, siglaPiloto } from './dados';
+import { nomeEquipe, nomePiloto, PILOTO, segundosPilotos, siglaPiloto } from './dados';
 import { MapaPista } from './MapaPista';
+import { Retrato } from './Pixel';
 import { duracao, formatarTempo, montarLinhasDoTempo, torreNoTempo } from './relogio';
 import { useReproducao, VELOCIDADES } from './reproducao';
 
-export function Controles({ rep, nomes, setNomes }: { rep: ReturnType<typeof useReproducao>; nomes: boolean; setNomes: (v: boolean) => void }) {
+export interface Camera {
+  foco: string | null;
+  zoom: boolean;
+}
+
+export function useCamera() {
+  const [camera, setCamera] = useState<Camera>({ foco: null, zoom: false });
+  return {
+    ...camera,
+    seguir: (id: string) =>
+      setCamera((c) => ({
+        foco: c.foco === id ? null : id,
+        zoom: c.foco === id ? false : c.zoom,
+      })),
+    alternarZoom: (padrao: string) => setCamera((c) => ({ foco: c.foco ?? padrao, zoom: !c.zoom })),
+  };
+}
+
+export function Controles({
+  rep,
+  nomes,
+  setNomes,
+  zoom,
+  onZoom,
+}: {
+  rep: ReturnType<typeof useReproducao>;
+  nomes: boolean;
+  setNomes: (v: boolean) => void;
+  zoom?: boolean;
+  onZoom?: () => void;
+}) {
   return (
     <div className="controles">
       <button type="button" onClick={rep.alternar}>
@@ -23,6 +54,11 @@ export function Controles({ rep, nomes, setNomes }: { rep: ReturnType<typeof use
       <button type="button" onClick={rep.pularParaOFim}>
         ⏭ Fim
       </button>
+      {onZoom && (
+        <button type="button" className={zoom ? 'ativo' : ''} onClick={onZoom} title="Aproxima a câmera no piloto escolhido (clique num carro ou na torre)">
+          🔍 Câmera
+        </button>
+      )}
       <label className="nomes">
         <input type="checkbox" checked={nomes} onChange={(e) => setNomes(e.target.checked)} /> Nomes
       </label>
@@ -42,6 +78,7 @@ export function Transmissao({ corrida, titulo }: { corrida: Corrida; titulo: str
   const rep = useReproducao(fim);
   const [nomes, setNomes] = useState(true);
   const [modoTorre, setModoTorre] = useState<'intervalo' | 'lider'>('intervalo');
+  const camera = useCamera();
   const linhasDoTempo = useMemo(() => montarLinhasDoTempo(corrida, pista), [corrida, pista]);
   const equipeDe = useMemo(() => new Map(corrida.resultado.map((r) => [r.pilotoId, r.equipeId])), [corrida]);
   const siglas = useMemo(() => new Map(corrida.resultado.map((r) => [r.pilotoId, siglaPiloto(r.pilotoId)])), [corrida]);
@@ -53,8 +90,12 @@ export function Transmissao({ corrida, titulo }: { corrida: Corrida; titulo: str
   const voltaAtual = Math.min(corrida.voltas, Math.floor(Math.max(0, lider.distancia)) + 1);
   const neutralizacao = lider.terminou || tempo <= 0 ? undefined : corrida.neutralizacoes.find((n) => voltaAtual >= n.de && voltaAtual <= n.ate);
   const agua = corrida.agua[Math.min(voltaAtual, corrida.agua.length - 1)] ?? 0;
-  const estadoDaVolta = (pilotoId: string, voltas: number) => corrida.estados[Math.min(voltas, corrida.estados.length - 1)]!.find((e) => e.pilotoId === pilotoId)!;
-  const eventos = corrida.eventos.filter((e) => e.tipo !== 'box' && e.volta <= Math.max(1, lider.voltas)).slice(-8).reverse();
+  const estadoDaVolta = (pilotoId: string, voltas: number) =>
+    corrida.estados[Math.min(voltas, corrida.estados.length - 1)]!.find((e) => e.pilotoId === pilotoId)!;
+  const eventos = corrida.eventos
+    .filter((e) => e.tipo !== 'box' && e.volta <= Math.max(1, lider.voltas))
+    .slice(-8)
+    .reverse();
 
   return (
     <>
@@ -79,8 +120,22 @@ export function Transmissao({ corrida, titulo }: { corrida: Corrida; titulo: str
             segundoPiloto={segundoPiloto}
             mostrarNomes={nomes}
             safetyCar={neutralizacao?.tipo === 'SC' ? lider.distancia + 0.025 : null}
+            foco={camera.foco}
+            zoom={camera.zoom}
+            onEscolher={camera.seguir}
           />
-          <Controles rep={rep} nomes={nomes} setNomes={setNomes} />
+          <Controles rep={rep} nomes={nomes} setNomes={setNomes} zoom={camera.zoom} onZoom={() => camera.alternarZoom(lider.pilotoId)} />
+          {camera.foco && (
+            <PilotoSeguido
+              pilotoId={camera.foco}
+              linhas={linhas}
+              equipeDe={equipeDe}
+              detalhe={(l) => {
+                const e = estadoDaVolta(l.pilotoId, l.voltas);
+                return `${l.noBox ? 'nos boxes' : l.posicao === 1 ? 'líder' : `${l.paraLider} do líder`} · ${PNEUS[e.pneu].nome.toLowerCase()} com ${e.idadePneu} ${e.idadePneu === 1 ? 'volta' : 'voltas'}`;
+              }}
+            />
+          )}
           <ol className="eventos">
             {eventos.map((e, i) => (
               <li key={`${e.volta}-${i}-${e.texto}`} className={`evento-${e.tipo}`}>
@@ -103,7 +158,11 @@ export function Transmissao({ corrida, titulo }: { corrida: Corrida; titulo: str
               const estado = estadoDaVolta(l.pilotoId, l.voltas);
               const pneu = PNEUS[estado.pneu];
               return (
-                <li key={l.pilotoId} className={l.fora ? 'fora' : ''}>
+                <li
+                  key={l.pilotoId}
+                  className={`${l.fora ? 'fora' : ''} ${l.pilotoId === camera.foco ? 'seguido' : ''}`}
+                  onClick={() => camera.seguir(l.pilotoId)}
+                >
                   <span className="pos">{l.posicao}</span>
                   <span className="faixa" style={{ background: corEquipe(equipeDe.get(l.pilotoId)!) }} />
                   <span className="sigla" title={nomePiloto(l.pilotoId)}>
@@ -121,6 +180,55 @@ export function Transmissao({ corrida, titulo }: { corrida: Corrida; titulo: str
       </div>
       {terminou && <Resultado corrida={corrida} />}
     </>
+  );
+}
+
+// Cartão do piloto que a câmera segue, embaixo do mapa.
+export function PilotoSeguido<L extends { pilotoId: string; posicao: number }>({
+  pilotoId,
+  linhas,
+  equipeDe,
+  detalhe,
+}: {
+  pilotoId: string;
+  linhas: L[];
+  equipeDe: Map<string, string>;
+  detalhe: (l: L) => string;
+}) {
+  const l = linhas.find((x) => x.pilotoId === pilotoId);
+  if (!l) return null;
+  const eq = equipeDe.get(pilotoId) ?? '';
+  return (
+    <div className="seguindo" style={{ borderColor: corEquipe(eq) }}>
+      <Retrato pilotoId={pilotoId} tamanho={54} />
+      <div>
+        <strong>
+          P{l.posicao} · {nomePiloto(pilotoId)}
+        </strong>
+        <span>
+          {nomeEquipe(eq)} · {detalhe(l)}
+        </span>
+      </div>
+    </div>
+  );
+}
+
+export function Podio({ ids, titulo }: { ids: string[]; titulo?: string }) {
+  const ordem = [ids[1], ids[0], ids[2]];
+  return (
+    <div className="podio" aria-label={titulo ?? 'Pódio'}>
+      {ordem.map((id, i) =>
+        id ? (
+          <div key={id} className={`degrau degrau-${[2, 1, 3][i]}`}>
+            <Retrato pilotoId={id} tamanho={i === 1 ? 84 : 66} />
+            <span className="nome">{nomePiloto(id)}</span>
+            <span className="caixa" style={{ background: corEquipe(PILOTO.get(id)?.equipeId ?? '') }}>
+              {[2, 1, 3][i]}
+            </span>
+          </div>
+        ) : null,
+      )}
+    </div>
   );
 }
 
@@ -143,6 +251,12 @@ export function Resultado({ corrida }: { corrida: Corrida }) {
   return (
     <section className="resultado">
       <h2>Resultado{corrida.tipo === 'sprint' ? ' da sprint' : ''}</h2>
+      <Podio
+        ids={corrida.resultado
+          .filter((r) => r.status === 'chegou')
+          .slice(0, 3)
+          .map((r) => r.pilotoId)}
+      />
       {encerrada && (
         <p className="dica">
           Corrida encerrada na volta {corrida.voltas} de {corrida.voltasPrevistas} pela bandeira vermelha.
@@ -172,7 +286,11 @@ export function Resultado({ corrida }: { corrida: Corrida }) {
             return (
               <tr key={r.pilotoId}>
                 <td>{r.status === 'chegou' ? r.posicao : '—'}</td>
-                <td>{nomePiloto(r.pilotoId)}</td>
+                <td>
+                  <span className="com-retrato">
+                    <Retrato pilotoId={r.pilotoId} /> {nomePiloto(r.pilotoId)}
+                  </span>
+                </td>
                 <td>
                   <span className="faixa" style={{ background: corEquipe(r.equipeId) }} /> {nomeEquipe(r.equipeId)}
                 </td>

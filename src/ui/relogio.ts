@@ -4,11 +4,12 @@
 import type { Corrida } from '../engine/corrida';
 import type { Pista } from '../engine/types';
 
-interface Trecho {
+export interface Trecho {
   t0: number;
   t1: number;
   d0: number; // distância em voltas
   d1: number;
+  box?: boolean; // no pit lane
 }
 
 export interface LinhaDoTempo {
@@ -41,8 +42,16 @@ export function montarLinhasDoTempo(corrida: Corrida, pista: Pista): Map<string,
       const tEntrada = t0 + normal * box.entrada;
       const tParada = t1 - p.parada;
       trechos.push({ t0, t1: tEntrada, d0: l - 1, d1: l - 1 + box.entrada });
-      trechos.push({ t0: tEntrada, t1: tParada, d0: l - 1 + box.entrada, d1: l });
-      trechos.push({ t0: tParada, t1, d0: l, d1: l });
+      trechos.push({ t0: tEntrada, t1: tParada, d0: l - 1 + box.entrada, d1: l, box: true });
+      trechos.push({ t0: tParada, t1, d0: l, d1: l, box: true });
+      // Saída do box até o fim do pit lane, ainda na volta seguinte.
+      const proxima = tempos[l + 1];
+      if (proxima !== undefined && !paradas.has(l + 1)) {
+        const tSaida = t1 + (proxima - t1) * box.saida;
+        trechos.push({ t0: t1, t1: tSaida, d0: l, d1: l + box.saida, box: true });
+        trechos.push({ t0: tSaida, t1: proxima, d0: l + box.saida, d1: l + 1 });
+        l++;
+      }
     }
     const ultimo = tempos[tempos.length - 1]!;
     const ultimaVolta = tempos.length - 1;
@@ -58,7 +67,7 @@ export function montarLinhasDoTempo(corrida: Corrida, pista: Pista): Map<string,
   return linhas;
 }
 
-function distanciaEm(linha: LinhaDoTempo, t: number): number {
+function trechoEm(linha: LinhaDoTempo, t: number): Trecho {
   const { trechos } = linha;
   let lo = 0;
   let hi = trechos.length - 1;
@@ -67,10 +76,16 @@ function distanciaEm(linha: LinhaDoTempo, t: number): number {
     if (trechos[meio]!.t0 <= t) lo = meio;
     else hi = meio - 1;
   }
-  const s = trechos[lo]!;
+  return trechos[lo]!;
+}
+
+export function distanciaEm(linha: LinhaDoTempo, t: number): number {
+  const s = trechoEm(linha, t);
   if (!Number.isFinite(s.t1) || !Number.isFinite(s.t0) || s.t1 === s.t0) return s.d0;
   return s.d0 + ((t - s.t0) / (s.t1 - s.t0)) * (s.d1 - s.d0);
 }
+
+export const noBoxEm = (linha: LinhaDoTempo, t: number) => !!trechoEm(linha, t).box;
 
 // Instante em que o carro passou por uma distância (o primeiro, se ficou parado nela).
 export function tempoNaDistancia(linha: LinhaDoTempo, d: number): number | null {
@@ -98,8 +113,7 @@ export function duracao(corrida: Corrida): number {
   return fim + 3;
 }
 
-export function posicaoNoTempo(corrida: Corrida, pista: Pista, linha: LinhaDoTempo, pilotoId: string, t: number): PosicaoNoTempo {
-  const box = pista.box ?? BOX_PADRAO;
+export function posicaoNoTempo(corrida: Corrida, linha: LinhaDoTempo, pilotoId: string, t: number): PosicaoNoTempo {
   const tempos = corrida.tempos[pilotoId]!;
   const ultima = tempos.length - 1;
   const abandono = corrida.abandonos[pilotoId];
@@ -107,14 +121,7 @@ export function posicaoNoTempo(corrida: Corrida, pista: Pista, linha: LinhaDoTem
   const terminou = !abandono && t >= tempos[ultima]!;
   const distancia = distanciaEm(linha, t);
   const voltas = Math.max(0, Math.min(ultima, Math.floor(distancia + 1e-9)));
-  const fracao = distancia - Math.floor(distancia);
-  const volta = Math.floor(distancia) + 1; // volta em andamento
-  const paradas = corrida.paradas[pilotoId] ?? [];
-  const noBox =
-    !fora &&
-    !terminou &&
-    paradas.some((p) => (p.volta === volta && fracao >= box.entrada) || (p.volta === volta - 1 && fracao < box.saida) || (p.volta === volta - 1 && fracao === 0));
-  return { pilotoId, distancia, voltas, fora, terminou, noBox };
+  return { pilotoId, distancia, voltas, fora, terminou, noBox: !fora && !terminou && noBoxEm(linha, t) };
 }
 
 export interface LinhaTorre extends PosicaoNoTempo {
@@ -135,9 +142,9 @@ function diferenca(atras: PosicaoNoTempo, linhaAtras: LinhaDoTempo, frente: Posi
 }
 
 // Ordem da corrida no instante t, como numa torre de tempos, com as diferenças ao vivo.
-export function torreNoTempo(corrida: Corrida, pista: Pista, linhas: Map<string, LinhaDoTempo>, t: number): LinhaTorre[] {
+export function torreNoTempo(corrida: Corrida, linhas: Map<string, LinhaDoTempo>, t: number): LinhaTorre[] {
   const ordemFinal = new Map(corrida.resultado.map((r) => [r.pilotoId, r.posicao]));
-  const posicoes = Object.keys(corrida.tempos).map((id) => posicaoNoTempo(corrida, pista, linhas.get(id)!, id, t));
+  const posicoes = Object.keys(corrida.tempos).map((id) => posicaoNoTempo(corrida, linhas.get(id)!, id, t));
   posicoes.sort((a, b) => {
     if (a.fora !== b.fora) return a.fora ? 1 : -1;
     if (a.fora && b.fora) return ordemFinal.get(a.pilotoId)! - ordemFinal.get(b.pilotoId)!;

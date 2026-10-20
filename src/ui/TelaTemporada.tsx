@@ -15,6 +15,8 @@ import { criarRng } from '../engine/rng';
 import type { Categoria } from '../engine/types';
 import { carregarCampeonato, salvarCampeonato } from './armazenamento';
 import { corEquipe } from './cores';
+import { CarroPixel, CorpoPiloto, Retrato } from './Pixel';
+import { Podio } from './Transmissao';
 import { EQUIPES, GRID, nomeEquipe, nomePiloto, novaSemente } from './dados';
 import { TelaFimDeSemana } from './TelaFimDeSemana';
 
@@ -91,7 +93,7 @@ export function TelaTemporada() {
 
 function Tabelas({ campeonato }: { campeonato: Campeonato }) {
   const [categoria, setCategoria] = useState<Categoria>('F1');
-  const [tipo, setTipo] = useState<'pilotos' | 'equipes'>('pilotos');
+  const [tipo, setTipo] = useState<'pilotos' | 'equipes' | 'grid'>('pilotos');
   const pilotos = tabelaPilotos(campeonato, categoria);
   const equipes = tabelaEquipes(campeonato, categoria);
   return (
@@ -108,10 +110,17 @@ function Tabelas({ campeonato }: { campeonato: Campeonato }) {
         <button type="button" className={tipo === 'equipes' ? 'ativo' : ''} onClick={() => setTipo('equipes')}>
           Equipes
         </button>
+        <button type="button" className={tipo === 'grid' ? 'ativo' : ''} onClick={() => setTipo('grid')}>
+          Grid
+        </button>
       </div>
-      {pilotos.length === 0 ? (
+      {tipo === 'grid' ? (
+        <Galeria categoria={categoria} />
+      ) : pilotos.length === 0 ? (
         <p className="dica">Nenhuma corrida disputada ainda.</p>
       ) : tipo === 'pilotos' ? (
+        <>
+        <Podio ids={pilotos.slice(0, 3).map((l) => l.pilotoId)} titulo="Líderes do campeonato" />
         <table className="tabela">
           <thead>
             <tr>
@@ -128,7 +137,11 @@ function Tabelas({ campeonato }: { campeonato: Campeonato }) {
             {pilotos.map((l, i) => (
               <tr key={l.pilotoId}>
                 <td>{i + 1}</td>
-                <td>{nomePiloto(l.pilotoId)}</td>
+                <td>
+                  <span className="com-retrato">
+                    <Retrato pilotoId={l.pilotoId} /> {nomePiloto(l.pilotoId)}
+                  </span>
+                </td>
                 <td>
                   <span className="faixa" style={{ background: corEquipe(l.equipeId) }} /> {nomeEquipe(l.equipeId)}
                 </td>
@@ -142,6 +155,7 @@ function Tabelas({ campeonato }: { campeonato: Campeonato }) {
             ))}
           </tbody>
         </table>
+        </>
       ) : (
         <table className="tabela">
           <thead>
@@ -205,5 +219,33 @@ function Calendario({ campeonato }: { campeonato: Campeonato }) {
         </tbody>
       </table>
     </section>
+  );
+}
+
+// Garagem: cada equipe com o carro e os dois pilotos titulares.
+function Galeria({ categoria }: { categoria: Categoria }) {
+  const equipes = EQUIPES.filter((e) => e.categoria === categoria);
+  return (
+    <div className="galeria">
+      {equipes.map((e) => {
+        const pilotos = GRID[categoria].filter((p) => p.equipeId === e.id);
+        return (
+          <div key={e.id} className="cartao-equipe" style={{ borderTopColor: corEquipe(e.id) }}>
+            <strong>{e.nome}</strong>
+            <div className="cartao-corpo">
+              <CarroPixel equipeId={e.id} pilotoId={pilotos[0]?.id ?? ''} tamanho={4} />
+              <ul>
+                {pilotos.map((p) => (
+                  <li key={p.id}>
+                    <CorpoPiloto pilotoId={p.id} tamanho={96} />
+                    <span>{p.nome}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        );
+      })}
+    </div>
   );
 }

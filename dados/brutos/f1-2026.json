@@ -1,0 +1,675 @@
+{
+  "geradoEm": "2026-10-19",
+  "fonte": "https://api.jolpi.ca",
+  "ano": 2026,
+  "rodadasDisputadas": 17,
+  "pilotos": [
+    {
+      "id": "antonelli",
+      "nome": "Andrea Kimi Antonelli",
+      "codigo": "ANT",
+      "numero": 12,
+      "nascimento": "2006-08-25",
+      "nacionalidade": "Italian",
+      "equipeId": "mercedes",
+      "posicao": 1,
+      "pontos": 340,
+      "vitorias": 8
+    },
+    {
+      "id": "russell",
+      "nome": "George Russell",
+      "codigo": "RUS",
+      "numero": 63,
+      "nascimento": "1998-02-15",
+      "nacionalidade": "British",
+      "equipeId": "mercedes",
+      "posicao": 2,
+      "pontos": 238,
+      "vitorias": 3
+    },
+    {
+      "id": "hamilton",
+      "nome": "Lewis Hamilton",
+      "codigo": "HAM",
+      "numero": 44,
+      "nascimento": "1985-01-07",
+      "nacionalidade": "British",
+      "equipeId": "ferrari",
+      "posicao": 3,
+      "pontos": 229,
+      "vitorias": 1
+    },
+    {
+      "id": "max_verstappen",
+      "nome": "Max Verstappen",
+      "codigo": "VER",
+      "numero": 3,
+      "nascimento": "1997-09-30",
+      "nacionalidade": "Dutch",
+      "equipeId": "red_bull",
+      "posicao": 4,
+      "pontos": 221,
+      "vitorias": 2
+    },
+    {
+      "id": "leclerc",
+      "nome": "Charles Leclerc",
+      "codigo": "LEC",
+      "numero": 16,
+      "nascimento": "1997-10-16",
+      "nacionalidade": "Monegasque",
+      "equipeId": "ferrari",
+      "posicao": 5,
+      "pontos": 215,
+      "vitorias": 1
+    },
+    {
+      "id": "norris",
+      "nome": "Lando Norris",
+      "codigo": "NOR",
+      "numero": 1,
+      "nascimento": "1999-11-13",
+      "nacionalidade": "British",
+      "equipeId": "mclaren",
+      "posicao": 6,
+      "pontos": 201,
+      "vitorias": 2
+    },
+    {
+      "id": "piastri",
+      "nome": "Oscar Piastri",
+      "codigo": "PIA",
+      "numero": 81,
+      "nascimento": "2001-04-06",
+      "nacionalidade": "Australian",
+      "equipeId": "mclaren",
+      "posicao": 7,
+      "pontos": 138,
+      "vitorias": 0
+    },
+    {
+      "id": "hadjar",
+      "nome": "Isack Hadjar",
+      "codigo": "HAD",
+      "numero": 6,
+      "nascimento": "2004-09-28",
+      "nacionalidade": "French",
+      "equipeId": "red_bull",
+      "posicao": 8,
+      "pontos": 97,
+      "vitorias": 0
+    },
+    {
+      "id": "lawson",
+      "nome": "Liam Lawson",
+      "codigo": "LAW",
+      "numero": 30,
+      "nascimento": "2002-02-11",
+      "nacionalidade": "New Zealander",
+      "equipeId": "red_bull",
+      "posicao": 9,
+      "pontos": 75,
+      "vitorias": 0
+    },
+    {
+      "id": "gasly",
+      "nome": "Pierre Gasly",
+      "codigo": "GAS",
+      "numero": 10,
+      "nascimento": "1996-02-07",
+      "nacionalidade": "French",
+      "equipeId": "alpine",
+      "posicao": 10,
+      "pontos": 41,
+      "vitorias": 0
+    },
+    {
+      "id": "arvid_lindblad",
+      "nome": "Arvid Lindblad",
+      "codigo": "LIN",
+      "numero": 41,
+      "nascimento": "2007-08-08",
+      "nacionalidade": "British",
+      "equipeId": "rb",
+      "posicao": 11,
+      "pontos": 38,
+      "vitorias": 0
+    },
+    {
+      "id": "colapinto",
+      "nome": "Franco Colapinto",
+      "codigo": "COL",
+      "numero": 43,
+      "nascimento": "2003-05-27",
+      "nacionalidade": "Argentine",
+      "equipeId": "alpine",
+      "posicao": 12,
+      "pontos": 27,
+      "vitorias": 0
+    },
+    {
+      "id": "bearman",
+      "nome": "Oliver Bearman",
+      "codigo": "BEA",
+      "numero": 87,
+      "nascimento": "2005-05-08",
+      "nacionalidade": "British",
+      "equipeId": "haas",
+      "posicao": 13,
+      "pontos": 23,
+      "vitorias": 0
+    },
+    {
+      "id": "hulkenberg",
+      "nome": "Nico Hülkenberg",
+      "codigo": "HUL",
+      "numero": 27,
+      "nascimento": "1987-08-19",
+      "nacionalidade": "German",
+      "equipeId": "audi",
+      "posicao": 14,
+      "pontos": 13,
+      "vitorias": 0
+    },
+    {
+      "id": "bortoleto",
+      "nome": "Gabriel Bortoleto",
+      "codigo": "BOR",
+      "numero": 5,
+      "nascimento": "2004-10-14",
+      "nacionalidade": "Brazilian",
+      "equipeId": "audi",
+      "posicao": 15,
+      "pontos": 10,
+      "vitorias": 0
+    },
+    {
+      "id": "ocon",
+      "nome": "Esteban Ocon",
+      "codigo": "OCO",
+      "numero": 31,
+      "nascimento": "1996-09-17",
+      "nacionalidade": "French",
+      "equipeId": "haas",
+      "posicao": 16,
+      "pontos": 7,
+      "vitorias": 0
+    },
+    {
+      "id": "alonso",
+      "nome": "Fernando Alonso",
+      "codigo": "ALO",
+      "numero": 14,
+      "nascimento": "1981-07-29",
+      "nacionalidade": "Spanish",
+      "equipeId": "aston_martin",
+      "posicao": 17,
+      "pontos": 7,
+      "vitorias": 0
+    },
+    {
+      "id": "sainz",
+      "nome": "Carlos Sainz",
+      "codigo": "SAI",
+      "numero": 55,
+      "nascimento": "1994-09-01",
+      "nacionalidade": "Spanish",
+      "equipeId": "williams",
+      "posicao": 18,
+      "pontos": 7,
+      "vitorias": 0
+    },
+    {
+      "id": "albon",
+      "nome": "Alexander Albon",
+      "codigo": "ALB",
+      "numero": 23,
+      "nascimento": "1996-03-23",
+      "nacionalidade": "Thai",
+      "equipeId": "williams",
+      "posicao": 19,
+      "pontos": 5,
+      "vitorias": 0
+    },
+    {
+      "id": "tsunoda",
+      "nome": "Yuki Tsunoda",
+      "codigo": "TSU",
+      "numero": 22,
+      "nascimento": "2000-05-11",
+      "nacionalidade": "Japanese",
+      "equipeId": "rb",
+      "posicao": 20,
+      "pontos": 1,
+      "vitorias": 0
+    },
+    {
+      "id": "stroll",
+      "nome": "Lance Stroll",
+      "codigo": "STR",
+      "numero": 18,
+      "nascimento": "1998-10-29",
+      "nacionalidade": "Canadian",
+      "equipeId": "aston_martin",
+      "posicao": 21,
+      "pontos": 0,
+      "vitorias": 0
+    },
+    {
+      "id": "bottas",
+      "nome": "Valtteri Bottas",
+      "codigo": "BOT",
+      "numero": 77,
+      "nascimento": "1989-08-28",
+      "nacionalidade": "Finnish",
+      "equipeId": "cadillac",
+      "posicao": 22,
+      "pontos": 0,
+      "vitorias": 0
+    },
+    {
+      "id": "perez",
+      "nome": "Sergio Pérez",
+      "codigo": "PER",
+      "numero": 11,
+      "nascimento": "1990-01-26",
+      "nacionalidade": "Mexican",
+      "equipeId": "cadillac",
+      "posicao": 23,
+      "pontos": 0,
+      "vitorias": 0
+    }
+  ],
+  "equipes": [
+    {
+      "id": "mercedes",
+      "nome": "Mercedes",
+      "nacionalidade": "German",
+      "posicao": 1,
+      "pontos": 578,
+      "vitorias": 11
+    },
+    {
+      "id": "ferrari",
+      "nome": "Ferrari",
+      "nacionalidade": "Italian",
+      "posicao": 2,
+      "pontos": 444,
+      "vitorias": 2
+    },
+    {
+      "id": "mclaren",
+      "nome": "McLaren",
+      "nacionalidade": "British",
+      "posicao": 3,
+      "pontos": 339,
+      "vitorias": 2
+    },
+    {
+      "id": "red_bull",
+      "nome": "Red Bull",
+      "nacionalidade": "Austrian",
+      "posicao": 4,
+      "pontos": 332,
+      "vitorias": 2
+    },
+    {
+      "id": "rb",
+      "nome": "RB F1 Team",
+      "nacionalidade": "Italian",
+      "posicao": 5,
+      "pontos": 100,
+      "vitorias": 0
+    },
+    {
+      "id": "alpine",
+      "nome": "Alpine F1 Team",
+      "nacionalidade": "French",
+      "posicao": 6,
+      "pontos": 68,
+      "vitorias": 0
+    },
+    {
+      "id": "haas",
+      "nome": "Haas F1 Team",
+      "nacionalidade": "American",
+      "posicao": 7,
+      "pontos": 30,
+      "vitorias": 0
+    },
+    {
+      "id": "audi",
+      "nome": "Audi",
+      "nacionalidade": "German",
+      "posicao": 8,
+      "pontos": 23,
+      "vitorias": 0
+    },
+    {
+      "id": "williams",
+      "nome": "Williams",
+      "nacionalidade": "British",
+      "posicao": 9,
+      "pontos": 12,
+      "vitorias": 0
+    },
+    {
+      "id": "aston_martin",
+      "nome": "Aston Martin",
+      "nacionalidade": "British",
+      "posicao": 10,
+      "pontos": 7,
+      "vitorias": 0
+    },
+    {
+      "id": "cadillac",
+      "nome": "Cadillac F1 Team",
+      "nacionalidade": "American",
+      "posicao": 11,
+      "pontos": 0,
+      "vitorias": 0
+    }
+  ],
+  "calendario": [
+    {
+      "rodada": 1,
+      "nome": "Australian Grand Prix",
+      "data": "2026-03-08",
+      "pista": {
+        "id": "albert_park",
+        "nome": "Albert Park Grand Prix Circuit",
+        "cidade": "Melbourne",
+        "pais": "Australia",
+        "lat": -37.8497,
+        "long": 144.968
+      }
+    },
+    {
+      "rodada": 2,
+      "nome": "Chinese Grand Prix",
+      "data": "2026-03-15",
+      "pista": {
+        "id": "shanghai",
+        "nome": "Shanghai International Circuit",
+        "cidade": "Shanghai",
+        "pais": "China",
+        "lat": 31.3389,
+        "long": 121.22
+      }
+    },
+    {
+      "rodada": 3,
+      "nome": "Japanese Grand Prix",
+      "data": "2026-03-29",
+      "pista": {
+        "id": "suzuka",
+        "nome": "Suzuka Circuit",
+        "cidade": "Suzuka",
+        "pais": "Japan",
+        "lat": 34.8431,
+        "long": 136.541
+      }
+    },
+    {
+      "rodada": 4,
+      "nome": "Miami Grand Prix",
+      "data": "2026-05-03",
+      "pista": {
+        "id": "miami",
+        "nome": "Miami International Autodrome",
+        "cidade": "Miami",
+        "pais": "USA",
+        "lat": 25.9581,
+        "long": -80.2389
+      }
+    },
+    {
+      "rodada": 5,
+      "nome": "Canadian Grand Prix",
+      "data": "2026-05-24",
+      "pista": {
+        "id": "villeneuve",
+        "nome": "Circuit Gilles Villeneuve",
+        "cidade": "Montreal",
+        "pais": "Canada",
+        "lat": 45.5,
+        "long": -73.5228
+      }
+    },
+    {
+      "rodada": 6,
+      "nome": "Monaco Grand Prix",
+      "data": "2026-06-07",
+      "pista": {
+        "id": "monaco",
+        "nome": "Circuit de Monaco",
+        "cidade": "Monte Carlo",
+        "pais": "Monaco",
+        "lat": 43.7347,
+        "long": 7.42056
+      }
+    },
+    {
+      "rodada": 7,
+      "nome": "Barcelona Grand Prix",
+      "data": "2026-06-14",
+      "pista": {
+        "id": "catalunya",
+        "nome": "Circuit de Barcelona-Catalunya",
+        "cidade": "Barcelona",
+        "pais": "Spain",
+        "lat": 41.57,
+        "long": 2.26111
+      }
+    },
+    {
+      "rodada": 8,
+      "nome": "Austrian Grand Prix",
+      "data": "2026-06-28",
+      "pista": {
+        "id": "red_bull_ring",
+        "nome": "Red Bull Ring",
+        "cidade": "Spielberg",
+        "pais": "Austria",
+        "lat": 47.2197,
+        "long": 14.7647
+      }
+    },
+    {
+      "rodada": 9,
+      "nome": "British Grand Prix",
+      "data": "2026-07-05",
+      "pista": {
+        "id": "silverstone",
+        "nome": "Silverstone Circuit",
+        "cidade": "Silverstone",
+        "pais": "UK",
+        "lat": 52.0786,
+        "long": -1.01694
+      }
+    },
+    {
+      "rodada": 10,
+      "nome": "Belgian Grand Prix",
+      "data": "2026-07-19",
+      "pista": {
+        "id": "spa",
+        "nome": "Circuit de Spa-Francorchamps",
+        "cidade": "Spa",
+        "pais": "Belgium",
+        "lat": 50.4372,
+        "long": 5.97139
+      }
+    },
+    {
+      "rodada": 11,
+      "nome": "Hungarian Grand Prix",
+      "data": "2026-07-26",
+      "pista": {
+        "id": "hungaroring",
+        "nome": "Hungaroring",
+        "cidade": "Budapest",
+        "pais": "Hungary",
+        "lat": 47.5789,
+        "long": 19.2486
+      }
+    },
+    {
+      "rodada": 12,
+      "nome": "Dutch Grand Prix",
+      "data": "2026-08-23",
+      "pista": {
+        "id": "zandvoort",
+        "nome": "Circuit Park Zandvoort",
+        "cidade": "Zandvoort",
+        "pais": "Netherlands",
+        "lat": 52.3888,
+        "long": 4.54092
+      }
+    },
+    {
+      "rodada": 13,
+      "nome": "Italian Grand Prix",
+      "data": "2026-09-06",
+      "pista": {
+        "id": "monza",
+        "nome": "Autodromo Nazionale di Monza",
+        "cidade": "Monza",
+        "pais": "Italy",
+        "lat": 45.6156,
+        "long": 9.28111
+      }
+    },
+    {
+      "rodada": 14,
+      "nome": "Spanish Grand Prix",
+      "data": "2026-09-13",
+      "pista": {
+        "id": "madring",
+        "nome": "Madring",
+        "cidade": "Madrid",
+        "pais": "Spain",
+        "lat": 40.46528,
+        "long": -3.61528
+      }
+    },
+    {
+      "rodada": 15,
+      "nome": "Azerbaijan Grand Prix",
+      "data": "2026-09-26",
+      "pista": {
+        "id": "baku",
+        "nome": "Baku City Circuit",
+        "cidade": "Baku",
+        "pais": "Azerbaijan",
+        "lat": 40.3725,
+        "long": 49.8533
+      }
+    },
+    {
+      "rodada": 16,
+      "nome": "Bahrain Grand Prix in Malaysia",
+      "data": "2026-10-04",
+      "pista": {
+        "id": "sepang",
+        "nome": "Sepang International Circuit",
+        "cidade": "Kuala Lumpur",
+        "pais": "Malaysia",
+        "lat": 2.76083,
+        "long": 101.738
+      }
+    },
+    {
+      "rodada": 17,
+      "nome": "Singapore Grand Prix",
+      "data": "2026-10-11",
+      "pista": {
+        "id": "marina_bay",
+        "nome": "Marina Bay Street Circuit",
+        "cidade": "Marina Bay",
+        "pais": "Singapore",
+        "lat": 1.2914,
+        "long": 103.864
+      }
+    },
+    {
+      "rodada": 18,
+      "nome": "United States Grand Prix",
+      "data": "2026-10-25",
+      "pista": {
+        "id": "americas",
+        "nome": "Circuit of the Americas",
+        "cidade": "Austin",
+        "pais": "USA",
+        "lat": 30.1328,
+        "long": -97.6411
+      }
+    },
+    {
+      "rodada": 19,
+      "nome": "Mexico City Grand Prix",
+      "data": "2026-11-01",
+      "pista": {
+        "id": "rodriguez",
+        "nome": "Autódromo Hermanos Rodríguez",
+        "cidade": "Mexico City",
+        "pais": "Mexico",
+        "lat": 19.4042,
+        "long": -99.0907
+      }
+    },
+    {
+      "rodada": 20,
+      "nome": "Brazilian Grand Prix",
+      "data": "2026-11-08",
+      "pista": {
+        "id": "interlagos",
+        "nome": "Autódromo José Carlos Pace",
+        "cidade": "São Paulo",
+        "pais": "Brazil",
+        "lat": -23.7036,
+        "long": -46.6997
+      }
+    },
+    {
+      "rodada": 21,
+      "nome": "Las Vegas Grand Prix",
+      "data": "2026-11-22",
+      "pista": {
+        "id": "vegas",
+        "nome": "Las Vegas Strip Street Circuit",
+        "cidade": "Las Vegas",
+        "pais": "USA",
+        "lat": 36.1147,
+        "long": -115.173
+      }
+    },
+    {
+      "rodada": 22,
+      "nome": "Qatar Grand Prix",
+      "data": "2026-11-29",
+      "pista": {
+        "id": "losail",
+        "nome": "Lusail International Circuit",
+        "cidade": "Lusail",
+        "pais": "Qatar",
+        "lat": 25.49,
+        "long": 51.4542
+      }
+    },
+    {
+      "rodada": 23,
+      "nome": "Abu Dhabi Grand Prix",
+      "data": "2026-12-06",
+      "pista": {
+        "id": "yas_marina",
+        "nome": "Yas Marina Circuit",
+        "cidade": "Abu Dhabi",
+        "pais": "UAE",
+        "lat": 24.4672,
+        "long": 54.6031
+      }
+    }
+  ]
+}

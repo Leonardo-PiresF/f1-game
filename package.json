@@ -10,7 +10,8 @@
     "typecheck": "tsc -b",
     "lint": "eslint .",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "dados": "node scripts/buscar-dados.ts"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

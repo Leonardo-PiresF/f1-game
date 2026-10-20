@@ -72,15 +72,6 @@ button.ativo {
   color: var(--texto-2);
 }
 
-.semente {
-  display: flex;
-  gap: 4px;
-}
-
-.semente input {
-  width: 9ch;
-}
-
 .largar {
   background: var(--destaque);
   border-color: var(--destaque);

@@ -22,13 +22,14 @@ interface Config {
   categoria: Categoria;
   pistaId: string;
   clima: Clima | 'sorteado';
-  semente: number;
 }
 
-const novaSemente = () => Math.floor(Math.random() * 1_000_000);
+// Cada largada sorteia uma semente nova de 32 bits, para as corridas não se repetirem.
+// O motor continua determinístico por semente, o que permite testes e saves.
+const novaSemente = () => crypto.getRandomValues(new Uint32Array(1))[0]!;
 
 export function TelaCorrida() {
-  const [config, setConfig] = useState<Config>({ categoria: 'F1', pistaId: 'interlagos', clima: 'sorteado', semente: novaSemente() });
+  const [config, setConfig] = useState<Config>({ categoria: 'F1', pistaId: 'interlagos', clima: 'sorteado' });
   const [corrida, setCorrida] = useState<Corrida | null>(null);
 
   const largar = () => {
@@ -39,7 +40,7 @@ export function TelaCorrida() {
         categoria: config.categoria,
         pilotos,
         equipes: EQUIPES,
-        semente: config.semente,
+        semente: novaSemente(),
         clima: config.clima === 'sorteado' ? undefined : config.clima,
       }),
     );
@@ -79,20 +80,11 @@ export function TelaCorrida() {
             <option value="molhado">Molhado</option>
           </select>
         </label>
-        <label>
-          Semente
-          <span className="semente">
-            <input type="number" value={config.semente} onChange={(e) => setConfig({ ...config, semente: Number(e.target.value) })} />
-            <button type="button" onClick={() => setConfig({ ...config, semente: novaSemente() })} title="Sortear outra semente">
-              🎲
-            </button>
-          </span>
-        </label>
         <button type="submit" className="largar">
           Largar
         </button>
       </form>
-      {corrida ? <Transmissao key={`${corrida.pistaId}-${corrida.categoria}-${corrida.semente}-${corrida.clima}`} corrida={corrida} /> : <p className="dica">Escolha a pista e clique em Largar. A mesma semente sempre gera a mesma corrida.</p>}
+      {corrida ? <Transmissao key={corrida.semente} corrida={corrida} /> : <p className="dica">Escolha a pista e clique em Largar. Cada largada é uma corrida diferente.</p>}
     </div>
   );
 }

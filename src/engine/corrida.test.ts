@@ -73,14 +73,26 @@ describe('simularCorrida', () => {
   });
 
   it('na chuva, o atributo de chuva pesa', () => {
-    let seco = 0;
-    let molhado = 0;
+    // Hamilton (mestre da chuva) contra Antonelli (carro melhor, chuva mais fraca).
+    const soma = { seco: { ham: 0, ant: 0 }, molhado: { ham: 0, ant: 0 } };
     for (let s = 1; s <= 40; s++) {
-      const pontos = (clima: 'seco' | 'molhado') => correr(s, 'F1', 'interlagos', clima).resultado.find((r) => r.pilotoId === 'hamilton')!.pontos;
-      seco += pontos('seco');
-      molhado += pontos('molhado');
+      for (const clima of ['seco', 'molhado'] as const) {
+        for (const r of correr(s, 'F1', 'interlagos', clima).resultado) {
+          if (r.pilotoId === 'hamilton') soma[clima].ham += r.pontos;
+          if (r.pilotoId === 'antonelli') soma[clima].ant += r.pontos;
+        }
+      }
     }
-    expect(molhado).toBeGreaterThan(seco);
+    expect(soma.molhado.ham / soma.molhado.ant).toBeGreaterThan(soma.seco.ham / soma.seco.ant);
+  });
+
+  it('registra paradas, neutralizações e a classificação', () => {
+    const c = correr(7, 'F1', 'monza', 'seco');
+    expect(c.classificacao.map((l) => l.pilotoId)).toEqual(c.grid.map((g) => g.pilotoId));
+    expect(c.classificacao.slice(0, 10).every((l) => l.ultimaSessao === 'Q3' && l.q3 !== null)).toBe(true);
+    expect(c.classificacao.slice(16).every((l) => l.ultimaSessao === 'Q1' && l.q2 === null)).toBe(true);
+    for (const r of c.resultado) expect(c.paradas[r.pilotoId]!.length).toBe(r.paradas);
+    for (const n of c.neutralizacoes) expect(n.ate).toBeGreaterThanOrEqual(n.de);
   });
 });
 

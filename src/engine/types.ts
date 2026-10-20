@@ -147,15 +147,25 @@ export interface PerfilPista {
   chanceChuva: number; // 0 a 1
 }
 
+export interface ZonaUltrapassagem {
+  inicio: number; // fração da volta a partir da linha de chegada
+  fim: number;
+}
+
 export interface Pista {
   id: string;
   nome: string;
   pais: string;
+  rodada?: number;
+  data?: string;
   perfil: PerfilPista;
   voltas: number; // corrida de F1
   tempoVolta: number; // volta de corrida de referência no seco, sem combustível, em segundos
   perdaBox: number; // tempo perdido no pit lane, sem contar a parada
-  tracado: [number, number][]; // pontos de controle do desenho, no sentido da corrida, de 0 a 100
+  comprimento?: number; // metros
+  tracado: [number, number][]; // pontos no sentido da corrida, começando na linha de chegada, de 0 a 100
+  box?: { entrada: number; saida: number }; // frações da volta onde o pit lane começa e termina
+  zonas?: ZonaUltrapassagem[];
 }
 
 export interface ResultadoCorrida {

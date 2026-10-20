@@ -12,7 +12,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "dados": "node scripts/buscar-dados.ts",
-    "overall": "node scripts/gerar-overall.ts"
+    "overall": "node scripts/gerar-overall.ts",
+    "calibrar": "node scripts/calibrar-corrida.ts"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

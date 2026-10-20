@@ -20,3 +20,7 @@ npm run overall -- 2026
 ```
 
 Lê `dados/brutos/` e gera `src/data/temporada-<ano>.json` (o que o jogo vai ler) e `dados/revisao-overall-<ano>.md`, uma tabela com as notas e os números que levaram a elas, para revisar o balanceamento. As fórmulas estão em `scripts/overall/calcular.ts`.
+
+## Calibrar o simulador de corrida
+
+`npm run calibrar -- <pista> <F1|F2> <corridas> [seco|molhado]` roda muitas corridas com sementes diferentes e imprime médias por corrida (abandonos, ultrapassagens, safety cars, paradas) e pontos, vitórias e poles de cada piloto. Exemplo: `npm run calibrar -- interlagos F1 300 seco`.

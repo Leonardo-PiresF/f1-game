@@ -140,10 +140,11 @@ export interface Contrato {
 }
 
 export interface PerfilPista {
-  velocidade: number;
-  curvas: number;
-  ultrapassagem: number;
-  chanceChuva: number;
+  velocidade: number; // 0 a 1: quanto o motor pesa no ritmo
+  curvas: number; // 0 a 1: quanto a aerodinâmica pesa no ritmo
+  ultrapassagem: number; // 0 a 1: facilidade de ultrapassar
+  desgaste: number; // multiplicador da degradação dos pneus (1 = normal)
+  chanceChuva: number; // 0 a 1
 }
 
 export interface Pista {
@@ -151,6 +152,10 @@ export interface Pista {
   nome: string;
   pais: string;
   perfil: PerfilPista;
+  voltas: number; // corrida de F1
+  tempoVolta: number; // volta de corrida de referência no seco, sem combustível, em segundos
+  perdaBox: number; // tempo perdido no pit lane, sem contar a parada
+  tracado: [number, number][]; // pontos de controle do desenho, no sentido da corrida, de 0 a 100
 }
 
 export interface ResultadoCorrida {

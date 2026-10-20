@@ -1,13 +1,23 @@
-import { TelaCorrida } from './TelaCorrida';
+import { useState } from 'react';
+import { TelaAvulsa } from './TelaAvulsa';
+import { TelaTemporada } from './TelaTemporada';
 
 export function App() {
+  const [tela, setTela] = useState<'temporada' | 'avulsa'>('temporada');
   return (
     <main className="app">
       <header className="topo">
         <h1>F1 Carreira</h1>
-        <p>Simulador de uma corrida, primeira parte jogável. Temporada 2026.</p>
+        <nav className="abas">
+          <button type="button" className={tela === 'temporada' ? 'ativo' : ''} onClick={() => setTela('temporada')}>
+            Campeonato 2026
+          </button>
+          <button type="button" className={tela === 'avulsa' ? 'ativo' : ''} onClick={() => setTela('avulsa')}>
+            Fim de semana avulso
+          </button>
+        </nav>
       </header>
-      <TelaCorrida />
+      {tela === 'temporada' ? <TelaTemporada /> : <TelaAvulsa />}
     </main>
   );
 }

@@ -1,12 +1,19 @@
 import { useMemo } from 'react';
 import type { Pista } from '../engine/types';
 import { corEquipe } from './cores';
-import type { LinhaTorre } from './relogio';
 import { caminhoDoBox, caminhoDoTrecho, criarTracado, ladoDeFora, pontoNaVolta, pontoNoBox } from './tracado';
+
+export interface CarroNoMapa {
+  pilotoId: string;
+  distancia: number; // voltas (só a fração importa para o desenho)
+  noBox: boolean;
+  fora: boolean;
+  apagado?: boolean; // na garagem, durante a classificação
+}
 
 interface Props {
   pista: Pista;
-  linhas: LinhaTorre[];
+  linhas: CarroNoMapa[];
   siglas: Map<string, string>;
   equipeDe: Map<string, string>;
   segundoPiloto: Set<string>;
@@ -64,9 +71,9 @@ export function MapaPista({ pista, linhas, siglas, equipeDe, segundoPiloto, most
         const [x, y] = l.noBox ? pontoNoBox(tracado, box, l.distancia, lado) : pontoNaVolta(tracado, l.distancia);
         const cor = corEquipe(equipeDe.get(l.pilotoId) ?? '');
         return (
-          <g key={l.pilotoId} className={l.fora ? 'carro carro-fora' : 'carro'}>
+          <g key={l.pilotoId} className={l.fora ? 'carro carro-fora' : l.apagado ? 'carro carro-garagem' : 'carro'}>
             <circle cx={x} cy={y} r={1.3} fill={cor} className={segundoPiloto.has(l.pilotoId) ? 'carro-borda-2' : 'carro-borda-1'} />
-            {mostrarNomes && !l.fora && (
+            {mostrarNomes && !l.fora && !l.apagado && (
               <text x={x + 1.8} y={y + 0.7} className="carro-nome">
                 {siglas.get(l.pilotoId)}
               </text>

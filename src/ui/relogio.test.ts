@@ -15,7 +15,7 @@ const corrida = simularCorrida({
   semente: 42,
 });
 const linhas = montarLinhasDoTempo(corrida, pista);
-const torre = (t: number) => torreNoTempo(corrida, pista, linhas, t);
+const torre = (t: number) => torreNoTempo(corrida, linhas, t);
 
 describe('torreNoTempo', () => {
   it('na largada segue o grid', () => {

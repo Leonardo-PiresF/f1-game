@@ -32,5 +32,6 @@ export const PNEUS: Record<Composto, { sigla: string; nome: string; cor: string 
   macio: { sigla: 'S', nome: 'Macio', cor: '#e10600' },
   medio: { sigla: 'M', nome: 'Médio', cor: '#f5c400' },
   duro: { sigla: 'H', nome: 'Duro', cor: '#f0f0f0' },
+  intermediario: { sigla: 'I', nome: 'Intermediário', cor: '#43b02a' },
   chuva: { sigla: 'W', nome: 'Chuva', cor: '#2b7fff' },
 };

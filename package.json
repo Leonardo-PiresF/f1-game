@@ -11,7 +11,8 @@
     "lint": "eslint .",
     "test": "vitest run",
     "test:watch": "vitest",
-    "dados": "node scripts/buscar-dados.ts"
+    "dados": "node scripts/buscar-dados.ts",
+    "overall": "node scripts/gerar-overall.ts"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

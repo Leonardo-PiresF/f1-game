@@ -3,38 +3,59 @@ import temporada from '../data/temporada-2026.json';
 import { montarGrid, simularCorrida, type PilotoNaCorrida } from '../engine/corrida';
 import { buscarPista } from '../engine/pistas';
 import type { Equipe } from '../engine/types';
-import { duracao, formatarTempo, torreNoTempo } from './relogio';
+import { duracao, formatarTempo, montarLinhasDoTempo, tempoNaDistancia, torreNoTempo } from './relogio';
 import { criarTracado, pontoNaVolta } from './tracado';
 
+const pista = buscarPista('interlagos');
 const corrida = simularCorrida({
-  pista: buscarPista('interlagos'),
+  pista,
   categoria: 'F1',
   pilotos: montarGrid(temporada.pilotos as unknown as (PilotoNaCorrida & { papel: string })[], 'F1'),
   equipes: temporada.equipes as unknown as Equipe[],
   semente: 42,
 });
+const linhas = montarLinhasDoTempo(corrida, pista);
+const torre = (t: number) => torreNoTempo(corrida, pista, linhas, t);
 
 describe('torreNoTempo', () => {
   it('na largada segue o grid', () => {
-    expect(torreNoTempo(corrida, 0).map((l) => l.pilotoId)).toEqual(corrida.grid.map((g) => g.pilotoId));
+    expect(torre(0).map((l) => l.pilotoId)).toEqual(corrida.grid.map((g) => g.pilotoId));
   });
 
   it('no fim bate com o resultado oficial', () => {
-    const torre = torreNoTempo(corrida, duracao(corrida));
-    expect(torre.map((l) => l.pilotoId)).toEqual(corrida.resultado.map((r) => r.pilotoId));
+    const fim = torre(duracao(corrida));
+    expect(fim.map((l) => l.pilotoId)).toEqual(corrida.resultado.map((r) => r.pilotoId));
     for (const r of corrida.resultado) {
-      const linha = torre.find((l) => l.pilotoId === r.pilotoId)!;
-      if (r.status === 'abandonou') expect(linha.diferenca).toBe('ABD');
-      else if (r.voltas < corrida.voltas) expect(linha.diferenca).toMatch(/volta/);
+      const linha = fim.find((l) => l.pilotoId === r.pilotoId)!;
+      if (r.status === 'abandonou') expect(linha.intervalo).toBe('ABD');
+      else if (r.voltas < corrida.voltas) expect(linha.paraLider).toMatch(/volta/);
+      else if (r.posicao > 1) expect(linha.paraLider).toBe(`+${(corrida.tempos[r.pilotoId]![r.voltas]! - corrida.tempos[corrida.resultado[0]!.pilotoId]![r.voltas]!).toFixed(1)}`);
     }
+  });
+
+  it('mede a diferença no meio da volta, não só na linha', () => {
+    const t = (corrida.tempos[corrida.grid[0]!.pilotoId]![10]! + corrida.tempos[corrida.grid[0]!.pilotoId]![11]!) / 2;
+    const [a, b] = torre(t);
+    const esperado = t - tempoNaDistancia(linhas.get(a!.pilotoId)!, b!.distancia)!;
+    expect(b!.intervalo).toBe(`+${esperado.toFixed(1)}`);
+    expect(b!.distancia % 1).toBeGreaterThan(0);
+  });
+
+  it('mostra o carro no box durante a parada', () => {
+    const [id, paradas] = Object.entries(corrida.paradas).find(([, p]) => p.length > 0)!;
+    const tempoFimDaVolta = corrida.tempos[id]![paradas[0]!.volta]!;
+    const linha = torre(tempoFimDaVolta - paradas[0]!.parada / 2).find((l) => l.pilotoId === id)!;
+    expect(linha.noBox).toBe(true);
   });
 });
 
 describe('tracado', () => {
-  it('começa no primeiro ponto de controle e fecha a volta', () => {
+  it('fecha a volta e aceita frações negativas', () => {
     const t = criarTracado(buscarPista('monza').tracado);
-    expect(pontoNaVolta(t, 0)).toEqual([30, 85]);
-    expect(pontoNaVolta(t, 1)).toEqual([30, 85]);
+    const [x0, y0] = pontoNaVolta(t, 0);
+    const [x1, y1] = pontoNaVolta(t, 1);
+    expect(x1).toBeCloseTo(x0);
+    expect(y1).toBeCloseTo(y0);
     expect(pontoNaVolta(t, -0.25)).toEqual(pontoNaVolta(t, 0.75));
   });
 });

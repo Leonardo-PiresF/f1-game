@@ -2,22 +2,11 @@
 // mesmos dados dão sempre a mesma corrida. A tela só anima o resultado.
 import type { AreasEquipeF1, AreasEquipeF2, Categoria, Equipe, Piloto, Pista, TracoId } from './types.ts';
 import { criarRng, type Rng } from './rng.ts';
+import { classificar, type LinhaClassificacao } from './classificacao.ts';
+import { melhoresEstrategias, perdaNaVolta, sortearPneus, type Composto, type Estrategia, type PneusDoFimDeSemana } from './pneus.ts';
 
-export type Composto = 'macio' | 'medio' | 'duro' | 'chuva';
+export type { Composto } from './pneus.ts';
 export type Clima = 'seco' | 'molhado';
-
-interface DadosComposto {
-  ritmo: number; // segundos a mais por volta que o macio novo
-  desgaste: number; // segundos perdidos por volta de uso
-  vida: number; // voltas até o pneu "acabar" numa pista de desgaste normal
-}
-
-export const COMPOSTOS: Record<Composto, DadosComposto> = {
-  macio: { ritmo: 0, desgaste: 0.08, vida: 20 },
-  medio: { ritmo: 0.45, desgaste: 0.05, vida: 32 },
-  duro: { ritmo: 0.8, desgaste: 0.032, vida: 45 },
-  chuva: { ritmo: 0, desgaste: 0.03, vida: 35 },
-};
 
 export const PONTOS = [25, 18, 15, 12, 10, 8, 6, 4, 2, 1];
 
@@ -38,11 +27,13 @@ export type TipoEvento =
   | 'ultrapassagem'
   | 'box'
   | 'box_lento'
+  | 'undercut'
   | 'batida'
   | 'quebra'
   | 'toque'
   | 'punicao'
   | 'safety_car'
+  | 'vsc'
   | 'relargada'
   | 'bandeirada';
 
@@ -76,11 +67,24 @@ export interface ResultadoPiloto {
   pontos: number;
   paradas: number;
   melhorVolta: number;
+  pneus: Composto[]; // compostos usados, na ordem
 }
 
 export interface Abandono {
   tempo: number; // instante da corrida em que parou
   distancia: number; // em voltas, a partir da linha de largada
+}
+
+export interface ParadaBox {
+  volta: number; // a volta em que entrou no box (a parada fica no fim dela)
+  perda: number; // segundos a mais nessa volta, incluindo o carro parado
+  parada: number; // segundos com o carro parado
+}
+
+export interface Neutralizacao {
+  tipo: 'SC' | 'VSC';
+  de: number; // primeira volta neutralizada
+  ate: number; // última volta neutralizada
 }
 
 export interface Corrida {
@@ -90,21 +94,19 @@ export interface Corrida {
   voltas: number;
   tempoVolta: number;
   semente: number;
+  pneus: PneusDoFimDeSemana;
+  classificacao: LinhaClassificacao[];
   grid: { pilotoId: string; tempo: number }[];
   // Instante em que cada piloto cruza a linha ao fim de cada volta. O índice 0 é a
   // largada (os de trás cruzam a linha um pouco depois).
   tempos: Record<string, number[]>;
+  paradas: Record<string, ParadaBox[]>;
   abandonos: Record<string, Abandono>;
-  voltasSafetyCar: number[];
+  neutralizacoes: Neutralizacao[];
   estados: EstadoPiloto[][]; // por volta; índice 0 = grid
   eventos: EventoCorrida[];
   resultado: ResultadoPiloto[];
   voltaMaisRapida: { pilotoId: string; volta: number; tempo: number } | null;
-}
-
-interface Parada {
-  composto: Composto;
-  ate: number; // volta ao fim da qual o piloto para (Infinity no último stint)
 }
 
 interface Carro {
@@ -115,12 +117,15 @@ interface Carro {
   sigma: number;
   fatorPneu: number;
   estrategia: number;
-  plano: Parada[];
+  compostos: Composto[]; // plano de pneus
+  paradasPlanejadas: number[]; // volta de cada parada ainda por fazer, na ordem
   stint: number;
   pneu: Composto;
+  usados: Composto[];
   idade: number;
   paradas: number;
   tempos: number[];
+  box: ParadaBox[];
   fora: boolean;
   motivo?: string;
   punicao: number;
@@ -132,10 +137,20 @@ interface Carro {
   cum: number;
   pitando: boolean;
   atraso: number; // tempo perdido num toque, aplicado no fim da volta
+  frenteNaParada?: string; // quem estava logo à frente quando parou (para detectar undercut)
+  gapNaParada?: number;
+}
+
+interface Undercut {
+  atacante: Carro;
+  alvo: Carro;
+  volta: number;
 }
 
 const GAP_MINIMO = 0.3; // segundos entre dois carros na mesma linha
 const SEGUNDOS_POR_PONTO = 0.07; // diferença de ritmo por ponto de nota
+const RITMO_SC = 1.4; // volta atrás do safety car, em relação à volta normal
+const RITMO_VSC = 1.35;
 
 const limitar = (v: number, min: number, max: number) => Math.min(max, Math.max(min, v));
 
@@ -174,34 +189,18 @@ function combinar(categoria: Categoria, piloto: number, carro: number): number {
   return categoria === 'F1' ? 0.55 * piloto + 0.45 * carro : 0.8 * piloto + 0.2 * carro;
 }
 
-function estrategiaDe(c: { p: Piloto; equipe: Equipe }): number {
-  return c.equipe.areas.estrategia + 3 * intensidade(c.p, 'estrategista');
-}
-
-function planejar(c: Carro, pista: Pista, voltas: number, clima: Clima, largada: number, rng: Rng): Parada[] {
-  const vidaReal = (k: Composto) => COMPOSTOS[k].vida / (pista.perfil.desgaste * c.fatorPneu);
-  let compostos: Composto[];
-  if (clima === 'molhado') {
-    compostos = vidaReal('chuva') >= voltas ? ['chuva'] : ['chuva', 'chuva'];
-  } else {
-    const umaParada: Composto[][] = largada <= 10 ? [['medio', 'duro'], ['medio', 'duro'], ['macio', 'duro']] : [['duro', 'medio'], ['medio', 'duro'], ['macio', 'duro']];
-    compostos = umaParada[Math.floor(rng() * umaParada.length)]!;
-    const alcance = compostos.reduce((s, k) => s + vidaReal(k), 0);
-    if (alcance < voltas * 0.95) compostos = rng() < 0.5 ? ['macio', 'medio', 'medio'] : ['medio', 'duro', 'medio'];
+// Cada equipe escolhe entre as estratégias boas; quem tem estratégia pior erra mais na escolha e no momento.
+function escolherEstrategia(opcoes: Estrategia[], estrategia: number, rng: Rng): Estrategia {
+  const melhor = opcoes[0]!;
+  const tolerancia = 2 + (100 - estrategia) / 5;
+  const candidatas = opcoes.filter((o) => o.custo <= melhor.custo + tolerancia).slice(0, 5);
+  const pesos = candidatas.map((o) => Math.exp(-(o.custo - melhor.custo) / 2));
+  let r = rng() * pesos.reduce((s, p) => s + p, 0);
+  for (let i = 0; i < candidatas.length; i++) {
+    r -= pesos[i]!;
+    if (r <= 0) return candidatas[i]!;
   }
-  const vidas = compostos.map(vidaReal);
-  const total = vidas.reduce((s, v) => s + v, 0);
-  const erro = (100 - c.estrategia) / 12;
-  const plano: Parada[] = [];
-  let acumulado = 0;
-  compostos.forEach((composto, i) => {
-    acumulado += vidas[i]!;
-    const ultimo = i === compostos.length - 1;
-    const ideal = (acumulado / total) * voltas;
-    const ate = ultimo ? Infinity : limitar(Math.round(ideal + gauss(rng) * (1.5 + erro)), 5, voltas - 3);
-    plano.push({ composto, ate });
-  });
-  return plano;
+  return melhor;
 }
 
 export function simularCorrida(params: ParametrosCorrida): Corrida {
@@ -210,32 +209,38 @@ export function simularCorrida(params: ParametrosCorrida): Corrida {
   const clima: Clima = params.clima ?? (rng() < pista.perfil.chanceChuva ? 'molhado' : 'seco');
   const voltas = categoria === 'F1' ? pista.voltas : Math.round(pista.voltas * 0.57);
   const tempoVolta = pista.tempoVolta * (categoria === 'F1' ? 1 : 1.07) + (clima === 'molhado' ? 10 : 0);
+  const pneus = sortearPneus(pista, rng);
+  const zonas = pista.zonas?.length ?? 1;
+  // Ar sujo: em pista travada, seguir de perto custa mais e é preciso ser bem mais rápido para tentar.
+  const arSujo = 0.15 + 0.5 * (1 - pista.perfil.ultrapassagem);
   const equipes = new Map(params.equipes.map((e) => [e.id, e]));
   const eventos: EventoCorrida[] = [];
   const nomeDe = (c: Carro) => sobrenome(c.p.nome);
   const evento = (volta: number, tipo: TipoEvento, texto: string, carros: Carro[]) =>
     eventos.push({ volta, tipo, texto, pilotos: carros.map((c) => c.p.id) });
+  const molhado = clima === 'molhado';
 
   const carros: Carro[] = params.pilotos.map((p) => {
     const equipe = equipes.get(p.equipeId);
     if (!equipe) throw new Error(`Equipe desconhecida para ${p.id}: ${p.equipeId}`);
     const a = p.atributos;
-    const carro = notaCarro(equipe, pista);
-    const molhado = clima === 'molhado';
     return {
       p,
       equipe,
-      nota: combinar(categoria, notaPiloto(p, clima, a.ritmoCorrida), carro),
+      nota: combinar(categoria, notaPiloto(p, clima, a.ritmoCorrida), notaCarro(equipe, pista)),
       formaDoDia: gauss(rng) * (0.12 + (100 - a.consistencia) * 0.008) * (molhado ? 1.5 : 1),
       sigma: (0.12 + (100 - a.consistencia) * 0.012) * (molhado ? 1.6 : 1),
       fatorPneu: limitar(1 - (a.gestaoPneu - 85) * 0.012, 0.8, 1.2) * (1 - 0.1 * intensidade(p, 'gestor_pneus')),
-      estrategia: estrategiaDe({ p, equipe }),
-      plano: [],
+      estrategia: equipe.areas.estrategia + 3 * intensidade(p, 'estrategista'),
+      compostos: [],
+      paradasPlanejadas: [],
       stint: 0,
       pneu: 'medio',
+      usados: [],
       idade: 0,
       paradas: 0,
       tempos: [],
+      box: [],
       fora: false,
       punicao: 0,
       melhorVolta: Infinity,
@@ -246,33 +251,64 @@ export function simularCorrida(params: ParametrosCorrida): Corrida {
       atraso: 0,
     };
   });
+  const porId = new Map(carros.map((c) => [c.p.id, c]));
 
-  // Classificação: uma volta lançada com pouco combustível.
-  const grid = carros
-    .map((c) => {
+  // Classificação: voltas lançadas com pouco combustível e pneu macio.
+  const classificacao = classificar(
+    carros.map((c) => {
       const a = c.p.atributos;
       const nota = combinar(categoria, notaPiloto(c.p, clima, a.quali), notaCarro(c.equipe, pista));
-      const sigma = (0.1 + (100 - a.consistencia) * 0.006) * (clima === 'molhado' ? 1.8 : 1);
-      const erro = rng() < 0.08 * intensidade(c.p, 'erros_graves') ? 1.2 + rng() : 0;
-      const tempo = tempoVolta - 1.8 - SEGUNDOS_POR_PONTO * (nota - 85) + c.formaDoDia + gauss(rng) * sigma + erro;
-      return { c, tempo };
-    })
-    .sort((a, b) => a.tempo - b.tempo);
+      return {
+        id: c.p.id,
+        ritmo: tempoVolta - 1.8 - SEGUNDOS_POR_PONTO * (nota - 85) + c.formaDoDia,
+        sigma: (0.08 + (100 - a.consistencia) * 0.005) * (molhado ? 1.8 : 1),
+        chanceErro: 0.03 + 0.06 * intensidade(c.p, 'erros_graves') + (molhado ? 0.05 : 0),
+      };
+    }),
+    categoria,
+    rng,
+  );
+  const ordemGrid = classificacao.map((l) => porId.get(l.pilotoId)!);
+  const tempoDeQuali = (l: LinhaClassificacao) => l.q3 ?? l.q2 ?? l.q1 ?? Infinity;
 
-  grid.forEach(({ c }, i) => {
-    c.plano = planejar(c, pista, voltas, clima, i + 1, rng);
-    c.pneu = c.plano[0]!.composto;
+  // Estratégia de pneus: as equipes conhecem o comportamento do fim de semana pelos treinos.
+  const cacheEstrategias = new Map<number, Estrategia[]>();
+  ordemGrid.forEach((c, i) => {
+    if (molhado) {
+      const vida = pneus.chuva.vida / c.fatorPneu;
+      c.compostos = vida >= voltas ? ['chuva'] : ['chuva', 'chuva'];
+      c.paradasPlanejadas = c.compostos.length > 1 ? [Math.round(voltas / 2 + gauss(rng) * 2)] : [];
+    } else {
+      const chave = Math.round(c.fatorPneu * 50) / 50;
+      let opcoes = cacheEstrategias.get(chave);
+      if (!opcoes) {
+        opcoes = melhoresEstrategias(pneus, voltas, pista.perdaBox, chave);
+        cacheEstrategias.set(chave, opcoes);
+      }
+      const escolhida = escolherEstrategia(opcoes, c.estrategia, rng);
+      const erro = (100 - c.estrategia) / 12;
+      c.compostos = escolhida.compostos;
+      let anterior = 0;
+      c.paradasPlanejadas = escolhida.paradas.map((v) => {
+        anterior = limitar(Math.round(v + gauss(rng) * (1 + erro)), anterior + 4, voltas - 3);
+        return anterior;
+      });
+    }
+    c.pneu = c.compostos[0]!;
+    c.usados = [c.pneu];
     c.cum = i * 0.2;
     c.tempos.push(c.cum);
   });
 
-  const largadaDe = new Map(grid.map(({ c }, i) => [c.p.id, i + 1]));
+  const largadaDe = new Map(ordemGrid.map((c, i) => [c.p.id, i + 1]));
   const estados: EstadoPiloto[][] = [];
   const abandonos: Record<string, Abandono> = {};
-  const voltasSafetyCar: number[] = [];
-  let ordem = grid.map(({ c }) => c);
-  let safetyCarAte = 0;
+  const neutralizacoes: Neutralizacao[] = [];
+  const undercuts: Undercut[] = [];
+  let ordem = [...ordemGrid];
   let voltaRapida: Corrida['voltaMaisRapida'] = null;
+
+  const neutralizada = (volta: number) => neutralizacoes.find((n) => volta >= n.de && volta <= n.ate);
 
   const registrarEstado = (pitaram: Set<Carro>) => {
     const ativos = ordem.filter((c) => !c.fora);
@@ -291,97 +327,166 @@ export function simularCorrida(params: ParametrosCorrida): Corrida {
   };
   registrarEstado(new Set());
 
-  const abandonar = (c: Carro, volta: number, motivo: string, tempoDaVolta: number) => {
+  const abandonar = (c: Carro, volta: number, motivo: string) => {
     const fracao = 0.15 + rng() * 0.7;
     c.fora = true;
     c.motivo = motivo;
-    abandonos[c.p.id] = { tempo: c.tempos[c.tempos.length - 1]! + tempoDaVolta * fracao, distancia: volta - 1 + fracao };
+    abandonos[c.p.id] = { tempo: c.tempos[c.tempos.length - 1]! + tempoVolta * fracao, distancia: volta - 1 + fracao };
   };
 
-  const chamarSafetyCar = (volta: number, chance: number) => {
-    if (volta < voltas - 2 && safetyCarAte < volta && rng() < chance) {
-      safetyCarAte = volta + 2 + Math.floor(rng() * 3);
-      evento(volta, 'safety_car', `Safety car na pista`, []);
+  // Depois de um incidente a direção de prova decide: safety car, safety car virtual ou nada.
+  const neutralizar = (volta: number, chanceSC: number, chanceVSC: number) => {
+    const inicio = volta + 1;
+    if (inicio >= voltas - 1 || neutralizada(volta) || neutralizada(inicio)) return;
+    const r = rng();
+    if (r < chanceSC) {
+      neutralizacoes.push({ tipo: 'SC', de: inicio, ate: Math.min(voltas - 1, inicio + 2 + Math.floor(rng() * 3)) });
+      evento(inicio, 'safety_car', 'Safety car na pista: o pelotão se junta atrás dele', []);
+    } else if (r < chanceSC + chanceVSC) {
+      neutralizacoes.push({ tipo: 'VSC', de: inicio, ate: Math.min(voltas - 1, inicio + Math.floor(rng() * 2)) });
+      evento(inicio, 'vsc', 'Safety car virtual: todos reduzem e as distâncias se mantêm', []);
     }
   };
 
+  const perdaPneu = (c: Carro, composto: Composto, idade: number) => perdaNaVolta(pneus[composto], idade, c.fatorPneu);
+
   for (let volta = 1; volta <= voltas; volta++) {
-    const sobSafetyCar = volta <= safetyCarAte;
-    const relargada = !sobSafetyCar && safetyCarAte === volta - 1 && volta > 1;
-    if (sobSafetyCar) voltasSafetyCar.push(volta);
-    if (relargada) evento(volta, 'relargada', 'Relargada', []);
+    const neutra = neutralizada(volta);
+    const anterior = neutralizada(volta - 1);
+    if (anterior && !neutra) {
+      evento(volta, 'relargada', anterior.tipo === 'SC' ? 'Relargada: o safety car sai da pista' : 'Fim do safety car virtual', []);
+    }
+    const relargada = anterior?.tipo === 'SC' && !neutra;
     const ativos = ordem.filter((c) => !c.fora);
     const pitaram = new Set<Carro>();
     const pressao = volta > voltas - 10;
+    const restantes = voltas - volta;
 
-    // Quebras e erros acontecem antes do fim da volta.
+    // Quebras e erros acontecem durante a volta.
     for (const c of ativos) {
       const a = c.p.atributos;
       const quebra = (100 - c.equipe.sistemas.confiabilidade) * 0.00004;
       let erro = 0.00045 * Math.max(0.3, 1 + (90 - a.consistencia) * 0.08) * (1 + intensidade(c.p, 'erros_graves'));
-      if (clima === 'molhado') erro *= 4;
+      if (molhado) erro *= 4;
       if (volta === 1) erro *= 3;
-      if (sobSafetyCar) erro *= 0.1;
+      if (neutra) erro *= 0.1;
       if (rng() < quebra) {
-        abandonar(c, volta, 'Quebra', tempoVolta);
+        abandonar(c, volta, 'Quebra');
         evento(volta, 'quebra', `${nomeDe(c)} abandona com problema no carro`, [c]);
-        chamarSafetyCar(volta + 1, 0.15);
+        neutralizar(volta, 0.1, 0.4);
       } else if (rng() < erro) {
-        abandonar(c, volta, 'Batida', tempoVolta);
+        abandonar(c, volta, 'Batida');
         evento(volta, 'batida', `${nomeDe(c)} bate e está fora`, [c]);
-        chamarSafetyCar(volta + 1, 0.5);
+        neutralizar(volta, 0.5, 0.3);
       }
     }
 
     const naPista = ativos.filter((c) => !c.fora);
+    // Decisões de box, olhando a corrida como estava na última passagem pela linha.
     naPista.forEach((c, i) => {
-      const a = c.p.atributos;
-      const dados = COMPOSTOS[c.pneu];
-      const vida = dados.vida / (pista.perfil.desgaste * c.fatorPneu);
-      const pneu = dados.ritmo + dados.desgaste * c.idade * c.fatorPneu * pista.perfil.desgaste + Math.max(0, c.idade - vida) * 0.3;
-      const combustivel = 1.8 * (1 - volta / voltas);
-      let sigma = c.sigma;
-      if (pressao && i < 3 && intensidade(c.p, 'frio_sob_pressao') > 0) sigma *= 0.8;
-      let t = tempoVolta + combustivel + pneu - SEGUNDOS_POR_PONTO * (c.nota - 85) + c.formaDoDia + gauss(rng) * sigma;
-      if (volta === 1) t += 4 - (a.largada - 80) * 0.03 + gauss(rng) * 0.25 + (rng() < 0.03 ? 1.5 : 0);
-      if (sobSafetyCar) t = tempoVolta * 1.4;
-
-      // Box: parada planejada, ou antecipada para aproveitar o safety car.
-      const proxima = c.plano[c.stint];
-      let parar = proxima !== undefined && proxima.ate <= volta;
-      if (!parar && sobSafetyCar && proxima && proxima.ate !== Infinity && proxima.ate - volta <= 10 && c.idade >= 5) {
-        parar = rng() < 0.4 + (c.estrategia - 75) * 0.02;
-      }
-      if (!parar && clima === 'seco' && c.idade > vida * 1.35 && c.stint < c.plano.length - 1) parar = true;
       c.pitando = false;
-      if (parar && c.stint < c.plano.length - 1) {
-        const ps = c.equipe.areas.pitStop;
-        let parada = 2.2 + (100 - ps) * 0.04 + Math.abs(gauss(rng)) * 0.3;
-        const lenta = rng() < 0.02 + (100 - ps) * 0.002;
-        if (lenta) parada += 3 + rng() * 5;
-        t += pista.perdaBox * (sobSafetyCar ? 0.5 : 1) + parada;
-        c.stint++;
-        c.pneu = c.plano[c.stint]!.composto;
-        c.idade = 0;
-        c.paradas++;
-        c.pitando = true;
-        pitaram.add(c);
-        evento(volta, lenta ? 'box_lento' : 'box', lenta ? `Parada lenta para ${nomeDe(c)} (${parada.toFixed(1)}s)` : `${nomeDe(c)} para nos boxes`, [c]);
+      const proxima = c.paradasPlanejadas[0];
+      const temParada = proxima !== undefined && c.stint < c.compostos.length - 1;
+      const frente = naPista[i - 1];
+      const vida = pneus[c.pneu].vida / c.fatorPneu;
+      let parar = temParada && proxima <= volta;
+      let motivo: 'plano' | 'undercut' | 'cobertura' | 'neutralizacao' | 'pneu' = 'plano';
+
+      if (!parar && temParada && neutra && proxima - volta <= 10 && c.idade >= 5) {
+        parar = rng() < (neutra.tipo === 'SC' ? 0.45 : 0.3) + (c.estrategia - 75) * 0.02;
+        motivo = 'neutralizacao';
       }
-      c.desejado = c.cum + t;
+      // Undercut: parar antes do carro da frente para passar com o pneu novo.
+      if (!parar && !neutra && temParada && frente && !frente.fora && frente.paradas === c.paradas && proxima - volta <= 6 && c.idade >= 8 && volta > 3) {
+        const gap = c.cum - frente.cum;
+        const novo = c.compostos[c.stint + 1]!;
+        const ganho = [0, 1].reduce((s, k) => s + perdaPneu(frente, frente.pneu, frente.idade + k) - perdaPneu(c, novo, k), 0);
+        if (gap < 2.5 && ganho > gap + 0.4 && rng() < limitar(0.2 + (c.estrategia - 75) * 0.025, 0.08, 0.75)) {
+          parar = true;
+          motivo = 'undercut';
+          undercuts.push({ atacante: c, alvo: frente, volta });
+          evento(volta, 'undercut', `${nomeDe(c)} para cedo para tentar o undercut em ${nomeDe(frente)}`, [c, frente]);
+        }
+      }
+      // Cobertura: o carro de trás parou na volta anterior; parar agora para não perder a posição.
+      if (!parar && !neutra && temParada && proxima - volta <= 10 && c.idade >= 6) {
+        const atacante = carros.find((o) => !o.fora && o.box.at(-1)?.volta === volta - 1 && o.frenteNaParada === c.p.id && (o.gapNaParada ?? 9) < 3);
+        if (atacante && rng() < limitar(0.3 + (c.estrategia - 75) * 0.03, 0.12, 0.85)) {
+          parar = true;
+          motivo = 'cobertura';
+          evento(volta, 'undercut', `${nomeDe(c)} responde a ${nomeDe(atacante)} e para na volta seguinte`, [c, atacante]);
+        }
+      }
+      // Pneu acabou antes do planejado.
+      if (!parar && !molhado && temParada && c.idade > vida * 1.35 && restantes > 3) {
+        parar = true;
+        motivo = 'pneu';
+      }
+      if (!parar || !temParada) return;
+
+      const ps = c.equipe.areas.pitStop;
+      let parada = 2.2 + (100 - ps) * 0.04 + Math.abs(gauss(rng)) * 0.3;
+      const lenta = rng() < 0.02 + (100 - ps) * 0.002;
+      if (lenta) parada += 3 + rng() * 5;
+      const fatorPit = neutra?.tipo === 'SC' ? 0.5 : neutra?.tipo === 'VSC' ? 0.6 : 1;
+      const perda = pista.perdaBox * fatorPit + parada;
+      c.box.push({ volta, perda, parada });
+      c.frenteNaParada = frente?.p.id;
+      c.gapNaParada = frente ? c.cum - frente.cum : undefined;
+      // Antecipar ou atrasar uma parada empurra as seguintes na mesma medida.
+      const desvio = volta - proxima;
+      c.paradasPlanejadas = c.paradasPlanejadas.slice(1).map((v) => limitar(v + desvio, volta + 4, voltas - 3));
+      c.stint++;
+      c.pneu = c.compostos[c.stint]!;
+      c.usados.push(c.pneu);
+      c.idade = -1; // vira 0 no fim desta volta: o pneu novo só começa a contar na próxima
+      c.paradas++;
+      c.pitando = true;
+      pitaram.add(c);
+      if (lenta) evento(volta, 'box_lento', `Parada lenta para ${nomeDe(c)} (${parada.toFixed(1)}s)`, [c]);
+      else if (motivo !== 'undercut' && motivo !== 'cobertura') evento(volta, 'box', `${nomeDe(c)} para nos boxes (${parada.toFixed(1)}s)`, [c]);
     });
 
-    // Resolve a ordem no fim da volta: quem é mais rápido tenta passar o carro da frente.
+    // Tempo de volta de cada um.
+    naPista.forEach((c, i) => {
+      const a = c.p.atributos;
+      const pitada = c.box.at(-1);
+      const perdaBox = c.pitando && pitada ? pitada.perda : 0;
+      // Quem parou anda a volta com o pneu velho; o novo só conta a partir da próxima.
+      const pneuDaVolta = c.pitando ? c.usados[c.usados.length - 2]! : c.pneu;
+      const idadeDaVolta = c.pitando ? (c.box.length > 1 ? volta - c.box[c.box.length - 2]!.volta : volta) - 1 : c.idade;
+      if (neutra) {
+        const ritmo = neutra.tipo === 'SC' ? RITMO_SC : RITMO_VSC;
+        c.desejado = c.cum + tempoVolta * ritmo + Math.abs(gauss(rng)) * 0.05 + perdaBox;
+        return;
+      }
+      let sigma = c.sigma;
+      if (pressao && i < 3 && intensidade(c.p, 'frio_sob_pressao') > 0) sigma *= 0.8;
+      const combustivel = 1.8 * (1 - volta / voltas);
+      let t = tempoVolta + combustivel + perdaPneu(c, pneuDaVolta, idadeDaVolta) - SEGUNDOS_POR_PONTO * (c.nota - 85) + c.formaDoDia + gauss(rng) * sigma;
+      if (volta === 1) t += 4 - (a.largada - 80) * 0.03 + gauss(rng) * 0.25 + (rng() < 0.03 ? 1.5 : 0);
+      // Volta de saída do box: pneu frio.
+      if (!c.pitando && c.box.at(-1)?.volta === volta - 1 && pneuDaVolta !== 'chuva') t += 0.6;
+      c.desejado = c.cum + t + perdaBox;
+    });
+
+    // Resolve a ordem no fim da volta.
     const fila: Carro[] = [];
-    if (sobSafetyCar) {
-      let anterior = -Infinity;
+    if (neutra?.tipo === 'SC') {
+      // Safety car: o pelotão se junta, carro atrás de carro.
+      let anteriorCum = -Infinity;
       for (const c of naPista) {
-        const atraso = c.pitando ? c.desejado - (c.cum + tempoVolta * 1.4) : 0;
-        c.cum = Math.max(anterior + 0.8, c.cum + tempoVolta * 1.4 * 0.65) + atraso;
-        if (!c.pitando) anterior = c.cum;
+        const extra = c.pitando ? c.box.at(-1)!.perda : 0;
+        c.cum = Math.max(anteriorCum + 0.8, c.cum + tempoVolta * RITMO_SC * 0.65) + extra;
+        if (!c.pitando) anteriorCum = c.cum;
         fila.push(c);
       }
-      fila.sort((a, b) => a.cum - b.cum);
+    } else if (neutra?.tipo === 'VSC') {
+      // Safety car virtual: todos reduzem igual, as distâncias se mantêm e ninguém ultrapassa.
+      for (const c of naPista) {
+        c.cum = c.desejado;
+        fila.push(c);
+      }
     } else {
       for (const c of naPista) {
         let idx = fila.length;
@@ -399,7 +504,7 @@ export function simularCorrida(params: ParametrosCorrida): Corrida {
             break;
           }
           // Ar sujo: quem segue de perto perde um pouco, e só tenta se estiver de fato mais rápido.
-          cum += 0.15;
+          cum += arSujo;
           if (cum >= frente.cum || tentativas === 0) {
             cum = Math.max(cum, frente.cum + GAP_MINIMO);
             break;
@@ -438,13 +543,30 @@ export function simularCorrida(params: ParametrosCorrida): Corrida {
       const tempo = c.cum - c.tempos[c.tempos.length - 1]!;
       c.tempos.push(c.cum);
       c.idade++;
-      if (!sobSafetyCar && !c.pitando && volta > 1 && tempo < c.melhorVolta) c.melhorVolta = tempo;
-      if (!sobSafetyCar && !c.pitando && volta > 1 && (!voltaRapida || tempo < voltaRapida.tempo)) {
+      if (!neutra && !c.pitando && volta > 1 && tempo < c.melhorVolta) c.melhorVolta = tempo;
+      if (!neutra && !c.pitando && volta > 1 && (!voltaRapida || tempo < voltaRapida.tempo)) {
         voltaRapida = { pilotoId: c.p.id, volta, tempo };
       }
     }
-    // Toques podem ter tirado alguém da corrida durante a disputa.
     ordem = [...fila.filter((c) => !c.fora), ...carros.filter((c) => c.fora)];
+
+    // Undercuts se resolvem quando o alvo também para.
+    for (let k = undercuts.length - 1; k >= 0; k--) {
+      const u = undercuts[k]!;
+      if (u.atacante.fora || u.alvo.fora || volta - u.volta > 12) {
+        undercuts.splice(k, 1);
+        continue;
+      }
+      if (u.alvo.paradas < u.atacante.paradas || u.alvo.pitando) continue;
+      const passou = ordem.indexOf(u.atacante) < ordem.indexOf(u.alvo);
+      evento(
+        volta,
+        'undercut',
+        passou ? `O undercut deu certo: ${nomeDe(u.atacante)} sai na frente de ${nomeDe(u.alvo)}` : `${nomeDe(u.alvo)} segura ${nomeDe(u.atacante)} e o undercut não funciona`,
+        [u.atacante, u.alvo],
+      );
+      undercuts.splice(k, 1);
+    }
     registrarEstado(pitaram);
   }
 
@@ -460,10 +582,12 @@ export function simularCorrida(params: ParametrosCorrida): Corrida {
     const sujoD = intensidade(defensor.p, 'sujo_roda_a_roda') + (companheiros ? intensidade(defensor.p, 'sujo_companheiro') : 0);
     const defesa = ad.defesa + 3 * sujoD;
     const rodaA = aa.rodaARoda + 3 * sujoA;
-    let chance = 0.05 + 0.4 * pista.perfil.ultrapassagem + vantagem * 0.35 + (aa.ultrapassagem - defesa) * 0.012 + (rodaA - ad.rodaARoda) * 0.004;
-    if (agressivo) chance += 0.1;
-    if (volta === 1 || relargada) chance += 0.1;
-    chance = limitar(chance, 0.03, 0.9);
+    // Cada zona de modo de ultrapassagem é mais uma chance de chegar junto e tentar.
+    const facilidade = 0.05 + 0.6 * pista.perfil.ultrapassagem + 0.04 * zonas;
+    let chance = facilidade * (0.6 + vantagem * 0.8 + (aa.ultrapassagem - defesa) * 0.02 + (rodaA - ad.rodaARoda) * 0.008);
+    if (agressivo) chance *= 1.2;
+    if (volta === 1 || relargada) chance *= 1.3;
+    chance = limitar(chance, 0.01, 0.9);
 
     let toque = 0.01 * (1 + sujoA) * (1 + sujoD) * (agressivo ? 3 : 1);
     toque *= 1 - 0.5 * intensidade(atacante.p, 'roda_a_roda_limpo');
@@ -479,14 +603,13 @@ export function simularCorrida(params: ParametrosCorrida): Corrida {
         evento(volta, 'punicao', `${nomeDe(culpado)} leva 5 segundos de punição`, [culpado]);
       }
       if (rng() < 0.35) {
-        abandonar(vitima, volta, 'Toque', tempoVolta);
+        abandonar(vitima, volta, 'Toque');
         evento(volta, 'batida', `${nomeDe(vitima)} fica fora depois do toque`, [vitima]);
-        chamarSafetyCar(volta + 1, 0.5);
+        neutralizar(volta, 0.4, 0.3);
         return vitima === defensor ? 'passou' : 'segurou';
       }
       vitima.atraso += 3 + rng() * 6;
-      if (vitima === defensor) return 'passou';
-      return 'segurou';
+      return vitima === defensor ? 'passou' : 'segurou';
     }
 
     if (rng() < chance) {
@@ -526,6 +649,7 @@ export function simularCorrida(params: ParametrosCorrida): Corrida {
     pontos: c.fora ? 0 : (PONTOS[i] ?? 0),
     paradas: c.paradas,
     melhorVolta: c.melhorVolta,
+    pneus: c.usados,
   }));
   const vencedor = chegaram[0]!;
   evento(voltas, 'bandeirada', `${nomeDe(vencedor)} vence em ${pista.nome}`, [vencedor]);
@@ -537,10 +661,13 @@ export function simularCorrida(params: ParametrosCorrida): Corrida {
     voltas,
     tempoVolta,
     semente,
-    grid: grid.map(({ c, tempo }) => ({ pilotoId: c.p.id, tempo })),
+    pneus,
+    classificacao,
+    grid: classificacao.map((l) => ({ pilotoId: l.pilotoId, tempo: tempoDeQuali(l) })),
     tempos: Object.fromEntries(carros.map((c) => [c.p.id, c.tempos])),
+    paradas: Object.fromEntries(carros.map((c) => [c.p.id, c.box.filter((b) => b.volta < c.tempos.length)])),
     abandonos,
-    voltasSafetyCar,
+    neutralizacoes,
     estados,
     eventos,
     resultado,

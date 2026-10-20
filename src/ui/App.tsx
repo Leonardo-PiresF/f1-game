@@ -1,18 +1,13 @@
-import { useJogo } from './store';
+import { TelaCorrida } from './TelaCorrida';
 
 export function App() {
-  const { ano, semente, novoJogo } = useJogo();
-
   return (
     <main className="app">
-      <h1>F1 Carreira</h1>
-      <p>Simulador de carreira de F1. Em construção.</p>
-      <p>
-        Temporada {ano} · semente {semente}
-      </p>
-      <button type="button" onClick={() => novoJogo()}>
-        Novo jogo
-      </button>
+      <header className="topo">
+        <h1>F1 Carreira</h1>
+        <p>Simulador de uma corrida, primeira parte jogável. Temporada 2026.</p>
+      </header>
+      <TelaCorrida />
     </main>
   );
 }

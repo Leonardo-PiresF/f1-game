@@ -1,0 +1,1561 @@
+{
+  "ano": 2026,
+  "equipes": [
+    {
+      "id": "mercedes",
+      "nome": "Mercedes",
+      "categoria": "F1",
+      "fornecedorMotor": "Mercedes",
+      "areas": {
+        "motor": 95,
+        "aerodinamica": 91,
+        "chassi": 90,
+        "estrategia": 88,
+        "pitStop": 87
+      },
+      "sistemas": {
+        "confiabilidade": 82,
+        "desenvolvimento": 82,
+        "gestaoPilotos": 92
+      }
+    },
+    {
+      "id": "ferrari",
+      "nome": "Ferrari",
+      "categoria": "F1",
+      "fornecedorMotor": "Ferrari",
+      "areas": {
+        "motor": 86,
+        "aerodinamica": 92,
+        "chassi": 90,
+        "estrategia": 82,
+        "pitStop": 86
+      },
+      "sistemas": {
+        "confiabilidade": 86,
+        "desenvolvimento": 85,
+        "gestaoPilotos": 65
+      }
+    },
+    {
+      "id": "mclaren",
+      "nome": "McLaren",
+      "categoria": "F1",
+      "fornecedorMotor": "Mercedes",
+      "areas": {
+        "motor": 92,
+        "aerodinamica": 86,
+        "chassi": 88,
+        "estrategia": 86,
+        "pitStop": 88
+      },
+      "sistemas": {
+        "confiabilidade": 75,
+        "desenvolvimento": 85,
+        "gestaoPilotos": 74
+      }
+    },
+    {
+      "id": "red_bull",
+      "nome": "Red Bull",
+      "categoria": "F1",
+      "fornecedorMotor": "Red Bull Ford",
+      "areas": {
+        "motor": 94,
+        "aerodinamica": 89,
+        "chassi": 88,
+        "estrategia": 89,
+        "pitStop": 90
+      },
+      "sistemas": {
+        "confiabilidade": 80,
+        "desenvolvimento": 92,
+        "gestaoPilotos": 78
+      }
+    },
+    {
+      "id": "rb",
+      "nome": "RB F1 Team",
+      "categoria": "F1",
+      "fornecedorMotor": "Red Bull Ford",
+      "areas": {
+        "motor": 94,
+        "aerodinamica": 75,
+        "chassi": 76,
+        "estrategia": 84,
+        "pitStop": 82
+      },
+      "sistemas": {
+        "confiabilidade": 88,
+        "desenvolvimento": 70,
+        "gestaoPilotos": 85
+      }
+    },
+    {
+      "id": "alpine",
+      "nome": "Alpine F1 Team",
+      "categoria": "F1",
+      "fornecedorMotor": "Mercedes",
+      "areas": {
+        "motor": 92,
+        "aerodinamica": 80,
+        "chassi": 81,
+        "estrategia": 80,
+        "pitStop": 80
+      },
+      "sistemas": {
+        "confiabilidade": 84,
+        "desenvolvimento": 93,
+        "gestaoPilotos": 80
+      }
+    },
+    {
+      "id": "haas",
+      "nome": "Haas F1 Team",
+      "categoria": "F1",
+      "fornecedorMotor": "Ferrari",
+      "areas": {
+        "motor": 84,
+        "aerodinamica": 71,
+        "chassi": 71,
+        "estrategia": 75,
+        "pitStop": 76
+      },
+      "sistemas": {
+        "confiabilidade": 80,
+        "desenvolvimento": 62,
+        "gestaoPilotos": 76
+      }
+    },
+    {
+      "id": "audi",
+      "nome": "Audi",
+      "categoria": "F1",
+      "fornecedorMotor": "Audi",
+      "areas": {
+        "motor": 79,
+        "aerodinamica": 78,
+        "chassi": 81,
+        "estrategia": 78,
+        "pitStop": 78
+      },
+      "sistemas": {
+        "confiabilidade": 74,
+        "desenvolvimento": 84,
+        "gestaoPilotos": 82
+      }
+    },
+    {
+      "id": "williams",
+      "nome": "Williams",
+      "categoria": "F1",
+      "fornecedorMotor": "Mercedes",
+      "areas": {
+        "motor": 92,
+        "aerodinamica": 69,
+        "chassi": 68,
+        "estrategia": 77,
+        "pitStop": 78
+      },
+      "sistemas": {
+        "confiabilidade": 80,
+        "desenvolvimento": 70,
+        "gestaoPilotos": 80
+      }
+    },
+    {
+      "id": "aston_martin",
+      "nome": "Aston Martin",
+      "categoria": "F1",
+      "fornecedorMotor": "Honda",
+      "areas": {
+        "motor": 73,
+        "aerodinamica": 78,
+        "chassi": 77,
+        "estrategia": 75,
+        "pitStop": 76
+      },
+      "sistemas": {
+        "confiabilidade": 55,
+        "desenvolvimento": 86,
+        "gestaoPilotos": 76
+      }
+    },
+    {
+      "id": "cadillac",
+      "nome": "Cadillac F1 Team",
+      "categoria": "F1",
+      "fornecedorMotor": "Ferrari",
+      "areas": {
+        "motor": 84,
+        "aerodinamica": 65,
+        "chassi": 67,
+        "estrategia": 72,
+        "pitStop": 72
+      },
+      "sistemas": {
+        "confiabilidade": 62,
+        "desenvolvimento": 80,
+        "gestaoPilotos": 80
+      }
+    },
+    {
+      "id": "invicta_racing",
+      "nome": "Invicta Racing",
+      "categoria": "F2",
+      "areas": {
+        "acerto": 81,
+        "estrategia": 77,
+        "pitStop": 77
+      },
+      "sistemas": {
+        "confiabilidade": 80,
+        "desenvolvimento": 84
+      }
+    },
+    {
+      "id": "hitech",
+      "nome": "Hitech",
+      "categoria": "F2",
+      "areas": {
+        "acerto": 72,
+        "estrategia": 73,
+        "pitStop": 74
+      },
+      "sistemas": {
+        "confiabilidade": 76,
+        "desenvolvimento": 70
+      }
+    },
+    {
+      "id": "campos_racing",
+      "nome": "Campos Racing",
+      "categoria": "F2",
+      "areas": {
+        "acerto": 80,
+        "estrategia": 78,
+        "pitStop": 77
+      },
+      "sistemas": {
+        "confiabilidade": 80,
+        "desenvolvimento": 75
+      }
+    },
+    {
+      "id": "dams_lucas_oil",
+      "nome": "DAMS Lucas Oil",
+      "categoria": "F2",
+      "areas": {
+        "acerto": 77,
+        "estrategia": 75,
+        "pitStop": 75
+      },
+      "sistemas": {
+        "confiabilidade": 70,
+        "desenvolvimento": 80
+      }
+    },
+    {
+      "id": "mp_motorsport",
+      "nome": "MP Motorsport",
+      "categoria": "F2",
+      "areas": {
+        "acerto": 74,
+        "estrategia": 76,
+        "pitStop": 76
+      },
+      "sistemas": {
+        "confiabilidade": 78,
+        "desenvolvimento": 62
+      }
+    },
+    {
+      "id": "prema_racing",
+      "nome": "Prema Racing",
+      "categoria": "F2",
+      "areas": {
+        "acerto": 70,
+        "estrategia": 71,
+        "pitStop": 73
+      },
+      "sistemas": {
+        "confiabilidade": 73,
+        "desenvolvimento": 60
+      }
+    },
+    {
+      "id": "rodin_motorsport",
+      "nome": "Rodin Motorsport",
+      "categoria": "F2",
+      "areas": {
+        "acerto": 80,
+        "estrategia": 75,
+        "pitStop": 75
+      },
+      "sistemas": {
+        "confiabilidade": 74,
+        "desenvolvimento": 82
+      }
+    },
+    {
+      "id": "art_grand_prix",
+      "nome": "ART Grand Prix",
+      "categoria": "F2",
+      "areas": {
+        "acerto": 76,
+        "estrategia": 74,
+        "pitStop": 74
+      },
+      "sistemas": {
+        "confiabilidade": 77,
+        "desenvolvimento": 80
+      }
+    },
+    {
+      "id": "aix_racing",
+      "nome": "AIX Racing",
+      "categoria": "F2",
+      "areas": {
+        "acerto": 69,
+        "estrategia": 70,
+        "pitStop": 71
+      },
+      "sistemas": {
+        "confiabilidade": 75,
+        "desenvolvimento": 70
+      }
+    },
+    {
+      "id": "van_amersfoort_racing",
+      "nome": "Van Amersfoort Racing",
+      "categoria": "F2",
+      "areas": {
+        "acerto": 71,
+        "estrategia": 74,
+        "pitStop": 72
+      },
+      "sistemas": {
+        "confiabilidade": 75,
+        "desenvolvimento": 78
+      }
+    },
+    {
+      "id": "trident",
+      "nome": "Trident",
+      "categoria": "F2",
+      "areas": {
+        "acerto": 74,
+        "estrategia": 73,
+        "pitStop": 74
+      },
+      "sistemas": {
+        "confiabilidade": 77,
+        "desenvolvimento": 72
+      }
+    }
+  ],
+  "pilotos": [
+    {
+      "id": "antonelli",
+      "nome": "Andrea Kimi Antonelli",
+      "categoria": "F1",
+      "nacionalidade": "Italian",
+      "nascimento": "2006-08-25",
+      "equipeId": "mercedes",
+      "papel": "titular",
+      "atributos": {
+        "quali": 94,
+        "ritmoCorrida": 95,
+        "consistencia": 95,
+        "largada": 82,
+        "ultrapassagem": 93,
+        "defesa": 88,
+        "rodaARoda": 89,
+        "gestaoPneu": 91,
+        "chuva": 86,
+        "feedback": 86,
+        "inteligencia": 90
+      },
+      "tracos": [
+        {
+          "id": "frio_sob_pressao"
+        },
+        {
+          "id": "evolucao_acelerada"
+        }
+      ]
+    },
+    {
+      "id": "russell",
+      "nome": "George Russell",
+      "categoria": "F1",
+      "nacionalidade": "British",
+      "nascimento": "1998-02-15",
+      "equipeId": "mercedes",
+      "papel": "titular",
+      "atributos": {
+        "quali": 91,
+        "ritmoCorrida": 86,
+        "consistencia": 83,
+        "largada": 84,
+        "ultrapassagem": 84,
+        "defesa": 89,
+        "rodaARoda": 86,
+        "gestaoPneu": 87,
+        "chuva": 86,
+        "feedback": 88,
+        "inteligencia": 86
+      },
+      "tracos": [
+        {
+          "id": "lider_tecnico"
+        }
+      ]
+    },
+    {
+      "id": "hamilton",
+      "nome": "Lewis Hamilton",
+      "categoria": "F1",
+      "nacionalidade": "British",
+      "nascimento": "1985-01-07",
+      "equipeId": "ferrari",
+      "papel": "titular",
+      "atributos": {
+        "quali": 87,
+        "ritmoCorrida": 92,
+        "consistencia": 89,
+        "largada": 90,
+        "ultrapassagem": 91,
+        "defesa": 88,
+        "rodaARoda": 91,
+        "gestaoPneu": 93,
+        "chuva": 95,
+        "feedback": 92,
+        "inteligencia": 92
+      },
+      "tracos": [
+        {
+          "id": "queda_emocional"
+        },
+        {
+          "id": "roda_a_roda_limpo"
+        },
+        {
+          "id": "mestre_chuva"
+        },
+        {
+          "id": "gestor_pneus"
+        }
+      ]
+    },
+    {
+      "id": "max_verstappen",
+      "nome": "Max Verstappen",
+      "categoria": "F1",
+      "nacionalidade": "Dutch",
+      "nascimento": "1997-09-30",
+      "equipeId": "red_bull",
+      "papel": "titular",
+      "atributos": {
+        "quali": 94,
+        "ritmoCorrida": 91,
+        "consistencia": 84,
+        "largada": 88,
+        "ultrapassagem": 93,
+        "defesa": 92,
+        "rodaARoda": 86,
+        "gestaoPneu": 91,
+        "chuva": 96,
+        "feedback": 92,
+        "inteligencia": 93
+      },
+      "tracos": [
+        {
+          "id": "cabeca_quente"
+        },
+        {
+          "id": "sujo_roda_a_roda"
+        },
+        {
+          "id": "mestre_chuva"
+        }
+      ]
+    },
+    {
+      "id": "leclerc",
+      "nome": "Charles Leclerc",
+      "categoria": "F1",
+      "nacionalidade": "Monegasque",
+      "nascimento": "1997-10-16",
+      "equipeId": "ferrari",
+      "papel": "titular",
+      "atributos": {
+        "quali": 95,
+        "ritmoCorrida": 90,
+        "consistencia": 80,
+        "largada": 87,
+        "ultrapassagem": 87,
+        "defesa": 89,
+        "rodaARoda": 87,
+        "gestaoPneu": 86,
+        "chuva": 84,
+        "feedback": 87,
+        "inteligencia": 85
+      },
+      "tracos": [
+        {
+          "id": "erros_graves"
+        },
+        {
+          "id": "sujo_companheiro"
+        }
+      ]
+    },
+    {
+      "id": "norris",
+      "nome": "Lando Norris",
+      "categoria": "F1",
+      "nacionalidade": "British",
+      "nascimento": "1999-11-13",
+      "equipeId": "mclaren",
+      "papel": "titular",
+      "atributos": {
+        "quali": 93,
+        "ritmoCorrida": 90,
+        "consistencia": 85,
+        "largada": 83,
+        "ultrapassagem": 87,
+        "defesa": 84,
+        "rodaARoda": 85,
+        "gestaoPneu": 88,
+        "chuva": 87,
+        "feedback": 88,
+        "inteligencia": 86
+      },
+      "tracos": [
+        {
+          "id": "queda_emocional",
+          "intensidade": 0.5
+        }
+      ]
+    },
+    {
+      "id": "piastri",
+      "nome": "Oscar Piastri",
+      "categoria": "F1",
+      "nacionalidade": "Australian",
+      "nascimento": "2001-04-06",
+      "equipeId": "mclaren",
+      "papel": "titular",
+      "atributos": {
+        "quali": 88,
+        "ritmoCorrida": 86,
+        "consistencia": 80,
+        "largada": 85,
+        "ultrapassagem": 83,
+        "defesa": 82,
+        "rodaARoda": 84,
+        "gestaoPneu": 88,
+        "chuva": 80,
+        "feedback": 85,
+        "inteligencia": 84
+      },
+      "tracos": [
+        {
+          "id": "roda_a_roda_limpo"
+        },
+        {
+          "id": "frio_sob_pressao"
+        }
+      ]
+    },
+    {
+      "id": "hadjar",
+      "nome": "Isack Hadjar",
+      "categoria": "F1",
+      "nacionalidade": "French",
+      "nascimento": "2004-09-28",
+      "equipeId": "red_bull",
+      "papel": "titular",
+      "atributos": {
+        "quali": 84,
+        "ritmoCorrida": 83,
+        "consistencia": 79,
+        "largada": 82,
+        "ultrapassagem": 84,
+        "defesa": 81,
+        "rodaARoda": 82,
+        "gestaoPneu": 81,
+        "chuva": 80,
+        "feedback": 79,
+        "inteligencia": 80
+      },
+      "tracos": [
+        {
+          "id": "queda_emocional"
+        }
+      ]
+    },
+    {
+      "id": "lawson",
+      "nome": "Liam Lawson",
+      "categoria": "F1",
+      "nacionalidade": "New Zealander",
+      "nascimento": "2002-02-11",
+      "equipeId": "rb",
+      "papel": "titular",
+      "atributos": {
+        "quali": 80,
+        "ritmoCorrida": 83,
+        "consistencia": 83,
+        "largada": 83,
+        "ultrapassagem": 83,
+        "defesa": 84,
+        "rodaARoda": 84,
+        "gestaoPneu": 82,
+        "chuva": 80,
+        "feedback": 78,
+        "inteligencia": 81
+      },
+      "tracos": [
+        {
+          "id": "sujo_roda_a_roda"
+        }
+      ]
+    },
+    {
+      "id": "gasly",
+      "nome": "Pierre Gasly",
+      "categoria": "F1",
+      "nacionalidade": "French",
+      "nascimento": "1996-02-07",
+      "equipeId": "alpine",
+      "papel": "titular",
+      "atributos": {
+        "quali": 86,
+        "ritmoCorrida": 83,
+        "consistencia": 81,
+        "largada": 82,
+        "ultrapassagem": 81,
+        "defesa": 83,
+        "rodaARoda": 82,
+        "gestaoPneu": 83,
+        "chuva": 85,
+        "feedback": 84,
+        "inteligencia": 83
+      },
+      "tracos": []
+    },
+    {
+      "id": "arvid_lindblad",
+      "nome": "Arvid Lindblad",
+      "categoria": "F1",
+      "nacionalidade": "British",
+      "nascimento": "2007-08-08",
+      "equipeId": "rb",
+      "papel": "titular",
+      "atributos": {
+        "quali": 80,
+        "ritmoCorrida": 79,
+        "consistencia": 81,
+        "largada": 80,
+        "ultrapassagem": 78,
+        "defesa": 77,
+        "rodaARoda": 78,
+        "gestaoPneu": 78,
+        "chuva": 76,
+        "feedback": 75,
+        "inteligencia": 78
+      },
+      "tracos": [
+        {
+          "id": "evolucao_acelerada"
+        }
+      ]
+    },
+    {
+      "id": "colapinto",
+      "nome": "Franco Colapinto",
+      "categoria": "F1",
+      "nacionalidade": "Argentine",
+      "nascimento": "2003-05-27",
+      "equipeId": "alpine",
+      "papel": "titular",
+      "atributos": {
+        "quali": 76,
+        "ritmoCorrida": 78,
+        "consistencia": 74,
+        "largada": 79,
+        "ultrapassagem": 80,
+        "defesa": 76,
+        "rodaARoda": 78,
+        "gestaoPneu": 77,
+        "chuva": 76,
+        "feedback": 74,
+        "inteligencia": 75
+      },
+      "tracos": [
+        {
+          "id": "erros_graves"
+        }
+      ]
+    },
+    {
+      "id": "bearman",
+      "nome": "Oliver Bearman",
+      "categoria": "F1",
+      "nacionalidade": "British",
+      "nascimento": "2005-05-08",
+      "equipeId": "haas",
+      "papel": "titular",
+      "atributos": {
+        "quali": 83,
+        "ritmoCorrida": 82,
+        "consistencia": 77,
+        "largada": 81,
+        "ultrapassagem": 83,
+        "defesa": 79,
+        "rodaARoda": 81,
+        "gestaoPneu": 80,
+        "chuva": 80,
+        "feedback": 78,
+        "inteligencia": 79
+      },
+      "tracos": [
+        {
+          "id": "evolucao_acelerada"
+        }
+      ]
+    },
+    {
+      "id": "hulkenberg",
+      "nome": "Nico Hülkenberg",
+      "categoria": "F1",
+      "nacionalidade": "German",
+      "nascimento": "1987-08-19",
+      "equipeId": "audi",
+      "papel": "titular",
+      "atributos": {
+        "quali": 82,
+        "ritmoCorrida": 80,
+        "consistencia": 82,
+        "largada": 78,
+        "ultrapassagem": 79,
+        "defesa": 82,
+        "rodaARoda": 81,
+        "gestaoPneu": 82,
+        "chuva": 85,
+        "feedback": 86,
+        "inteligencia": 85
+      },
+      "tracos": [
+        {
+          "id": "lider_tecnico"
+        }
+      ]
+    },
+    {
+      "id": "bortoleto",
+      "nome": "Gabriel Bortoleto",
+      "categoria": "F1",
+      "nacionalidade": "Brazilian",
+      "nascimento": "2004-10-14",
+      "equipeId": "audi",
+      "papel": "titular",
+      "atributos": {
+        "quali": 82,
+        "ritmoCorrida": 80,
+        "consistencia": 80,
+        "largada": 80,
+        "ultrapassagem": 79,
+        "defesa": 79,
+        "rodaARoda": 80,
+        "gestaoPneu": 80,
+        "chuva": 78,
+        "feedback": 80,
+        "inteligencia": 80
+      },
+      "tracos": [
+        {
+          "id": "evolucao_acelerada"
+        }
+      ]
+    },
+    {
+      "id": "ocon",
+      "nome": "Esteban Ocon",
+      "categoria": "F1",
+      "nacionalidade": "French",
+      "nascimento": "1996-09-17",
+      "equipeId": "haas",
+      "papel": "titular",
+      "atributos": {
+        "quali": 78,
+        "ritmoCorrida": 78,
+        "consistencia": 78,
+        "largada": 80,
+        "ultrapassagem": 78,
+        "defesa": 82,
+        "rodaARoda": 78,
+        "gestaoPneu": 80,
+        "chuva": 82,
+        "feedback": 80,
+        "inteligencia": 80
+      },
+      "tracos": [
+        {
+          "id": "sujo_companheiro"
+        }
+      ]
+    },
+    {
+      "id": "alonso",
+      "nome": "Fernando Alonso",
+      "categoria": "F1",
+      "nacionalidade": "Spanish",
+      "nascimento": "1981-07-29",
+      "equipeId": "aston_martin",
+      "papel": "titular",
+      "atributos": {
+        "quali": 81,
+        "ritmoCorrida": 83,
+        "consistencia": 85,
+        "largada": 88,
+        "ultrapassagem": 84,
+        "defesa": 88,
+        "rodaARoda": 90,
+        "gestaoPneu": 88,
+        "chuva": 90,
+        "feedback": 88,
+        "inteligencia": 90
+      },
+      "tracos": [
+        {
+          "id": "atrito_equipe"
+        },
+        {
+          "id": "roda_a_roda_limpo"
+        },
+        {
+          "id": "estrategista"
+        }
+      ]
+    },
+    {
+      "id": "sainz",
+      "nome": "Carlos Sainz",
+      "categoria": "F1",
+      "nacionalidade": "Spanish",
+      "nascimento": "1994-09-01",
+      "equipeId": "williams",
+      "papel": "titular",
+      "atributos": {
+        "quali": 83,
+        "ritmoCorrida": 83,
+        "consistencia": 81,
+        "largada": 84,
+        "ultrapassagem": 82,
+        "defesa": 84,
+        "rodaARoda": 85,
+        "gestaoPneu": 85,
+        "chuva": 84,
+        "feedback": 88,
+        "inteligencia": 86
+      },
+      "tracos": [
+        {
+          "id": "roda_a_roda_limpo"
+        },
+        {
+          "id": "estrategista"
+        }
+      ]
+    },
+    {
+      "id": "albon",
+      "nome": "Alexander Albon",
+      "categoria": "F1",
+      "nacionalidade": "Thai",
+      "nascimento": "1996-03-23",
+      "equipeId": "williams",
+      "papel": "titular",
+      "atributos": {
+        "quali": 80,
+        "ritmoCorrida": 80,
+        "consistencia": 78,
+        "largada": 80,
+        "ultrapassagem": 79,
+        "defesa": 82,
+        "rodaARoda": 81,
+        "gestaoPneu": 82,
+        "chuva": 80,
+        "feedback": 86,
+        "inteligencia": 82
+      },
+      "tracos": [
+        {
+          "id": "roda_a_roda_limpo"
+        },
+        {
+          "id": "lider_tecnico"
+        }
+      ]
+    },
+    {
+      "id": "tsunoda",
+      "nome": "Yuki Tsunoda",
+      "categoria": "F1",
+      "nacionalidade": "Japanese",
+      "nascimento": "2000-05-11",
+      "equipeId": "rb",
+      "papel": "reserva",
+      "atributos": {
+        "quali": 79,
+        "ritmoCorrida": 77,
+        "consistencia": 75,
+        "largada": 78,
+        "ultrapassagem": 78,
+        "defesa": 76,
+        "rodaARoda": 77,
+        "gestaoPneu": 76,
+        "chuva": 77,
+        "feedback": 75,
+        "inteligencia": 76
+      },
+      "tracos": [
+        {
+          "id": "cabeca_quente"
+        }
+      ]
+    },
+    {
+      "id": "stroll",
+      "nome": "Lance Stroll",
+      "categoria": "F1",
+      "nacionalidade": "Canadian",
+      "nascimento": "1998-10-29",
+      "equipeId": "aston_martin",
+      "papel": "titular",
+      "atributos": {
+        "quali": 72,
+        "ritmoCorrida": 74,
+        "consistencia": 71,
+        "largada": 82,
+        "ultrapassagem": 75,
+        "defesa": 74,
+        "rodaARoda": 74,
+        "gestaoPneu": 76,
+        "chuva": 84,
+        "feedback": 74,
+        "inteligencia": 74
+      },
+      "tracos": [
+        {
+          "id": "erros_graves"
+        }
+      ]
+    },
+    {
+      "id": "bottas",
+      "nome": "Valtteri Bottas",
+      "categoria": "F1",
+      "nacionalidade": "Finnish",
+      "nascimento": "1989-08-28",
+      "equipeId": "cadillac",
+      "papel": "titular",
+      "atributos": {
+        "quali": 80,
+        "ritmoCorrida": 77,
+        "consistencia": 77,
+        "largada": 74,
+        "ultrapassagem": 74,
+        "defesa": 76,
+        "rodaARoda": 76,
+        "gestaoPneu": 80,
+        "chuva": 78,
+        "feedback": 85,
+        "inteligencia": 80
+      },
+      "tracos": [
+        {
+          "id": "roda_a_roda_limpo"
+        }
+      ]
+    },
+    {
+      "id": "perez",
+      "nome": "Sergio Pérez",
+      "categoria": "F1",
+      "nacionalidade": "Mexican",
+      "nascimento": "1990-01-26",
+      "equipeId": "cadillac",
+      "papel": "titular",
+      "atributos": {
+        "quali": 74,
+        "ritmoCorrida": 79,
+        "consistencia": 78,
+        "largada": 80,
+        "ultrapassagem": 80,
+        "defesa": 81,
+        "rodaARoda": 80,
+        "gestaoPneu": 86,
+        "chuva": 78,
+        "feedback": 82,
+        "inteligencia": 82
+      },
+      "tracos": [
+        {
+          "id": "gestor_pneus"
+        },
+        {
+          "id": "queda_emocional"
+        }
+      ]
+    },
+    {
+      "id": "rafael_camara",
+      "nome": "Rafael Câmara",
+      "categoria": "F2",
+      "nacionalidade": "BRA",
+      "equipeId": "invicta_racing",
+      "papel": "titular",
+      "atributos": {
+        "quali": 83,
+        "ritmoCorrida": 79,
+        "consistencia": 81,
+        "largada": 75,
+        "ultrapassagem": 76,
+        "defesa": 77,
+        "rodaARoda": 76,
+        "gestaoPneu": 78,
+        "chuva": 75,
+        "feedback": 77,
+        "inteligencia": 77
+      },
+      "tracos": [
+        {
+          "id": "evolucao_acelerada"
+        }
+      ]
+    },
+    {
+      "id": "nikola_tsolov",
+      "nome": "Nikola Tsolov",
+      "categoria": "F2",
+      "nacionalidade": "BUL",
+      "equipeId": "campos_racing",
+      "papel": "titular",
+      "atributos": {
+        "quali": 76,
+        "ritmoCorrida": 81,
+        "consistencia": 76,
+        "largada": 81,
+        "ultrapassagem": 81,
+        "defesa": 78,
+        "rodaARoda": 80,
+        "gestaoPneu": 79,
+        "chuva": 77,
+        "feedback": 75,
+        "inteligencia": 77
+      },
+      "tracos": [
+        {
+          "id": "evolucao_acelerada"
+        },
+        {
+          "id": "erros_graves"
+        }
+      ]
+    },
+    {
+      "id": "alex_dunne",
+      "nome": "Alex Dunne",
+      "categoria": "F2",
+      "nacionalidade": "IRE",
+      "equipeId": "rodin_motorsport",
+      "papel": "titular",
+      "atributos": {
+        "quali": 80,
+        "ritmoCorrida": 79,
+        "consistencia": 79,
+        "largada": 76,
+        "ultrapassagem": 77,
+        "defesa": 78,
+        "rodaARoda": 77,
+        "gestaoPneu": 77,
+        "chuva": 74,
+        "feedback": 76,
+        "inteligencia": 77
+      },
+      "tracos": [
+        {
+          "id": "frio_sob_pressao"
+        }
+      ]
+    },
+    {
+      "id": "gabriele_mini",
+      "nome": "Gabriele Minì",
+      "categoria": "F2",
+      "nacionalidade": "ITA",
+      "equipeId": "mp_motorsport",
+      "papel": "titular",
+      "atributos": {
+        "quali": 72,
+        "ritmoCorrida": 78,
+        "consistencia": 79,
+        "largada": 76,
+        "ultrapassagem": 76,
+        "defesa": 76,
+        "rodaARoda": 76,
+        "gestaoPneu": 78,
+        "chuva": 79,
+        "feedback": 76,
+        "inteligencia": 77
+      },
+      "tracos": [
+        {
+          "id": "queda_emocional"
+        }
+      ]
+    },
+    {
+      "id": "dino_beganovic",
+      "nome": "Dino Beganovic",
+      "categoria": "F2",
+      "nacionalidade": "SWE",
+      "equipeId": "dams_lucas_oil",
+      "papel": "titular",
+      "atributos": {
+        "quali": 79,
+        "ritmoCorrida": 76,
+        "consistencia": 74,
+        "largada": 75,
+        "ultrapassagem": 75,
+        "defesa": 76,
+        "rodaARoda": 74,
+        "gestaoPneu": 75,
+        "chuva": 75,
+        "feedback": 75,
+        "inteligencia": 74
+      },
+      "tracos": []
+    },
+    {
+      "id": "noel_leon",
+      "nome": "Noel León",
+      "categoria": "F2",
+      "nacionalidade": "MEX",
+      "equipeId": "campos_racing",
+      "papel": "titular",
+      "atributos": {
+        "quali": 76,
+        "ritmoCorrida": 76,
+        "consistencia": 74,
+        "largada": 77,
+        "ultrapassagem": 77,
+        "defesa": 75,
+        "rodaARoda": 76,
+        "gestaoPneu": 75,
+        "chuva": 74,
+        "feedback": 73,
+        "inteligencia": 73
+      },
+      "tracos": []
+    },
+    {
+      "id": "martinius_stenshorne",
+      "nome": "Martinius Stenshorne",
+      "categoria": "F2",
+      "nacionalidade": "NOR",
+      "equipeId": "rodin_motorsport",
+      "papel": "titular",
+      "atributos": {
+        "quali": 78,
+        "ritmoCorrida": 75,
+        "consistencia": 69,
+        "largada": 74,
+        "ultrapassagem": 74,
+        "defesa": 73,
+        "rodaARoda": 71,
+        "gestaoPneu": 73,
+        "chuva": 72,
+        "feedback": 73,
+        "inteligencia": 69
+      },
+      "tracos": [
+        {
+          "id": "sujo_roda_a_roda"
+        }
+      ]
+    },
+    {
+      "id": "joshua_durksen",
+      "nome": "Joshua Dürksen",
+      "categoria": "F2",
+      "nacionalidade": "PAR",
+      "equipeId": "invicta_racing",
+      "papel": "titular",
+      "atributos": {
+        "quali": 74,
+        "ritmoCorrida": 74,
+        "consistencia": 69,
+        "largada": 77,
+        "ultrapassagem": 77,
+        "defesa": 74,
+        "rodaARoda": 74,
+        "gestaoPneu": 73,
+        "chuva": 72,
+        "feedback": 73,
+        "inteligencia": 72
+      },
+      "tracos": []
+    },
+    {
+      "id": "kush_maini",
+      "nome": "Kush Maini",
+      "categoria": "F2",
+      "nacionalidade": "IND",
+      "equipeId": "art_grand_prix",
+      "papel": "titular",
+      "atributos": {
+        "quali": 78,
+        "ritmoCorrida": 73,
+        "consistencia": 71,
+        "largada": 74,
+        "ultrapassagem": 73,
+        "defesa": 74,
+        "rodaARoda": 73,
+        "gestaoPneu": 72,
+        "chuva": 72,
+        "feedback": 74,
+        "inteligencia": 73
+      },
+      "tracos": []
+    },
+    {
+      "id": "laurens_van_hoepen",
+      "nome": "Laurens van Hoepen",
+      "categoria": "F2",
+      "nacionalidade": "NLD",
+      "equipeId": "trident",
+      "papel": "titular",
+      "atributos": {
+        "quali": 75,
+        "ritmoCorrida": 74,
+        "consistencia": 71,
+        "largada": 74,
+        "ultrapassagem": 74,
+        "defesa": 74,
+        "rodaARoda": 73,
+        "gestaoPneu": 73,
+        "chuva": 72,
+        "feedback": 72,
+        "inteligencia": 72
+      },
+      "tracos": []
+    },
+    {
+      "id": "tasanapol_inthraphuvasak",
+      "nome": "Tasanapol Inthraphuvasak",
+      "categoria": "F2",
+      "nacionalidade": "THA",
+      "equipeId": "art_grand_prix",
+      "papel": "titular",
+      "atributos": {
+        "quali": 74,
+        "ritmoCorrida": 73,
+        "consistencia": 70,
+        "largada": 72,
+        "ultrapassagem": 72,
+        "defesa": 72,
+        "rodaARoda": 71,
+        "gestaoPneu": 72,
+        "chuva": 70,
+        "feedback": 71,
+        "inteligencia": 71
+      },
+      "tracos": []
+    },
+    {
+      "id": "ritomo_miyata",
+      "nome": "Ritomo Miyata",
+      "categoria": "F2",
+      "nacionalidade": "JPN",
+      "equipeId": "hitech",
+      "papel": "titular",
+      "atributos": {
+        "quali": 71,
+        "ritmoCorrida": 73,
+        "consistencia": 71,
+        "largada": 73,
+        "ultrapassagem": 73,
+        "defesa": 72,
+        "rodaARoda": 72,
+        "gestaoPneu": 74,
+        "chuva": 72,
+        "feedback": 75,
+        "inteligencia": 74
+      },
+      "tracos": [
+        {
+          "id": "lider_tecnico"
+        }
+      ]
+    },
+    {
+      "id": "rafael_villagomez",
+      "nome": "Rafael Villagómez",
+      "categoria": "F2",
+      "nacionalidade": "MEX",
+      "equipeId": "van_amersfoort_racing",
+      "papel": "titular",
+      "atributos": {
+        "quali": 69,
+        "ritmoCorrida": 70,
+        "consistencia": 67,
+        "largada": 71,
+        "ultrapassagem": 70,
+        "defesa": 70,
+        "rodaARoda": 69,
+        "gestaoPneu": 72,
+        "chuva": 69,
+        "feedback": 70,
+        "inteligencia": 70
+      },
+      "tracos": [
+        {
+          "id": "gestor_pneus"
+        }
+      ]
+    },
+    {
+      "id": "john_bennett",
+      "nome": "John Bennett",
+      "categoria": "F2",
+      "nacionalidade": "GBR",
+      "equipeId": "trident",
+      "papel": "titular",
+      "atributos": {
+        "quali": 70,
+        "ritmoCorrida": 70,
+        "consistencia": 67,
+        "largada": 71,
+        "ultrapassagem": 71,
+        "defesa": 70,
+        "rodaARoda": 69,
+        "gestaoPneu": 70,
+        "chuva": 69,
+        "feedback": 70,
+        "inteligencia": 69
+      },
+      "tracos": []
+    },
+    {
+      "id": "oliver_goethe",
+      "nome": "Oliver Goethe",
+      "categoria": "F2",
+      "nacionalidade": "DEU",
+      "equipeId": "mp_motorsport",
+      "papel": "titular",
+      "atributos": {
+        "quali": 71,
+        "ritmoCorrida": 69,
+        "consistencia": 66,
+        "largada": 70,
+        "ultrapassagem": 70,
+        "defesa": 69,
+        "rodaARoda": 67,
+        "gestaoPneu": 69,
+        "chuva": 69,
+        "feedback": 69,
+        "inteligencia": 67
+      },
+      "tracos": [
+        {
+          "id": "erros_graves"
+        }
+      ]
+    },
+    {
+      "id": "roman_bilinski",
+      "nome": "Roman Bilinski",
+      "categoria": "F2",
+      "nacionalidade": "POL",
+      "equipeId": "dams_lucas_oil",
+      "papel": "titular",
+      "atributos": {
+        "quali": 70,
+        "ritmoCorrida": 69,
+        "consistencia": 69,
+        "largada": 70,
+        "ultrapassagem": 68,
+        "defesa": 69,
+        "rodaARoda": 68,
+        "gestaoPneu": 69,
+        "chuva": 68,
+        "feedback": 69,
+        "inteligencia": 68
+      },
+      "tracos": []
+    },
+    {
+      "id": "sebastian_montoya",
+      "nome": "Sebastián Montoya",
+      "categoria": "F2",
+      "nacionalidade": "COL",
+      "equipeId": "prema_racing",
+      "papel": "titular",
+      "atributos": {
+        "quali": 69,
+        "ritmoCorrida": 69,
+        "consistencia": 66,
+        "largada": 70,
+        "ultrapassagem": 69,
+        "defesa": 69,
+        "rodaARoda": 68,
+        "gestaoPneu": 69,
+        "chuva": 68,
+        "feedback": 69,
+        "inteligencia": 68
+      },
+      "tracos": []
+    },
+    {
+      "id": "emerson_fittipaldi_jr",
+      "nome": "Emerson Fittipaldi Jr.",
+      "categoria": "F2",
+      "nacionalidade": "BRA",
+      "equipeId": "aix_racing",
+      "papel": "titular",
+      "atributos": {
+        "quali": 67,
+        "ritmoCorrida": 68,
+        "consistencia": 66,
+        "largada": 69,
+        "ultrapassagem": 69,
+        "defesa": 68,
+        "rodaARoda": 68,
+        "gestaoPneu": 68,
+        "chuva": 67,
+        "feedback": 68,
+        "inteligencia": 67
+      },
+      "tracos": []
+    },
+    {
+      "id": "colton_herta",
+      "nome": "Colton Herta",
+      "categoria": "F2",
+      "nacionalidade": "USA",
+      "equipeId": "hitech",
+      "papel": "titular",
+      "atributos": {
+        "quali": 63,
+        "ritmoCorrida": 69,
+        "consistencia": 63,
+        "largada": 70,
+        "ultrapassagem": 71,
+        "defesa": 70,
+        "rodaARoda": 70,
+        "gestaoPneu": 70,
+        "chuva": 69,
+        "feedback": 75,
+        "inteligencia": 72
+      },
+      "tracos": [
+        {
+          "id": "lider_tecnico"
+        }
+      ]
+    },
+    {
+      "id": "mari_boya",
+      "nome": "Mari Boya",
+      "categoria": "F2",
+      "nacionalidade": "ESP",
+      "equipeId": "prema_racing",
+      "papel": "titular",
+      "atributos": {
+        "quali": 68,
+        "ritmoCorrida": 67,
+        "consistencia": 66,
+        "largada": 69,
+        "ultrapassagem": 67,
+        "defesa": 67,
+        "rodaARoda": 67,
+        "gestaoPneu": 67,
+        "chuva": 67,
+        "feedback": 68,
+        "inteligencia": 67
+      },
+      "tracos": []
+    },
+    {
+      "id": "nico_varrone",
+      "nome": "Nico Varrone",
+      "categoria": "F2",
+      "nacionalidade": "ARG",
+      "equipeId": "van_amersfoort_racing",
+      "papel": "titular",
+      "atributos": {
+        "quali": 69,
+        "ritmoCorrida": 66,
+        "consistencia": 64,
+        "largada": 69,
+        "ultrapassagem": 67,
+        "defesa": 66,
+        "rodaARoda": 66,
+        "gestaoPneu": 66,
+        "chuva": 66,
+        "feedback": 67,
+        "inteligencia": 65
+      },
+      "tracos": []
+    },
+    {
+      "id": "cian_shields",
+      "nome": "Cian Shields",
+      "categoria": "F2",
+      "nacionalidade": "GBR",
+      "equipeId": "aix_racing",
+      "papel": "titular",
+      "atributos": {
+        "quali": 65,
+        "ritmoCorrida": 65,
+        "consistencia": 63,
+        "largada": 67,
+        "ultrapassagem": 65,
+        "defesa": 65,
+        "rodaARoda": 65,
+        "gestaoPneu": 65,
+        "chuva": 65,
+        "feedback": 65,
+        "inteligencia": 64
+      },
+      "tracos": []
+    },
+    {
+      "id": "hiyu_yamakoshi",
+      "nome": "Hiyu Yamakoshi",
+      "categoria": "F2",
+      "nacionalidade": "JPN",
+      "equipeId": "van_amersfoort_racing",
+      "papel": "titular",
+      "atributos": {
+        "quali": 64,
+        "ritmoCorrida": 63,
+        "consistencia": 63,
+        "largada": 65,
+        "ultrapassagem": 63,
+        "defesa": 63,
+        "rodaARoda": 63,
+        "gestaoPneu": 63,
+        "chuva": 62,
+        "feedback": 62,
+        "inteligencia": 62
+      },
+      "tracos": []
+    }
+  ]
+}

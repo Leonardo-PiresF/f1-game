@@ -107,7 +107,7 @@
       "numero": 30,
       "nascimento": "2002-02-11",
       "nacionalidade": "New Zealander",
-      "equipeId": "red_bull",
+      "equipeId": "rb",
       "posicao": 9,
       "pontos": 75,
       "vitorias": 0
@@ -670,6 +670,5221 @@
         "lat": 24.4672,
         "long": 54.6031
       }
+    }
+  ],
+  "resultados": [
+    {
+      "rodada": 1,
+      "pilotoId": "russell",
+      "equipeId": "mercedes",
+      "largada": 1,
+      "chegada": 1,
+      "status": "Finished",
+      "pontos": 25
+    },
+    {
+      "rodada": 1,
+      "pilotoId": "antonelli",
+      "equipeId": "mercedes",
+      "largada": 2,
+      "chegada": 2,
+      "status": "Finished",
+      "pontos": 18
+    },
+    {
+      "rodada": 1,
+      "pilotoId": "leclerc",
+      "equipeId": "ferrari",
+      "largada": 4,
+      "chegada": 3,
+      "status": "Finished",
+      "pontos": 15
+    },
+    {
+      "rodada": 1,
+      "pilotoId": "hamilton",
+      "equipeId": "ferrari",
+      "largada": 7,
+      "chegada": 4,
+      "status": "Finished",
+      "pontos": 12
+    },
+    {
+      "rodada": 1,
+      "pilotoId": "norris",
+      "equipeId": "mclaren",
+      "largada": 6,
+      "chegada": 5,
+      "status": "Finished",
+      "pontos": 10
+    },
+    {
+      "rodada": 1,
+      "pilotoId": "max_verstappen",
+      "equipeId": "red_bull",
+      "largada": 20,
+      "chegada": 6,
+      "status": "Finished",
+      "pontos": 8
+    },
+    {
+      "rodada": 1,
+      "pilotoId": "bearman",
+      "equipeId": "haas",
+      "largada": 12,
+      "chegada": 7,
+      "status": "Lapped",
+      "pontos": 6
+    },
+    {
+      "rodada": 1,
+      "pilotoId": "arvid_lindblad",
+      "equipeId": "rb",
+      "largada": 9,
+      "chegada": 8,
+      "status": "Lapped",
+      "pontos": 4
+    },
+    {
+      "rodada": 1,
+      "pilotoId": "bortoleto",
+      "equipeId": "audi",
+      "largada": 10,
+      "chegada": 9,
+      "status": "Lapped",
+      "pontos": 2
+    },
+    {
+      "rodada": 1,
+      "pilotoId": "gasly",
+      "equipeId": "alpine",
+      "largada": 14,
+      "chegada": 10,
+      "status": "Lapped",
+      "pontos": 1
+    },
+    {
+      "rodada": 1,
+      "pilotoId": "ocon",
+      "equipeId": "haas",
+      "largada": 13,
+      "chegada": 11,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 1,
+      "pilotoId": "albon",
+      "equipeId": "williams",
+      "largada": 15,
+      "chegada": 12,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 1,
+      "pilotoId": "lawson",
+      "equipeId": "rb",
+      "largada": 8,
+      "chegada": 13,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 1,
+      "pilotoId": "colapinto",
+      "equipeId": "alpine",
+      "largada": 16,
+      "chegada": 14,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 1,
+      "pilotoId": "sainz",
+      "equipeId": "williams",
+      "largada": 21,
+      "chegada": 15,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 1,
+      "pilotoId": "perez",
+      "equipeId": "cadillac",
+      "largada": 18,
+      "chegada": 16,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 1,
+      "pilotoId": "stroll",
+      "equipeId": "aston_martin",
+      "largada": 22,
+      "chegada": null,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 1,
+      "pilotoId": "alonso",
+      "equipeId": "aston_martin",
+      "largada": 17,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 1,
+      "pilotoId": "bottas",
+      "equipeId": "cadillac",
+      "largada": 19,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 1,
+      "pilotoId": "hadjar",
+      "equipeId": "red_bull",
+      "largada": 3,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 1,
+      "pilotoId": "piastri",
+      "equipeId": "mclaren",
+      "largada": 5,
+      "chegada": null,
+      "status": "Did not start",
+      "pontos": 0
+    },
+    {
+      "rodada": 1,
+      "pilotoId": "hulkenberg",
+      "equipeId": "audi",
+      "largada": 11,
+      "chegada": null,
+      "status": "Did not start",
+      "pontos": 0
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "antonelli",
+      "equipeId": "mercedes",
+      "largada": 1,
+      "chegada": 1,
+      "status": "Finished",
+      "pontos": 25
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "russell",
+      "equipeId": "mercedes",
+      "largada": 2,
+      "chegada": 2,
+      "status": "Finished",
+      "pontos": 18
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "hamilton",
+      "equipeId": "ferrari",
+      "largada": 3,
+      "chegada": 3,
+      "status": "Finished",
+      "pontos": 15
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "leclerc",
+      "equipeId": "ferrari",
+      "largada": 4,
+      "chegada": 4,
+      "status": "Finished",
+      "pontos": 12
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "bearman",
+      "equipeId": "haas",
+      "largada": 10,
+      "chegada": 5,
+      "status": "Finished",
+      "pontos": 10
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "gasly",
+      "equipeId": "alpine",
+      "largada": 7,
+      "chegada": 6,
+      "status": "Finished",
+      "pontos": 8
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "lawson",
+      "equipeId": "rb",
+      "largada": 14,
+      "chegada": 7,
+      "status": "Finished",
+      "pontos": 6
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "hadjar",
+      "equipeId": "red_bull",
+      "largada": 9,
+      "chegada": 8,
+      "status": "Finished",
+      "pontos": 4
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "sainz",
+      "equipeId": "williams",
+      "largada": 17,
+      "chegada": 9,
+      "status": "Lapped",
+      "pontos": 2
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "colapinto",
+      "equipeId": "alpine",
+      "largada": 12,
+      "chegada": 10,
+      "status": "Lapped",
+      "pontos": 1
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "hulkenberg",
+      "equipeId": "audi",
+      "largada": 11,
+      "chegada": 11,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "arvid_lindblad",
+      "equipeId": "rb",
+      "largada": 15,
+      "chegada": 12,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "bottas",
+      "equipeId": "cadillac",
+      "largada": 19,
+      "chegada": 13,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "ocon",
+      "equipeId": "haas",
+      "largada": 13,
+      "chegada": 14,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "perez",
+      "equipeId": "cadillac",
+      "largada": 21,
+      "chegada": 15,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "max_verstappen",
+      "equipeId": "red_bull",
+      "largada": 8,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "alonso",
+      "equipeId": "aston_martin",
+      "largada": 18,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "stroll",
+      "equipeId": "aston_martin",
+      "largada": 20,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "piastri",
+      "equipeId": "mclaren",
+      "largada": 5,
+      "chegada": null,
+      "status": "Did not start",
+      "pontos": 0
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "norris",
+      "equipeId": "mclaren",
+      "largada": 6,
+      "chegada": null,
+      "status": "Did not start",
+      "pontos": 0
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "bortoleto",
+      "equipeId": "audi",
+      "largada": 16,
+      "chegada": null,
+      "status": "Did not start",
+      "pontos": 0
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "albon",
+      "equipeId": "williams",
+      "largada": 22,
+      "chegada": null,
+      "status": "Did not start",
+      "pontos": 0
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "antonelli",
+      "equipeId": "mercedes",
+      "largada": 1,
+      "chegada": 1,
+      "status": "Finished",
+      "pontos": 25
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "piastri",
+      "equipeId": "mclaren",
+      "largada": 3,
+      "chegada": 2,
+      "status": "Finished",
+      "pontos": 18
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "leclerc",
+      "equipeId": "ferrari",
+      "largada": 4,
+      "chegada": 3,
+      "status": "Finished",
+      "pontos": 15
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "russell",
+      "equipeId": "mercedes",
+      "largada": 2,
+      "chegada": 4,
+      "status": "Finished",
+      "pontos": 12
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "norris",
+      "equipeId": "mclaren",
+      "largada": 5,
+      "chegada": 5,
+      "status": "Finished",
+      "pontos": 10
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "hamilton",
+      "equipeId": "ferrari",
+      "largada": 6,
+      "chegada": 6,
+      "status": "Finished",
+      "pontos": 8
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "gasly",
+      "equipeId": "alpine",
+      "largada": 7,
+      "chegada": 7,
+      "status": "Finished",
+      "pontos": 6
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "max_verstappen",
+      "equipeId": "red_bull",
+      "largada": 11,
+      "chegada": 8,
+      "status": "Finished",
+      "pontos": 4
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "lawson",
+      "equipeId": "rb",
+      "largada": 14,
+      "chegada": 9,
+      "status": "Finished",
+      "pontos": 2
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "ocon",
+      "equipeId": "haas",
+      "largada": 12,
+      "chegada": 10,
+      "status": "Finished",
+      "pontos": 1
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "hulkenberg",
+      "equipeId": "audi",
+      "largada": 13,
+      "chegada": 11,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "hadjar",
+      "equipeId": "red_bull",
+      "largada": 8,
+      "chegada": 12,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "bortoleto",
+      "equipeId": "audi",
+      "largada": 9,
+      "chegada": 13,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "arvid_lindblad",
+      "equipeId": "rb",
+      "largada": 10,
+      "chegada": 14,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "sainz",
+      "equipeId": "williams",
+      "largada": 16,
+      "chegada": 15,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "colapinto",
+      "equipeId": "alpine",
+      "largada": 15,
+      "chegada": 16,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "perez",
+      "equipeId": "cadillac",
+      "largada": 19,
+      "chegada": 17,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "alonso",
+      "equipeId": "aston_martin",
+      "largada": 21,
+      "chegada": 18,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "bottas",
+      "equipeId": "cadillac",
+      "largada": 20,
+      "chegada": 19,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "albon",
+      "equipeId": "williams",
+      "largada": 17,
+      "chegada": 20,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "stroll",
+      "equipeId": "aston_martin",
+      "largada": 22,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "bearman",
+      "equipeId": "haas",
+      "largada": 18,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "antonelli",
+      "equipeId": "mercedes",
+      "largada": 1,
+      "chegada": 1,
+      "status": "Finished",
+      "pontos": 25
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "norris",
+      "equipeId": "mclaren",
+      "largada": 4,
+      "chegada": 2,
+      "status": "Finished",
+      "pontos": 18
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "piastri",
+      "equipeId": "mclaren",
+      "largada": 7,
+      "chegada": 3,
+      "status": "Finished",
+      "pontos": 15
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "russell",
+      "equipeId": "mercedes",
+      "largada": 5,
+      "chegada": 4,
+      "status": "Finished",
+      "pontos": 12
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "max_verstappen",
+      "equipeId": "red_bull",
+      "largada": 2,
+      "chegada": 5,
+      "status": "Finished",
+      "pontos": 10
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "hamilton",
+      "equipeId": "ferrari",
+      "largada": 6,
+      "chegada": 6,
+      "status": "Finished",
+      "pontos": 8
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "colapinto",
+      "equipeId": "alpine",
+      "largada": 8,
+      "chegada": 7,
+      "status": "Finished",
+      "pontos": 6
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "leclerc",
+      "equipeId": "ferrari",
+      "largada": 3,
+      "chegada": 8,
+      "status": "Finished",
+      "pontos": 4
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "sainz",
+      "equipeId": "williams",
+      "largada": 13,
+      "chegada": 9,
+      "status": "Finished",
+      "pontos": 2
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "albon",
+      "equipeId": "williams",
+      "largada": 15,
+      "chegada": 10,
+      "status": "Finished",
+      "pontos": 1
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "bearman",
+      "equipeId": "haas",
+      "largada": 12,
+      "chegada": 11,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "bortoleto",
+      "equipeId": "audi",
+      "largada": 21,
+      "chegada": 12,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "ocon",
+      "equipeId": "haas",
+      "largada": 14,
+      "chegada": 13,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "arvid_lindblad",
+      "equipeId": "rb",
+      "largada": 16,
+      "chegada": 14,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "alonso",
+      "equipeId": "aston_martin",
+      "largada": 17,
+      "chegada": 15,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "perez",
+      "equipeId": "cadillac",
+      "largada": 20,
+      "chegada": 16,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "stroll",
+      "equipeId": "aston_martin",
+      "largada": 18,
+      "chegada": 17,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "bottas",
+      "equipeId": "cadillac",
+      "largada": 19,
+      "chegada": 18,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "hulkenberg",
+      "equipeId": "audi",
+      "largada": 10,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "lawson",
+      "equipeId": "rb",
+      "largada": 11,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "gasly",
+      "equipeId": "alpine",
+      "largada": 9,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "hadjar",
+      "equipeId": "red_bull",
+      "largada": 22,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "antonelli",
+      "equipeId": "mercedes",
+      "largada": 2,
+      "chegada": 1,
+      "status": "Finished",
+      "pontos": 25
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "hamilton",
+      "equipeId": "ferrari",
+      "largada": 5,
+      "chegada": 2,
+      "status": "Finished",
+      "pontos": 18
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "max_verstappen",
+      "equipeId": "red_bull",
+      "largada": 6,
+      "chegada": 3,
+      "status": "Finished",
+      "pontos": 15
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "leclerc",
+      "equipeId": "ferrari",
+      "largada": 8,
+      "chegada": 4,
+      "status": "Finished",
+      "pontos": 12
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "hadjar",
+      "equipeId": "red_bull",
+      "largada": 7,
+      "chegada": 5,
+      "status": "Lapped",
+      "pontos": 10
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "colapinto",
+      "equipeId": "alpine",
+      "largada": 10,
+      "chegada": 6,
+      "status": "Lapped",
+      "pontos": 8
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "lawson",
+      "equipeId": "rb",
+      "largada": 12,
+      "chegada": 7,
+      "status": "Lapped",
+      "pontos": 6
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "gasly",
+      "equipeId": "alpine",
+      "largada": 14,
+      "chegada": 8,
+      "status": "Lapped",
+      "pontos": 4
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "sainz",
+      "equipeId": "williams",
+      "largada": 15,
+      "chegada": 9,
+      "status": "Lapped",
+      "pontos": 2
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "bearman",
+      "equipeId": "haas",
+      "largada": 16,
+      "chegada": 10,
+      "status": "Lapped",
+      "pontos": 1
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "piastri",
+      "equipeId": "mclaren",
+      "largada": 4,
+      "chegada": 11,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "hulkenberg",
+      "equipeId": "audi",
+      "largada": 11,
+      "chegada": 12,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "bortoleto",
+      "equipeId": "audi",
+      "largada": 13,
+      "chegada": 13,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "ocon",
+      "equipeId": "haas",
+      "largada": 17,
+      "chegada": 14,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "stroll",
+      "equipeId": "aston_martin",
+      "largada": 22,
+      "chegada": 15,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "bottas",
+      "equipeId": "cadillac",
+      "largada": 21,
+      "chegada": 16,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "perez",
+      "equipeId": "cadillac",
+      "largada": 20,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "norris",
+      "equipeId": "mclaren",
+      "largada": 3,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "russell",
+      "equipeId": "mercedes",
+      "largada": 1,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "alonso",
+      "equipeId": "aston_martin",
+      "largada": 19,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "albon",
+      "equipeId": "williams",
+      "largada": 18,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "arvid_lindblad",
+      "equipeId": "rb",
+      "largada": 9,
+      "chegada": null,
+      "status": "Did not start",
+      "pontos": 0
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "antonelli",
+      "equipeId": "mercedes",
+      "largada": 1,
+      "chegada": 1,
+      "status": "Finished",
+      "pontos": 25
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "hamilton",
+      "equipeId": "ferrari",
+      "largada": 3,
+      "chegada": 2,
+      "status": "Finished",
+      "pontos": 18
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "hadjar",
+      "equipeId": "red_bull",
+      "largada": 5,
+      "chegada": 3,
+      "status": "Finished",
+      "pontos": 15
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "piastri",
+      "equipeId": "mclaren",
+      "largada": 7,
+      "chegada": 4,
+      "status": "Finished",
+      "pontos": 12
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "lawson",
+      "equipeId": "rb",
+      "largada": 10,
+      "chegada": 5,
+      "status": "Finished",
+      "pontos": 10
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "arvid_lindblad",
+      "equipeId": "rb",
+      "largada": 15,
+      "chegada": 6,
+      "status": "Finished",
+      "pontos": 8
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "gasly",
+      "equipeId": "alpine",
+      "largada": 9,
+      "chegada": 7,
+      "status": "Finished",
+      "pontos": 6
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "albon",
+      "equipeId": "williams",
+      "largada": 11,
+      "chegada": 8,
+      "status": "Finished",
+      "pontos": 4
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "ocon",
+      "equipeId": "haas",
+      "largada": 17,
+      "chegada": 9,
+      "status": "Finished",
+      "pontos": 2
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "alonso",
+      "equipeId": "aston_martin",
+      "largada": 21,
+      "chegada": 10,
+      "status": "Finished",
+      "pontos": 1
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "bortoleto",
+      "equipeId": "audi",
+      "largada": 16,
+      "chegada": 11,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "russell",
+      "equipeId": "mercedes",
+      "largada": 6,
+      "chegada": 12,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "hulkenberg",
+      "equipeId": "audi",
+      "largada": 13,
+      "chegada": 13,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "colapinto",
+      "equipeId": "alpine",
+      "largada": 14,
+      "chegada": 14,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "perez",
+      "equipeId": "cadillac",
+      "largada": 18,
+      "chegada": 15,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "sainz",
+      "equipeId": "williams",
+      "largada": 12,
+      "chegada": 16,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "leclerc",
+      "equipeId": "ferrari",
+      "largada": 4,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "stroll",
+      "equipeId": "aston_martin",
+      "largada": 22,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "norris",
+      "equipeId": "mclaren",
+      "largada": 8,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "bearman",
+      "equipeId": "haas",
+      "largada": 19,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "bottas",
+      "equipeId": "cadillac",
+      "largada": 20,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "max_verstappen",
+      "equipeId": "red_bull",
+      "largada": 2,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "hamilton",
+      "equipeId": "ferrari",
+      "largada": 2,
+      "chegada": 1,
+      "status": "Finished",
+      "pontos": 25
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "russell",
+      "equipeId": "mercedes",
+      "largada": 1,
+      "chegada": 2,
+      "status": "Finished",
+      "pontos": 18
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "norris",
+      "equipeId": "mclaren",
+      "largada": 4,
+      "chegada": 3,
+      "status": "Finished",
+      "pontos": 15
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "max_verstappen",
+      "equipeId": "red_bull",
+      "largada": 5,
+      "chegada": 4,
+      "status": "Finished",
+      "pontos": 12
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "piastri",
+      "equipeId": "mclaren",
+      "largada": 7,
+      "chegada": 5,
+      "status": "Finished",
+      "pontos": 10
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "hadjar",
+      "equipeId": "red_bull",
+      "largada": 6,
+      "chegada": 6,
+      "status": "Lapped",
+      "pontos": 8
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "gasly",
+      "equipeId": "alpine",
+      "largada": 14,
+      "chegada": 7,
+      "status": "Lapped",
+      "pontos": 6
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "lawson",
+      "equipeId": "rb",
+      "largada": 8,
+      "chegada": 8,
+      "status": "Lapped",
+      "pontos": 4
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "arvid_lindblad",
+      "equipeId": "rb",
+      "largada": 11,
+      "chegada": 9,
+      "status": "Lapped",
+      "pontos": 2
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "colapinto",
+      "equipeId": "alpine",
+      "largada": 13,
+      "chegada": 10,
+      "status": "Lapped",
+      "pontos": 1
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "bortoleto",
+      "equipeId": "audi",
+      "largada": 12,
+      "chegada": 11,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "sainz",
+      "equipeId": "williams",
+      "largada": 16,
+      "chegada": 12,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "ocon",
+      "equipeId": "haas",
+      "largada": 17,
+      "chegada": 13,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "perez",
+      "equipeId": "cadillac",
+      "largada": 19,
+      "chegada": 14,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "leclerc",
+      "equipeId": "ferrari",
+      "largada": 10,
+      "chegada": 15,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "antonelli",
+      "equipeId": "mercedes",
+      "largada": 3,
+      "chegada": 16,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "bearman",
+      "equipeId": "haas",
+      "largada": 15,
+      "chegada": 17,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "albon",
+      "equipeId": "williams",
+      "largada": 18,
+      "chegada": null,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "alonso",
+      "equipeId": "aston_martin",
+      "largada": 22,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "hulkenberg",
+      "equipeId": "audi",
+      "largada": 9,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "bottas",
+      "equipeId": "cadillac",
+      "largada": 20,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "stroll",
+      "equipeId": "aston_martin",
+      "largada": 21,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "russell",
+      "equipeId": "mercedes",
+      "largada": 1,
+      "chegada": 1,
+      "status": "Finished",
+      "pontos": 25
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "max_verstappen",
+      "equipeId": "red_bull",
+      "largada": 5,
+      "chegada": 2,
+      "status": "Finished",
+      "pontos": 18
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "antonelli",
+      "equipeId": "mercedes",
+      "largada": 4,
+      "chegada": 3,
+      "status": "Finished",
+      "pontos": 15
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "piastri",
+      "equipeId": "mclaren",
+      "largada": 7,
+      "chegada": 4,
+      "status": "Finished",
+      "pontos": 12
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "hamilton",
+      "equipeId": "ferrari",
+      "largada": 3,
+      "chegada": 5,
+      "status": "Finished",
+      "pontos": 10
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "hadjar",
+      "equipeId": "red_bull",
+      "largada": 8,
+      "chegada": 6,
+      "status": "Finished",
+      "pontos": 8
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "norris",
+      "equipeId": "mclaren",
+      "largada": 6,
+      "chegada": 7,
+      "status": "Finished",
+      "pontos": 6
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "leclerc",
+      "equipeId": "ferrari",
+      "largada": 2,
+      "chegada": 8,
+      "status": "Finished",
+      "pontos": 4
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "lawson",
+      "equipeId": "rb",
+      "largada": 9,
+      "chegada": 9,
+      "status": "Lapped",
+      "pontos": 2
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "arvid_lindblad",
+      "equipeId": "rb",
+      "largada": 10,
+      "chegada": 10,
+      "status": "Lapped",
+      "pontos": 1
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "bortoleto",
+      "equipeId": "audi",
+      "largada": 12,
+      "chegada": 11,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "hulkenberg",
+      "equipeId": "audi",
+      "largada": 14,
+      "chegada": 12,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "gasly",
+      "equipeId": "alpine",
+      "largada": 11,
+      "chegada": 13,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "bearman",
+      "equipeId": "haas",
+      "largada": 13,
+      "chegada": 14,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "colapinto",
+      "equipeId": "alpine",
+      "largada": 16,
+      "chegada": 15,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "ocon",
+      "equipeId": "haas",
+      "largada": 15,
+      "chegada": 16,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "albon",
+      "equipeId": "williams",
+      "largada": 18,
+      "chegada": 17,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "alonso",
+      "equipeId": "aston_martin",
+      "largada": 21,
+      "chegada": 18,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "stroll",
+      "equipeId": "aston_martin",
+      "largada": 22,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "sainz",
+      "equipeId": "williams",
+      "largada": 17,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "perez",
+      "equipeId": "cadillac",
+      "largada": 19,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "bottas",
+      "equipeId": "cadillac",
+      "largada": 20,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "leclerc",
+      "equipeId": "ferrari",
+      "largada": 2,
+      "chegada": 1,
+      "status": "Finished",
+      "pontos": 25
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "russell",
+      "equipeId": "mercedes",
+      "largada": 4,
+      "chegada": 2,
+      "status": "Finished",
+      "pontos": 18
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "hamilton",
+      "equipeId": "ferrari",
+      "largada": 3,
+      "chegada": 3,
+      "status": "Finished",
+      "pontos": 15
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "norris",
+      "equipeId": "mclaren",
+      "largada": 6,
+      "chegada": 4,
+      "status": "Finished",
+      "pontos": 12
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "hadjar",
+      "equipeId": "red_bull",
+      "largada": 5,
+      "chegada": 5,
+      "status": "Finished",
+      "pontos": 10
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "lawson",
+      "equipeId": "rb",
+      "largada": 10,
+      "chegada": 6,
+      "status": "Finished",
+      "pontos": 8
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "arvid_lindblad",
+      "equipeId": "rb",
+      "largada": 9,
+      "chegada": 7,
+      "status": "Finished",
+      "pontos": 6
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "bortoleto",
+      "equipeId": "audi",
+      "largada": 11,
+      "chegada": 8,
+      "status": "Finished",
+      "pontos": 4
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "colapinto",
+      "equipeId": "alpine",
+      "largada": 19,
+      "chegada": 9,
+      "status": "Finished",
+      "pontos": 2
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "gasly",
+      "equipeId": "alpine",
+      "largada": 15,
+      "chegada": 10,
+      "status": "Finished",
+      "pontos": 1
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "piastri",
+      "equipeId": "mclaren",
+      "largada": 8,
+      "chegada": 11,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "bearman",
+      "equipeId": "haas",
+      "largada": 13,
+      "chegada": 12,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "ocon",
+      "equipeId": "haas",
+      "largada": 17,
+      "chegada": 13,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "perez",
+      "equipeId": "cadillac",
+      "largada": 20,
+      "chegada": 14,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "antonelli",
+      "equipeId": "mercedes",
+      "largada": 1,
+      "chegada": 15,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "bottas",
+      "equipeId": "cadillac",
+      "largada": 18,
+      "chegada": 16,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "sainz",
+      "equipeId": "williams",
+      "largada": 14,
+      "chegada": 17,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "alonso",
+      "equipeId": "aston_martin",
+      "largada": 21,
+      "chegada": 18,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "stroll",
+      "equipeId": "aston_martin",
+      "largada": 22,
+      "chegada": 19,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "max_verstappen",
+      "equipeId": "red_bull",
+      "largada": 7,
+      "chegada": 20,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "albon",
+      "equipeId": "williams",
+      "largada": 16,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "hulkenberg",
+      "equipeId": "audi",
+      "largada": 12,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "antonelli",
+      "equipeId": "mercedes",
+      "largada": 1,
+      "chegada": 1,
+      "status": "Finished",
+      "pontos": 25
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "leclerc",
+      "equipeId": "ferrari",
+      "largada": 4,
+      "chegada": 2,
+      "status": "Finished",
+      "pontos": 18
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "max_verstappen",
+      "equipeId": "red_bull",
+      "largada": 2,
+      "chegada": 3,
+      "status": "Finished",
+      "pontos": 15
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "hamilton",
+      "equipeId": "ferrari",
+      "largada": 5,
+      "chegada": 4,
+      "status": "Finished",
+      "pontos": 12
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "piastri",
+      "equipeId": "mclaren",
+      "largada": 6,
+      "chegada": 5,
+      "status": "Finished",
+      "pontos": 10
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "hadjar",
+      "equipeId": "red_bull",
+      "largada": 21,
+      "chegada": 6,
+      "status": "Finished",
+      "pontos": 8
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "norris",
+      "equipeId": "mclaren",
+      "largada": 13,
+      "chegada": 7,
+      "status": "Finished",
+      "pontos": 6
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "bortoleto",
+      "equipeId": "audi",
+      "largada": 8,
+      "chegada": 8,
+      "status": "Finished",
+      "pontos": 4
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "arvid_lindblad",
+      "equipeId": "rb",
+      "largada": 7,
+      "chegada": 9,
+      "status": "Finished",
+      "pontos": 2
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "colapinto",
+      "equipeId": "alpine",
+      "largada": 11,
+      "chegada": 10,
+      "status": "Finished",
+      "pontos": 1
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "gasly",
+      "equipeId": "alpine",
+      "largada": 10,
+      "chegada": 11,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "lawson",
+      "equipeId": "rb",
+      "largada": 9,
+      "chegada": 12,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "hulkenberg",
+      "equipeId": "audi",
+      "largada": 12,
+      "chegada": 13,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "bearman",
+      "equipeId": "haas",
+      "largada": 14,
+      "chegada": 14,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "albon",
+      "equipeId": "williams",
+      "largada": 15,
+      "chegada": 15,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "sainz",
+      "equipeId": "williams",
+      "largada": 19,
+      "chegada": 16,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "ocon",
+      "equipeId": "haas",
+      "largada": 16,
+      "chegada": 17,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "bottas",
+      "equipeId": "cadillac",
+      "largada": 17,
+      "chegada": 18,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "alonso",
+      "equipeId": "aston_martin",
+      "largada": 22,
+      "chegada": 19,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "stroll",
+      "equipeId": "aston_martin",
+      "largada": 20,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "perez",
+      "equipeId": "cadillac",
+      "largada": 18,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "russell",
+      "equipeId": "mercedes",
+      "largada": 3,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "norris",
+      "equipeId": "mclaren",
+      "largada": 1,
+      "chegada": 1,
+      "status": "Finished",
+      "pontos": 25
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "max_verstappen",
+      "equipeId": "red_bull",
+      "largada": 4,
+      "chegada": 2,
+      "status": "Finished",
+      "pontos": 18
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "antonelli",
+      "equipeId": "mercedes",
+      "largada": 7,
+      "chegada": 3,
+      "status": "Finished",
+      "pontos": 15
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "leclerc",
+      "equipeId": "ferrari",
+      "largada": 2,
+      "chegada": 4,
+      "status": "Finished",
+      "pontos": 12
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "hamilton",
+      "equipeId": "ferrari",
+      "largada": 5,
+      "chegada": 5,
+      "status": "Finished",
+      "pontos": 10
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "hadjar",
+      "equipeId": "red_bull",
+      "largada": 8,
+      "chegada": 6,
+      "status": "Finished",
+      "pontos": 8
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "russell",
+      "equipeId": "mercedes",
+      "largada": 6,
+      "chegada": 7,
+      "status": "Finished",
+      "pontos": 6
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "lawson",
+      "equipeId": "rb",
+      "largada": 11,
+      "chegada": 8,
+      "status": "Lapped",
+      "pontos": 4
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "hulkenberg",
+      "equipeId": "audi",
+      "largada": 10,
+      "chegada": 9,
+      "status": "Lapped",
+      "pontos": 2
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "arvid_lindblad",
+      "equipeId": "rb",
+      "largada": 9,
+      "chegada": 10,
+      "status": "Lapped",
+      "pontos": 1
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "bortoleto",
+      "equipeId": "audi",
+      "largada": 14,
+      "chegada": 11,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "gasly",
+      "equipeId": "alpine",
+      "largada": 12,
+      "chegada": 12,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "stroll",
+      "equipeId": "aston_martin",
+      "largada": 20,
+      "chegada": 13,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "alonso",
+      "equipeId": "aston_martin",
+      "largada": 16,
+      "chegada": 14,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "colapinto",
+      "equipeId": "alpine",
+      "largada": 13,
+      "chegada": 15,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "ocon",
+      "equipeId": "haas",
+      "largada": 15,
+      "chegada": 16,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "albon",
+      "equipeId": "williams",
+      "largada": 19,
+      "chegada": 17,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "sainz",
+      "equipeId": "williams",
+      "largada": 18,
+      "chegada": 18,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "bearman",
+      "equipeId": "haas",
+      "largada": 17,
+      "chegada": 19,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "piastri",
+      "equipeId": "mclaren",
+      "largada": 3,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "perez",
+      "equipeId": "cadillac",
+      "largada": 22,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "bottas",
+      "equipeId": "cadillac",
+      "largada": 21,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "norris",
+      "equipeId": "mclaren",
+      "largada": 1,
+      "chegada": 1,
+      "status": "Finished",
+      "pontos": 25
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "antonelli",
+      "equipeId": "mercedes",
+      "largada": 3,
+      "chegada": 2,
+      "status": "Finished",
+      "pontos": 18
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "russell",
+      "equipeId": "mercedes",
+      "largada": 2,
+      "chegada": 3,
+      "status": "Finished",
+      "pontos": 15
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "hamilton",
+      "equipeId": "ferrari",
+      "largada": 5,
+      "chegada": 4,
+      "status": "Finished",
+      "pontos": 12
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "leclerc",
+      "equipeId": "ferrari",
+      "largada": 6,
+      "chegada": 5,
+      "status": "Finished",
+      "pontos": 10
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "piastri",
+      "equipeId": "mclaren",
+      "largada": 4,
+      "chegada": 6,
+      "status": "Finished",
+      "pontos": 8
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "lawson",
+      "equipeId": "red_bull",
+      "largada": 8,
+      "chegada": 7,
+      "status": "Finished",
+      "pontos": 6
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "hulkenberg",
+      "equipeId": "audi",
+      "largada": 13,
+      "chegada": 8,
+      "status": "Lapped",
+      "pontos": 4
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "alonso",
+      "equipeId": "aston_martin",
+      "largada": 18,
+      "chegada": 9,
+      "status": "Lapped",
+      "pontos": 2
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "gasly",
+      "equipeId": "alpine",
+      "largada": 11,
+      "chegada": 10,
+      "status": "Lapped",
+      "pontos": 1
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "tsunoda",
+      "equipeId": "rb",
+      "largada": 12,
+      "chegada": 11,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "arvid_lindblad",
+      "equipeId": "rb",
+      "largada": 10,
+      "chegada": 12,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "bortoleto",
+      "equipeId": "audi",
+      "largada": 9,
+      "chegada": 13,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "colapinto",
+      "equipeId": "alpine",
+      "largada": 14,
+      "chegada": 14,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "perez",
+      "equipeId": "cadillac",
+      "largada": 22,
+      "chegada": 15,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "sainz",
+      "equipeId": "williams",
+      "largada": 17,
+      "chegada": 16,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "albon",
+      "equipeId": "williams",
+      "largada": 16,
+      "chegada": 17,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "bottas",
+      "equipeId": "cadillac",
+      "largada": 21,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "ocon",
+      "equipeId": "haas",
+      "largada": 15,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "stroll",
+      "equipeId": "aston_martin",
+      "largada": 19,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "bearman",
+      "equipeId": "haas",
+      "largada": 20,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "max_verstappen",
+      "equipeId": "red_bull",
+      "largada": 7,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "antonelli",
+      "equipeId": "mercedes",
+      "largada": 19,
+      "chegada": 1,
+      "status": "Finished",
+      "pontos": 25
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "russell",
+      "equipeId": "mercedes",
+      "largada": 2,
+      "chegada": 2,
+      "status": "Finished",
+      "pontos": 18
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "max_verstappen",
+      "equipeId": "red_bull",
+      "largada": 5,
+      "chegada": 3,
+      "status": "Finished",
+      "pontos": 15
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "norris",
+      "equipeId": "mclaren",
+      "largada": 8,
+      "chegada": 4,
+      "status": "Finished",
+      "pontos": 12
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "piastri",
+      "equipeId": "mclaren",
+      "largada": 6,
+      "chegada": 5,
+      "status": "Finished",
+      "pontos": 10
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "hamilton",
+      "equipeId": "ferrari",
+      "largada": 4,
+      "chegada": 6,
+      "status": "Finished",
+      "pontos": 8
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "gasly",
+      "equipeId": "alpine",
+      "largada": 1,
+      "chegada": 7,
+      "status": "Finished",
+      "pontos": 6
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "arvid_lindblad",
+      "equipeId": "rb",
+      "largada": 9,
+      "chegada": 8,
+      "status": "Finished",
+      "pontos": 4
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "colapinto",
+      "equipeId": "alpine",
+      "largada": 7,
+      "chegada": 9,
+      "status": "Finished",
+      "pontos": 2
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "tsunoda",
+      "equipeId": "rb",
+      "largada": 15,
+      "chegada": 10,
+      "status": "Finished",
+      "pontos": 1
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "bortoleto",
+      "equipeId": "audi",
+      "largada": 10,
+      "chegada": 11,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "hulkenberg",
+      "equipeId": "audi",
+      "largada": 12,
+      "chegada": 12,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "sainz",
+      "equipeId": "williams",
+      "largada": 13,
+      "chegada": 13,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "lawson",
+      "equipeId": "red_bull",
+      "largada": 22,
+      "chegada": 14,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "bearman",
+      "equipeId": "haas",
+      "largada": 11,
+      "chegada": 15,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "ocon",
+      "equipeId": "haas",
+      "largada": 14,
+      "chegada": 16,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "albon",
+      "equipeId": "williams",
+      "largada": 20,
+      "chegada": 17,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "perez",
+      "equipeId": "cadillac",
+      "largada": 17,
+      "chegada": 18,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "bottas",
+      "equipeId": "cadillac",
+      "largada": 16,
+      "chegada": 19,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "stroll",
+      "equipeId": "aston_martin",
+      "largada": 18,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "alonso",
+      "equipeId": "aston_martin",
+      "largada": 21,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "leclerc",
+      "equipeId": "ferrari",
+      "largada": 3,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 14,
+      "pilotoId": "antonelli",
+      "equipeId": "mercedes",
+      "largada": 2,
+      "chegada": 1,
+      "status": "Finished",
+      "pontos": 25
+    },
+    {
+      "rodada": 14,
+      "pilotoId": "max_verstappen",
+      "equipeId": "red_bull",
+      "largada": 3,
+      "chegada": 2,
+      "status": "Finished",
+      "pontos": 18
+    },
+    {
+      "rodada": 14,
+      "pilotoId": "norris",
+      "equipeId": "mclaren",
+      "largada": 1,
+      "chegada": 3,
+      "status": "Finished",
+      "pontos": 15
+    },
+    {
+      "rodada": 14,
+      "pilotoId": "leclerc",
+      "equipeId": "ferrari",
+      "largada": 5,
+      "chegada": 4,
+      "status": "Finished",
+      "pontos": 12
+    },
+    {
+      "rodada": 14,
+      "pilotoId": "russell",
+      "equipeId": "mercedes",
+      "largada": 6,
+      "chegada": 5,
+      "status": "Finished",
+      "pontos": 10
+    },
+    {
+      "rodada": 14,
+      "pilotoId": "lawson",
+      "equipeId": "red_bull",
+      "largada": 8,
+      "chegada": 6,
+      "status": "Finished",
+      "pontos": 8
+    },
+    {
+      "rodada": 14,
+      "pilotoId": "colapinto",
+      "equipeId": "alpine",
+      "largada": 9,
+      "chegada": 7,
+      "status": "Finished",
+      "pontos": 6
+    },
+    {
+      "rodada": 14,
+      "pilotoId": "piastri",
+      "equipeId": "mclaren",
+      "largada": 7,
+      "chegada": 8,
+      "status": "Finished",
+      "pontos": 4
+    },
+    {
+      "rodada": 14,
+      "pilotoId": "arvid_lindblad",
+      "equipeId": "rb",
+      "largada": 10,
+      "chegada": 9,
+      "status": "Lapped",
+      "pontos": 2
+    },
+    {
+      "rodada": 14,
+      "pilotoId": "hulkenberg",
+      "equipeId": "audi",
+      "largada": 11,
+      "chegada": 10,
+      "status": "Lapped",
+      "pontos": 1
+    },
+    {
+      "rodada": 14,
+      "pilotoId": "ocon",
+      "equipeId": "haas",
+      "largada": 13,
+      "chegada": 11,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 14,
+      "pilotoId": "gasly",
+      "equipeId": "alpine",
+      "largada": 14,
+      "chegada": 12,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 14,
+      "pilotoId": "bortoleto",
+      "equipeId": "audi",
+      "largada": 12,
+      "chegada": 13,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 14,
+      "pilotoId": "tsunoda",
+      "equipeId": "rb",
+      "largada": 15,
+      "chegada": 14,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 14,
+      "pilotoId": "albon",
+      "equipeId": "williams",
+      "largada": 16,
+      "chegada": 15,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 14,
+      "pilotoId": "bearman",
+      "equipeId": "haas",
+      "largada": 22,
+      "chegada": 16,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 14,
+      "pilotoId": "alonso",
+      "equipeId": "aston_martin",
+      "largada": 17,
+      "chegada": 17,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 14,
+      "pilotoId": "bottas",
+      "equipeId": "cadillac",
+      "largada": 19,
+      "chegada": 18,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 14,
+      "pilotoId": "sainz",
+      "equipeId": "williams",
+      "largada": 20,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 14,
+      "pilotoId": "perez",
+      "equipeId": "cadillac",
+      "largada": 18,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 14,
+      "pilotoId": "stroll",
+      "equipeId": "aston_martin",
+      "largada": 21,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 14,
+      "pilotoId": "hamilton",
+      "equipeId": "ferrari",
+      "largada": 4,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "russell",
+      "equipeId": "mercedes",
+      "largada": 1,
+      "chegada": 1,
+      "status": "Finished",
+      "pontos": 25
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "max_verstappen",
+      "equipeId": "red_bull",
+      "largada": 8,
+      "chegada": 2,
+      "status": "Finished",
+      "pontos": 18
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "hadjar",
+      "equipeId": "red_bull",
+      "largada": 4,
+      "chegada": 3,
+      "status": "Finished",
+      "pontos": 15
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "leclerc",
+      "equipeId": "ferrari",
+      "largada": 2,
+      "chegada": 4,
+      "status": "Finished",
+      "pontos": 12
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "antonelli",
+      "equipeId": "mercedes",
+      "largada": 16,
+      "chegada": 5,
+      "status": "Finished",
+      "pontos": 10
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "hamilton",
+      "equipeId": "ferrari",
+      "largada": 6,
+      "chegada": 6,
+      "status": "Finished",
+      "pontos": 8
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "arvid_lindblad",
+      "equipeId": "rb",
+      "largada": 15,
+      "chegada": 7,
+      "status": "Finished",
+      "pontos": 6
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "ocon",
+      "equipeId": "haas",
+      "largada": 13,
+      "chegada": 8,
+      "status": "Finished",
+      "pontos": 4
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "bearman",
+      "equipeId": "haas",
+      "largada": 10,
+      "chegada": 9,
+      "status": "Finished",
+      "pontos": 2
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "sainz",
+      "equipeId": "williams",
+      "largada": 14,
+      "chegada": 10,
+      "status": "Finished",
+      "pontos": 1
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "hulkenberg",
+      "equipeId": "audi",
+      "largada": 18,
+      "chegada": 11,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "lawson",
+      "equipeId": "rb",
+      "largada": 11,
+      "chegada": 12,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "piastri",
+      "equipeId": "mclaren",
+      "largada": 3,
+      "chegada": 13,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "perez",
+      "equipeId": "cadillac",
+      "largada": 20,
+      "chegada": 14,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "bortoleto",
+      "equipeId": "audi",
+      "largada": 17,
+      "chegada": 15,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "bottas",
+      "equipeId": "cadillac",
+      "largada": 19,
+      "chegada": 16,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "colapinto",
+      "equipeId": "alpine",
+      "largada": 9,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "gasly",
+      "equipeId": "alpine",
+      "largada": 7,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "norris",
+      "equipeId": "mclaren",
+      "largada": 5,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "albon",
+      "equipeId": "williams",
+      "largada": 12,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "alonso",
+      "equipeId": "aston_martin",
+      "largada": 21,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "stroll",
+      "equipeId": "aston_martin",
+      "largada": 22,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "max_verstappen",
+      "equipeId": "red_bull",
+      "largada": 1,
+      "chegada": 1,
+      "status": "Finished",
+      "pontos": 25
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "antonelli",
+      "equipeId": "mercedes",
+      "largada": 3,
+      "chegada": 2,
+      "status": "Finished",
+      "pontos": 18
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "hamilton",
+      "equipeId": "ferrari",
+      "largada": 2,
+      "chegada": 3,
+      "status": "Finished",
+      "pontos": 15
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "leclerc",
+      "equipeId": "ferrari",
+      "largada": 4,
+      "chegada": 4,
+      "status": "Finished",
+      "pontos": 12
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "hadjar",
+      "equipeId": "red_bull",
+      "largada": 8,
+      "chegada": 5,
+      "status": "Finished",
+      "pontos": 10
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "piastri",
+      "equipeId": "mclaren",
+      "largada": 6,
+      "chegada": 6,
+      "status": "Finished",
+      "pontos": 8
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "lawson",
+      "equipeId": "rb",
+      "largada": 11,
+      "chegada": 7,
+      "status": "Finished",
+      "pontos": 6
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "alonso",
+      "equipeId": "aston_martin",
+      "largada": 12,
+      "chegada": 8,
+      "status": "Finished",
+      "pontos": 4
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "norris",
+      "equipeId": "mclaren",
+      "largada": 5,
+      "chegada": 9,
+      "status": "Finished",
+      "pontos": 2
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "arvid_lindblad",
+      "equipeId": "rb",
+      "largada": 22,
+      "chegada": 10,
+      "status": "Finished",
+      "pontos": 1
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "hulkenberg",
+      "equipeId": "audi",
+      "largada": 15,
+      "chegada": 11,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "stroll",
+      "equipeId": "aston_martin",
+      "largada": 14,
+      "chegada": 12,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "colapinto",
+      "equipeId": "alpine",
+      "largada": 21,
+      "chegada": 13,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "bearman",
+      "equipeId": "haas",
+      "largada": 16,
+      "chegada": 14,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "ocon",
+      "equipeId": "haas",
+      "largada": 17,
+      "chegada": 15,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "gasly",
+      "equipeId": "alpine",
+      "largada": 9,
+      "chegada": 16,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "sainz",
+      "equipeId": "williams",
+      "largada": 13,
+      "chegada": 17,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "bortoleto",
+      "equipeId": "audi",
+      "largada": 10,
+      "chegada": 18,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "perez",
+      "equipeId": "cadillac",
+      "largada": 20,
+      "chegada": 19,
+      "status": "Finished",
+      "pontos": 0
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "russell",
+      "equipeId": "mercedes",
+      "largada": 7,
+      "chegada": 20,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "albon",
+      "equipeId": "williams",
+      "largada": 18,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "bottas",
+      "equipeId": "cadillac",
+      "largada": 19,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "max_verstappen",
+      "equipeId": "red_bull",
+      "largada": 1,
+      "chegada": 1,
+      "status": "Finished",
+      "pontos": 25
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "leclerc",
+      "equipeId": "ferrari",
+      "largada": 2,
+      "chegada": 2,
+      "status": "Finished",
+      "pontos": 18
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "antonelli",
+      "equipeId": "mercedes",
+      "largada": 4,
+      "chegada": 3,
+      "status": "Finished",
+      "pontos": 15
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "norris",
+      "equipeId": "mclaren",
+      "largada": 5,
+      "chegada": 4,
+      "status": "Finished",
+      "pontos": 12
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "piastri",
+      "equipeId": "mclaren",
+      "largada": 6,
+      "chegada": 5,
+      "status": "Finished",
+      "pontos": 10
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "hamilton",
+      "equipeId": "ferrari",
+      "largada": 3,
+      "chegada": 6,
+      "status": "Finished",
+      "pontos": 8
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "lawson",
+      "equipeId": "rb",
+      "largada": 8,
+      "chegada": 7,
+      "status": "Finished",
+      "pontos": 6
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "hulkenberg",
+      "equipeId": "audi",
+      "largada": 10,
+      "chegada": 8,
+      "status": "Finished",
+      "pontos": 4
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "russell",
+      "equipeId": "mercedes",
+      "largada": 19,
+      "chegada": 9,
+      "status": "Finished",
+      "pontos": 2
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "hadjar",
+      "equipeId": "red_bull",
+      "largada": 22,
+      "chegada": 10,
+      "status": "Finished",
+      "pontos": 1
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "gasly",
+      "equipeId": "alpine",
+      "largada": 7,
+      "chegada": 11,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "bearman",
+      "equipeId": "haas",
+      "largada": 11,
+      "chegada": 12,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "ocon",
+      "equipeId": "haas",
+      "largada": 12,
+      "chegada": 13,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "sainz",
+      "equipeId": "williams",
+      "largada": 13,
+      "chegada": 14,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "arvid_lindblad",
+      "equipeId": "rb",
+      "largada": 9,
+      "chegada": 15,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "alonso",
+      "equipeId": "aston_martin",
+      "largada": 20,
+      "chegada": 16,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "perez",
+      "equipeId": "cadillac",
+      "largada": 17,
+      "chegada": 17,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "albon",
+      "equipeId": "williams",
+      "largada": 16,
+      "chegada": 18,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "bottas",
+      "equipeId": "cadillac",
+      "largada": 18,
+      "chegada": 19,
+      "status": "Lapped",
+      "pontos": 0
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "stroll",
+      "equipeId": "aston_martin",
+      "largada": 21,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "colapinto",
+      "equipeId": "alpine",
+      "largada": 15,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "bortoleto",
+      "equipeId": "audi",
+      "largada": 14,
+      "chegada": null,
+      "status": "Retired",
+      "pontos": 0
+    }
+  ],
+  "classificatorios": [
+    {
+      "rodada": 1,
+      "pilotoId": "russell",
+      "posicao": 1
+    },
+    {
+      "rodada": 1,
+      "pilotoId": "antonelli",
+      "posicao": 2
+    },
+    {
+      "rodada": 1,
+      "pilotoId": "hadjar",
+      "posicao": 3
+    },
+    {
+      "rodada": 1,
+      "pilotoId": "leclerc",
+      "posicao": 4
+    },
+    {
+      "rodada": 1,
+      "pilotoId": "piastri",
+      "posicao": 5
+    },
+    {
+      "rodada": 1,
+      "pilotoId": "norris",
+      "posicao": 6
+    },
+    {
+      "rodada": 1,
+      "pilotoId": "hamilton",
+      "posicao": 7
+    },
+    {
+      "rodada": 1,
+      "pilotoId": "lawson",
+      "posicao": 8
+    },
+    {
+      "rodada": 1,
+      "pilotoId": "arvid_lindblad",
+      "posicao": 9
+    },
+    {
+      "rodada": 1,
+      "pilotoId": "bortoleto",
+      "posicao": 10
+    },
+    {
+      "rodada": 1,
+      "pilotoId": "hulkenberg",
+      "posicao": 11
+    },
+    {
+      "rodada": 1,
+      "pilotoId": "bearman",
+      "posicao": 12
+    },
+    {
+      "rodada": 1,
+      "pilotoId": "ocon",
+      "posicao": 13
+    },
+    {
+      "rodada": 1,
+      "pilotoId": "gasly",
+      "posicao": 14
+    },
+    {
+      "rodada": 1,
+      "pilotoId": "albon",
+      "posicao": 15
+    },
+    {
+      "rodada": 1,
+      "pilotoId": "colapinto",
+      "posicao": 16
+    },
+    {
+      "rodada": 1,
+      "pilotoId": "alonso",
+      "posicao": 17
+    },
+    {
+      "rodada": 1,
+      "pilotoId": "perez",
+      "posicao": 18
+    },
+    {
+      "rodada": 1,
+      "pilotoId": "bottas",
+      "posicao": 19
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "antonelli",
+      "posicao": 1
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "russell",
+      "posicao": 2
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "hamilton",
+      "posicao": 3
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "leclerc",
+      "posicao": 4
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "piastri",
+      "posicao": 5
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "norris",
+      "posicao": 6
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "gasly",
+      "posicao": 7
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "max_verstappen",
+      "posicao": 8
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "hadjar",
+      "posicao": 9
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "bearman",
+      "posicao": 10
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "hulkenberg",
+      "posicao": 11
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "colapinto",
+      "posicao": 12
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "ocon",
+      "posicao": 13
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "lawson",
+      "posicao": 14
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "arvid_lindblad",
+      "posicao": 15
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "bortoleto",
+      "posicao": 16
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "sainz",
+      "posicao": 17
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "albon",
+      "posicao": 18
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "alonso",
+      "posicao": 19
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "bottas",
+      "posicao": 20
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "stroll",
+      "posicao": 21
+    },
+    {
+      "rodada": 2,
+      "pilotoId": "perez",
+      "posicao": 22
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "antonelli",
+      "posicao": 1
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "russell",
+      "posicao": 2
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "piastri",
+      "posicao": 3
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "leclerc",
+      "posicao": 4
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "norris",
+      "posicao": 5
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "hamilton",
+      "posicao": 6
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "gasly",
+      "posicao": 7
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "hadjar",
+      "posicao": 8
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "bortoleto",
+      "posicao": 9
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "arvid_lindblad",
+      "posicao": 10
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "max_verstappen",
+      "posicao": 11
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "ocon",
+      "posicao": 12
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "hulkenberg",
+      "posicao": 13
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "lawson",
+      "posicao": 14
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "colapinto",
+      "posicao": 15
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "sainz",
+      "posicao": 16
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "albon",
+      "posicao": 17
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "bearman",
+      "posicao": 18
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "perez",
+      "posicao": 19
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "bottas",
+      "posicao": 20
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "alonso",
+      "posicao": 21
+    },
+    {
+      "rodada": 3,
+      "pilotoId": "stroll",
+      "posicao": 22
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "antonelli",
+      "posicao": 1
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "max_verstappen",
+      "posicao": 2
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "leclerc",
+      "posicao": 3
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "norris",
+      "posicao": 4
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "russell",
+      "posicao": 5
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "hamilton",
+      "posicao": 6
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "piastri",
+      "posicao": 7
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "colapinto",
+      "posicao": 8
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "gasly",
+      "posicao": 9
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "hulkenberg",
+      "posicao": 10
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "lawson",
+      "posicao": 11
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "bearman",
+      "posicao": 12
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "sainz",
+      "posicao": 13
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "ocon",
+      "posicao": 14
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "albon",
+      "posicao": 15
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "arvid_lindblad",
+      "posicao": 16
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "alonso",
+      "posicao": 17
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "stroll",
+      "posicao": 18
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "bottas",
+      "posicao": 19
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "perez",
+      "posicao": 20
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "bortoleto",
+      "posicao": 21
+    },
+    {
+      "rodada": 4,
+      "pilotoId": "hadjar",
+      "posicao": 22
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "russell",
+      "posicao": 1
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "antonelli",
+      "posicao": 2
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "norris",
+      "posicao": 3
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "piastri",
+      "posicao": 4
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "hamilton",
+      "posicao": 5
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "max_verstappen",
+      "posicao": 6
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "hadjar",
+      "posicao": 7
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "leclerc",
+      "posicao": 8
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "arvid_lindblad",
+      "posicao": 9
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "colapinto",
+      "posicao": 10
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "hulkenberg",
+      "posicao": 11
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "lawson",
+      "posicao": 12
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "bortoleto",
+      "posicao": 13
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "sainz",
+      "posicao": 15
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "bearman",
+      "posicao": 16
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "gasly",
+      "posicao": 14
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "ocon",
+      "posicao": 17
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "albon",
+      "posicao": 18
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "alonso",
+      "posicao": 19
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "perez",
+      "posicao": 20
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "stroll",
+      "posicao": 21
+    },
+    {
+      "rodada": 5,
+      "pilotoId": "bottas",
+      "posicao": 22
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "antonelli",
+      "posicao": 1
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "max_verstappen",
+      "posicao": 2
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "hamilton",
+      "posicao": 3
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "leclerc",
+      "posicao": 4
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "hadjar",
+      "posicao": 5
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "russell",
+      "posicao": 6
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "piastri",
+      "posicao": 7
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "norris",
+      "posicao": 8
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "gasly",
+      "posicao": 9
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "lawson",
+      "posicao": 10
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "albon",
+      "posicao": 11
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "sainz",
+      "posicao": 12
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "hulkenberg",
+      "posicao": 13
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "colapinto",
+      "posicao": 14
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "arvid_lindblad",
+      "posicao": 15
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "bortoleto",
+      "posicao": 16
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "ocon",
+      "posicao": 17
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "perez",
+      "posicao": 18
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "bearman",
+      "posicao": 19
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "bottas",
+      "posicao": 20
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "alonso",
+      "posicao": 21
+    },
+    {
+      "rodada": 6,
+      "pilotoId": "stroll",
+      "posicao": 22
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "russell",
+      "posicao": 1
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "hamilton",
+      "posicao": 2
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "antonelli",
+      "posicao": 3
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "norris",
+      "posicao": 4
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "max_verstappen",
+      "posicao": 5
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "hadjar",
+      "posicao": 6
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "piastri",
+      "posicao": 7
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "lawson",
+      "posicao": 8
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "hulkenberg",
+      "posicao": 9
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "leclerc",
+      "posicao": 10
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "arvid_lindblad",
+      "posicao": 11
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "bortoleto",
+      "posicao": 12
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "colapinto",
+      "posicao": 13
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "gasly",
+      "posicao": 14
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "bearman",
+      "posicao": 15
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "sainz",
+      "posicao": 16
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "ocon",
+      "posicao": 17
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "albon",
+      "posicao": 18
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "perez",
+      "posicao": 19
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "bottas",
+      "posicao": 20
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "stroll",
+      "posicao": 21
+    },
+    {
+      "rodada": 7,
+      "pilotoId": "alonso",
+      "posicao": 22
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "russell",
+      "posicao": 1
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "leclerc",
+      "posicao": 2
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "hamilton",
+      "posicao": 3
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "antonelli",
+      "posicao": 4
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "max_verstappen",
+      "posicao": 5
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "norris",
+      "posicao": 6
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "piastri",
+      "posicao": 7
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "hadjar",
+      "posicao": 8
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "lawson",
+      "posicao": 9
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "arvid_lindblad",
+      "posicao": 10
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "gasly",
+      "posicao": 11
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "bortoleto",
+      "posicao": 12
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "bearman",
+      "posicao": 13
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "hulkenberg",
+      "posicao": 14
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "ocon",
+      "posicao": 15
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "colapinto",
+      "posicao": 16
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "sainz",
+      "posicao": 17
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "albon",
+      "posicao": 18
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "perez",
+      "posicao": 19
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "bottas",
+      "posicao": 20
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "alonso",
+      "posicao": 21
+    },
+    {
+      "rodada": 8,
+      "pilotoId": "stroll",
+      "posicao": 22
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "antonelli",
+      "posicao": 1
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "leclerc",
+      "posicao": 2
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "hamilton",
+      "posicao": 3
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "russell",
+      "posicao": 4
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "hadjar",
+      "posicao": 5
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "norris",
+      "posicao": 6
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "max_verstappen",
+      "posicao": 7
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "piastri",
+      "posicao": 8
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "arvid_lindblad",
+      "posicao": 9
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "lawson",
+      "posicao": 10
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "bortoleto",
+      "posicao": 11
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "gasly",
+      "posicao": 12
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "hulkenberg",
+      "posicao": 13
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "bearman",
+      "posicao": 14
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "sainz",
+      "posicao": 15
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "albon",
+      "posicao": 16
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "ocon",
+      "posicao": 17
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "bottas",
+      "posicao": 18
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "colapinto",
+      "posicao": 19
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "perez",
+      "posicao": 20
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "stroll",
+      "posicao": 21
+    },
+    {
+      "rodada": 9,
+      "pilotoId": "alonso",
+      "posicao": 22
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "antonelli",
+      "posicao": 1
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "max_verstappen",
+      "posicao": 2
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "norris",
+      "posicao": 3
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "leclerc",
+      "posicao": 5
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "hadjar",
+      "posicao": 10
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "russell",
+      "posicao": 4
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "hamilton",
+      "posicao": 6
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "piastri",
+      "posicao": 7
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "arvid_lindblad",
+      "posicao": 8
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "bortoleto",
+      "posicao": 9
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "lawson",
+      "posicao": 11
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "gasly",
+      "posicao": 12
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "colapinto",
+      "posicao": 13
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "hulkenberg",
+      "posicao": 14
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "sainz",
+      "posicao": 15
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "bearman",
+      "posicao": 16
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "albon",
+      "posicao": 17
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "ocon",
+      "posicao": 18
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "bottas",
+      "posicao": 19
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "perez",
+      "posicao": 20
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "alonso",
+      "posicao": 21
+    },
+    {
+      "rodada": 10,
+      "pilotoId": "stroll",
+      "posicao": 22
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "norris",
+      "posicao": 1
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "hamilton",
+      "posicao": 2
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "leclerc",
+      "posicao": 3
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "antonelli",
+      "posicao": 4
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "piastri",
+      "posicao": 5
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "max_verstappen",
+      "posicao": 6
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "russell",
+      "posicao": 7
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "hadjar",
+      "posicao": 8
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "arvid_lindblad",
+      "posicao": 9
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "hulkenberg",
+      "posicao": 10
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "lawson",
+      "posicao": 11
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "gasly",
+      "posicao": 12
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "colapinto",
+      "posicao": 13
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "bortoleto",
+      "posicao": 14
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "ocon",
+      "posicao": 15
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "alonso",
+      "posicao": 16
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "bearman",
+      "posicao": 17
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "sainz",
+      "posicao": 18
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "albon",
+      "posicao": 19
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "stroll",
+      "posicao": 20
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "bottas",
+      "posicao": 21
+    },
+    {
+      "rodada": 11,
+      "pilotoId": "perez",
+      "posicao": 22
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "norris",
+      "posicao": 1
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "russell",
+      "posicao": 2
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "antonelli",
+      "posicao": 3
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "piastri",
+      "posicao": 4
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "hamilton",
+      "posicao": 5
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "leclerc",
+      "posicao": 6
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "max_verstappen",
+      "posicao": 7
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "lawson",
+      "posicao": 8
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "bortoleto",
+      "posicao": 9
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "arvid_lindblad",
+      "posicao": 10
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "gasly",
+      "posicao": 11
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "tsunoda",
+      "posicao": 12
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "hulkenberg",
+      "posicao": 13
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "colapinto",
+      "posicao": 14
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "ocon",
+      "posicao": 15
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "albon",
+      "posicao": 16
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "sainz",
+      "posicao": 17
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "alonso",
+      "posicao": 18
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "stroll",
+      "posicao": 19
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "bearman",
+      "posicao": 20
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "bottas",
+      "posicao": 21
+    },
+    {
+      "rodada": 12,
+      "pilotoId": "perez",
+      "posicao": 22
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "gasly",
+      "posicao": 1
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "russell",
+      "posicao": 2
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "piastri",
+      "posicao": 3
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "leclerc",
+      "posicao": 4
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "hamilton",
+      "posicao": 5
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "max_verstappen",
+      "posicao": 6
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "antonelli",
+      "posicao": 7
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "colapinto",
+      "posicao": 8
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "norris",
+      "posicao": 9
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "arvid_lindblad",
+      "posicao": 10
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "bortoleto",
+      "posicao": 11
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "bearman",
+      "posicao": 12
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "hulkenberg",
+      "posicao": 13
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "lawson",
+      "posicao": 14
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "sainz",
+      "posicao": 15
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "ocon",
+      "posicao": 16
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "tsunoda",
+      "posicao": 17
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "albon",
+      "posicao": 18
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "bottas",
+      "posicao": 19
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "perez",
+      "posicao": 20
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "alonso",
+      "posicao": 21
+    },
+    {
+      "rodada": 13,
+      "pilotoId": "stroll",
+      "posicao": 22
+    },
+    {
+      "rodada": 14,
+      "pilotoId": "norris",
+      "posicao": 1
+    },
+    {
+      "rodada": 14,
+      "pilotoId": "antonelli",
+      "posicao": 2
+    },
+    {
+      "rodada": 14,
+      "pilotoId": "max_verstappen",
+      "posicao": 3
+    },
+    {
+      "rodada": 14,
+      "pilotoId": "hamilton",
+      "posicao": 4
+    },
+    {
+      "rodada": 14,
+      "pilotoId": "leclerc",
+      "posicao": 5
+    },
+    {
+      "rodada": 14,
+      "pilotoId": "russell",
+      "posicao": 6
+    },
+    {
+      "rodada": 14,
+      "pilotoId": "piastri",
+      "posicao": 7
+    },
+    {
+      "rodada": 14,
+      "pilotoId": "lawson",
+      "posicao": 8
+    },
+    {
+      "rodada": 14,
+      "pilotoId": "colapinto",
+      "posicao": 9
+    },
+    {
+      "rodada": 14,
+      "pilotoId": "arvid_lindblad",
+      "posicao": 10
+    },
+    {
+      "rodada": 14,
+      "pilotoId": "hulkenberg",
+      "posicao": 11
+    },
+    {
+      "rodada": 14,
+      "pilotoId": "bortoleto",
+      "posicao": 12
+    },
+    {
+      "rodada": 14,
+      "pilotoId": "ocon",
+      "posicao": 13
+    },
+    {
+      "rodada": 14,
+      "pilotoId": "gasly",
+      "posicao": 14
+    },
+    {
+      "rodada": 14,
+      "pilotoId": "tsunoda",
+      "posicao": 15
+    },
+    {
+      "rodada": 14,
+      "pilotoId": "albon",
+      "posicao": 16
+    },
+    {
+      "rodada": 14,
+      "pilotoId": "sainz",
+      "posicao": 17
+    },
+    {
+      "rodada": 14,
+      "pilotoId": "alonso",
+      "posicao": 18
+    },
+    {
+      "rodada": 14,
+      "pilotoId": "perez",
+      "posicao": 19
+    },
+    {
+      "rodada": 14,
+      "pilotoId": "bottas",
+      "posicao": 20
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "russell",
+      "posicao": 1
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "leclerc",
+      "posicao": 2
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "piastri",
+      "posicao": 3
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "hadjar",
+      "posicao": 4
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "norris",
+      "posicao": 5
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "hamilton",
+      "posicao": 6
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "gasly",
+      "posicao": 7
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "max_verstappen",
+      "posicao": 8
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "sainz",
+      "posicao": 9
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "colapinto",
+      "posicao": 10
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "bearman",
+      "posicao": 11
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "lawson",
+      "posicao": 12
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "albon",
+      "posicao": 13
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "ocon",
+      "posicao": 14
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "arvid_lindblad",
+      "posicao": 15
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "antonelli",
+      "posicao": 16
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "bortoleto",
+      "posicao": 17
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "hulkenberg",
+      "posicao": 18
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "alonso",
+      "posicao": 19
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "perez",
+      "posicao": 20
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "stroll",
+      "posicao": 21
+    },
+    {
+      "rodada": 15,
+      "pilotoId": "bottas",
+      "posicao": 22
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "max_verstappen",
+      "posicao": 1
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "hamilton",
+      "posicao": 2
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "hadjar",
+      "posicao": 3
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "antonelli",
+      "posicao": 4
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "leclerc",
+      "posicao": 5
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "norris",
+      "posicao": 6
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "piastri",
+      "posicao": 7
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "russell",
+      "posicao": 8
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "gasly",
+      "posicao": 9
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "bortoleto",
+      "posicao": 10
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "lawson",
+      "posicao": 11
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "alonso",
+      "posicao": 12
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "sainz",
+      "posicao": 13
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "stroll",
+      "posicao": 14
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "colapinto",
+      "posicao": 15
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "arvid_lindblad",
+      "posicao": 16
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "hulkenberg",
+      "posicao": 17
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "bearman",
+      "posicao": 18
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "ocon",
+      "posicao": 19
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "albon",
+      "posicao": 20
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "bottas",
+      "posicao": 21
+    },
+    {
+      "rodada": 16,
+      "pilotoId": "perez",
+      "posicao": 22
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "max_verstappen",
+      "posicao": 1
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "leclerc",
+      "posicao": 2
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "hamilton",
+      "posicao": 3
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "antonelli",
+      "posicao": 4
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "norris",
+      "posicao": 5
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "russell",
+      "posicao": 6
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "piastri",
+      "posicao": 7
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "gasly",
+      "posicao": 8
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "lawson",
+      "posicao": 9
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "arvid_lindblad",
+      "posicao": 10
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "hulkenberg",
+      "posicao": 11
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "bearman",
+      "posicao": 12
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "ocon",
+      "posicao": 13
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "sainz",
+      "posicao": 14
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "bortoleto",
+      "posicao": 15
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "colapinto",
+      "posicao": 16
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "alonso",
+      "posicao": 17
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "albon",
+      "posicao": 18
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "stroll",
+      "posicao": 19
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "perez",
+      "posicao": 20
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "bottas",
+      "posicao": 21
+    },
+    {
+      "rodada": 17,
+      "pilotoId": "hadjar",
+      "posicao": 22
     }
   ]
 }

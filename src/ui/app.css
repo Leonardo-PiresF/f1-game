@@ -1,14 +1,318 @@
 :root {
-  color-scheme: light dark;
+  color-scheme: dark;
   font-family: system-ui, sans-serif;
+  --fundo: #101318;
+  --painel: #181c23;
+  --borda: #2a303b;
+  --texto: #e8eaed;
+  --texto-2: #9aa3af;
+  --asfalto: #3a404c;
+  --destaque: #e10600;
+  --amarelo: #f5c400;
 }
 
 body {
   margin: 0;
+  background: var(--fundo);
+  color: var(--texto);
 }
 
 .app {
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 24px 16px;
+  padding: 16px;
+}
+
+.topo h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.topo p {
+  margin: 4px 0 16px;
+  color: var(--texto-2);
+}
+
+button,
+select,
+input {
+  font: inherit;
+  color: var(--texto);
+  background: var(--painel);
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+  padding: 6px 10px;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: var(--texto-2);
+}
+
+button.ativo {
+  border-color: var(--destaque);
+  color: #fff;
+}
+
+.config {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: end;
+  margin-bottom: 16px;
+}
+
+.config label {
+  display: grid;
+  gap: 4px;
+  font-size: 0.8rem;
+  color: var(--texto-2);
+}
+
+.semente {
+  display: flex;
+  gap: 4px;
+}
+
+.semente input {
+  width: 9ch;
+}
+
+.largar {
+  background: var(--destaque);
+  border-color: var(--destaque);
+  color: #fff;
+  font-weight: 600;
+}
+
+.dica {
+  color: var(--texto-2);
+}
+
+.transmissao {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  gap: 16px;
+}
+
+@media (max-width: 720px) {
+  .transmissao {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pista {
+  background: var(--painel);
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  padding: 12px;
+  min-width: 0;
+}
+
+.placar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+
+.sc {
+  background: var(--amarelo);
+  color: #000;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.mapa {
+  display: block;
+  width: 100%;
+  max-height: 70vh;
+  margin: 8px 0;
+}
+
+.mapa-asfalto {
+  fill: none;
+  stroke: var(--asfalto);
+  stroke-width: 4;
+  stroke-linejoin: round;
+}
+
+.mapa-linha {
+  fill: none;
+  stroke: #555c69;
+  stroke-width: 0.3;
+  stroke-dasharray: 1 1.5;
+}
+
+.mapa-chegada {
+  fill: #fff;
+}
+
+.carro circle {
+  stroke-width: 0.45;
+}
+
+.carro-borda-1 {
+  stroke: #fff;
+}
+
+.carro-borda-2 {
+  stroke: #000;
+}
+
+.carro-fora {
+  opacity: 0.25;
+}
+
+.carro-nome {
+  font-size: 1.9px;
+  font-weight: 700;
+  fill: var(--texto);
+  paint-order: stroke;
+  stroke: var(--fundo);
+  stroke-width: 0.5px;
+}
+
+.controles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.nomes {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  color: var(--texto-2);
+  font-size: 0.9rem;
+}
+
+.eventos {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+  font-size: 0.9rem;
+  min-height: 9em;
+}
+
+.eventos li {
+  padding: 2px 0;
+}
+
+.eventos .volta {
+  color: var(--texto-2);
+  font-variant-numeric: tabular-nums;
+  display: inline-block;
+  width: 3.5ch;
+}
+
+.evento-batida,
+.evento-quebra,
+.evento-toque {
+  color: #ff8a80;
+}
+
+.evento-safety_car,
+.evento-relargada,
+.evento-punicao {
+  color: var(--amarelo);
+}
+
+.evento-bandeirada {
+  font-weight: 700;
+}
+
+.torre {
+  list-style: none;
+  margin: 0;
+  padding: 8px;
+  background: var(--painel);
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  font-variant-numeric: tabular-nums;
+  align-self: start;
+}
+
+.torre li {
+  display: grid;
+  grid-template-columns: 2.5ch 4px 4ch 1fr 1.5ch;
+  gap: 6px;
+  align-items: center;
+  padding: 3px 4px;
+  font-size: 0.9rem;
+}
+
+.torre li:nth-child(odd) {
+  background: #1d222a;
+}
+
+.torre .pos {
+  text-align: right;
+  color: var(--texto-2);
+}
+
+.torre .sigla {
+  font-weight: 700;
+}
+
+.torre .dif {
+  text-align: right;
+  color: var(--texto-2);
+  font-size: 0.85rem;
+}
+
+.torre .pneu {
+  font-weight: 700;
+  text-align: center;
+}
+
+.torre .fora {
+  opacity: 0.45;
+}
+
+.faixa {
+  display: inline-block;
+  width: 4px;
+  height: 1em;
+  border-radius: 2px;
+  vertical-align: middle;
+}
+
+.resultado {
+  margin-top: 16px;
+  background: var(--painel);
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  padding: 12px;
+  overflow-x: auto;
+}
+
+.resultado h2 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+}
+
+.resultado table {
+  border-collapse: collapse;
+  width: 100%;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.9rem;
+}
+
+.resultado th,
+.resultado td {
+  text-align: left;
+  padding: 4px 8px;
+  border-bottom: 1px solid var(--borda);
+  white-space: nowrap;
+}
+
+.resultado th {
+  color: var(--texto-2);
+  font-weight: 500;
 }
